@@ -22,14 +22,16 @@ const customHistory = createBrowserHistory({
 
 ReactDOM.render(
 	<Provider store={store}>
-        <Router history={customHistory}>
-          <Route component={({history}) => {
-            window.appHistory = history
-            return (
-              <App />
-            )
-          }}/>
-        </Router>
+		<PersistGate loading={null} persistor={persistor}>
+			<Router history={customHistory}>
+				<Route component={({history}) => {
+					window.appHistory = history
+					return (
+					<App />
+					)
+				}}/>
+			</Router>
+		</PersistGate>
 	</Provider>,
 	rootElement
   );

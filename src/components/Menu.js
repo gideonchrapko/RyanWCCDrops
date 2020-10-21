@@ -4,18 +4,20 @@ import { Link } from 'react-router-dom';
 import './menu.css';
 
 import Baseball from '../images/WCC_bb.png';
-import Cart from '../images/cart.svg';
+// import Cart from '../images/cart.svg';
+import Cart from './Cart'
 
   export default function MenuRight({ style }) {
   return (
     <a.div style={style} className="menu menu--right">
       <nav> 
-            <img 
+            {/* <img 
               src={Cart} 
               alt="car" 
               style={{ padding: "30px", height: "20px" }} 
-            />
+            /> */}
             <li className="menu-list-item menu-list-item--right">
+              <Cart />
               <Link to="/shop">
                 Shop  
               </Link>

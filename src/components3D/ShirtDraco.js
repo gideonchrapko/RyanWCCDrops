@@ -27,7 +27,6 @@ export default function ShirtDraco(props) {
         material={materials.Material}
         geometry={nodes['T-Shirt'].geometry}
         rotation={[Math.PI / 2, 0, 0]}
-        // scale={[0.03, 0.03, 0.03]}
       />
       <Html scaleFactor={5} position={[0, -2.5, -4.5]} >
         <h1 style={{ color: 'white', opacity: '0.2' }}>Shop</h1>

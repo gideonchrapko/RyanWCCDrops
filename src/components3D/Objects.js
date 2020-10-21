@@ -1,11 +1,11 @@
-import React,{ forwardRef, useImperativeHandle } from 'react';
-import { useSpring } from '@react-spring/core';
-import { a } from '@react-spring/three';
+import React,{ forwardRef, useImperativeHandle } from 'react'
+import { useSpring } from '@react-spring/core'
+import { a } from '@react-spring/three'
 
-// import carDraco from './carDraco';
-import ShirtDraco from './Shirt'
-import Frame from './Frame';
-
+import ShirtDraco from './ShirtDraco'
+import FrameDraco from './FrameDraco'
+// import CarDraco from './CarDraco'
+// import Car from './Car'
 
 let rotation = [0, 2, 0];
 
@@ -28,8 +28,14 @@ const Objects = forwardRef((props, ref) => {
         <>
             <a.group {...spring}>
                 <ShirtDraco       
-                    onClick={() => window.appHistory.push("/shop")}
+                    onPointerUp={() => window.appHistory.push("/shop")}
                 />
+                <FrameDraco 
+                    onPointerUp={() => window.appHistory.push("/gallery")}
+                />
+                {/* <Car 
+                    onPointerUp={() => window.appHistory.push("/about")}                
+                /> */}
             </a.group>
         </>
     )
