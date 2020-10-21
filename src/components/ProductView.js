@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { useShopify } from "../hooks"
+import Cart from './Cart'
 
 export default (props) => {
 	const {
@@ -44,6 +45,7 @@ export default (props) => {
 			<Link className="homeButton button" to={"/Home"}>
 				Home
 			</Link>
+			<Cart />
 			<div className="Product-wrapper2">
 				<div className="Images">
 					{product.images &&

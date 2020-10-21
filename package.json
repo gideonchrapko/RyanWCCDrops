@@ -8,6 +8,7 @@
 		"@react-spring/core": "^9.0.0-rc.3",
 		"@react-spring/three": "^9.0.0-rc.3",
 		"@react-spring/web": "^9.0.0-rc.3",
+		"@react-three/drei": "^2.2.0",
 		"drei": "^1.5.7",
 		"netlify": "^4.8.0",
 		"react": "^16.13.1",

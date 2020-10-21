@@ -1,8 +1,12 @@
 import React from "react"
 import { useShopify } from "../hooks"
 
+import Cart from './Cart'
+
 export default (props) => {
 	const { products, fetchProduct } = useShopify()
+
+
 
 	function handleClick(e, product_id) {
 		e.preventDefault()
@@ -13,6 +17,7 @@ export default (props) => {
 	}
 
 	return (
+		<div>
 		<div className="Product-wrapper">
 			{products &&
 				products.map((product, i) => {
@@ -35,6 +40,7 @@ export default (props) => {
 						</div>
 					)
 				})}
+		</div>
 		</div>
 	)
 }
