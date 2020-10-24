@@ -1,4 +1,3 @@
-
 import { createStore, combineReducers, applyMiddleware, compose } from "redux"
 import thunk from "redux-thunk"
 import * as reducers from "./ducks"
@@ -18,27 +17,12 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 
-// const store = createStore(
-//     combineReducers(rootReducer),
-//     {},
-//     compose(
-//       applyMiddleware(thunk)
-//     )
-//   )
-
-
 const store = createStore(
     persistedReducer,
     composeEnhancers(applyMiddleware(thunk))
   );
  
   export default store;
-
-
-
-
-
-
 
 
 

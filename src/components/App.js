@@ -35,6 +35,9 @@ export default (props) => {
 		<Route path="/shop" component={Products} />
 		<Route path="/Product/:productId" component={ProductView} />
 		{/* <Route path="/" component={Cart} /> */}
+		<div style={{ bottom: "0", position: "fixed", textAlign: "center", width: "100vw" }}>
+            <h6>© 2018 West Coast Customs. | All Rights Reserved | Made With ♥ In SoCal</h6>
+        </div>
 	</div>
 
 )

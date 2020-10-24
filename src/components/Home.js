@@ -34,7 +34,6 @@ export default (props) => {
 	}); 
 	return (
 		<div>
-			<Link to='/shop'>Shop</Link>
 		<div style={{ position: "absolute", zIndex: "9", padding: "25px" }}>
         <img src={Branding} alt="logo" style={{ height: "25vh" }} />
       </div>

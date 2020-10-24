@@ -37,6 +37,7 @@ const initialState = {
 	shop: {},
 }
 
+//reducers
 export default (state = initialState, action) => {
 	switch (action.type) {
 		case PRODUCTS_FOUND:
@@ -65,6 +66,8 @@ export default (state = initialState, action) => {
 			return state
 	}
 }
+
+//action creators 
 
 // Gets all the products from Shopify
 function getProducts() {
