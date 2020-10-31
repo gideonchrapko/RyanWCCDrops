@@ -37,12 +37,12 @@ export default (props) => {
 	}); 
 
 	const handleClickLeft = () => {
-		rotation[1] -= 2;
+		rotation[1] += 2;
 		setRotation([...rotation]);
 	  };
 
 	  const handleClickRight = () => {
-		rotation[1] += 2;
+		rotation[1] -= 2;
 		setRotation([...rotation]);
 	  };
 
