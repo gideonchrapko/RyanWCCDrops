@@ -207,9 +207,7 @@ export function useShopify() {
 	const products = useSelector((appState) => appState.shopifyState.products)
 	const product = useSelector((appState) => appState.shopifyState.product)
 	const featured = useSelector((appState) => appState.shopifyState.featured)
-	const checkoutState = useSelector(
-		(appState) => appState.shopifyState.checkout
-	)
+	const checkoutState = useSelector((appState) => appState.shopifyState.checkout)
 	const shopDetails = useSelector((appState) => appState.shopifyState.shop)
 	const fetchProducts = () => dispatch(getProducts())
 	const fetchProduct = (id) => dispatch(getProduct(id))

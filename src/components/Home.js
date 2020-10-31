@@ -22,16 +22,32 @@ import Branding from '../images/wccMin.png';
 import Left from '../images/arrowLeft.png';
 import Right from '../images/arrowRight.png';
 
+
 export default (props) => {
 
 	const { shopDetails } = useShopify();
-	// const [active, set] = useState(false);
-	const childRef = useRef();
+
+	// let rotation = [0, 2, 0]
+	const [rotation, setRotation] = useState([0, 2, 0])
+
 	const [rightMenuVisible, setRightMenuVisible] = useState(false);
 	const rightMenuAnimation = useSpring({
 		opacity: rightMenuVisible ? 1 : 0,
 		transform: rightMenuVisible ? `translateX(0)` : `translateX(100%)`
 	}); 
+
+	const handleClickLeft = () => {
+		rotation[1] -= 1;
+		setRotation([...rotation]);
+	  };
+
+	  const handleClickRight = () => {
+		rotation[1] += 1;
+		setRotation([...rotation]);
+	  };
+
+
+
 	return (
 		<div>
 		<div style={{ position: "absolute", zIndex: "9", padding: "25px" }}>
@@ -41,13 +57,14 @@ export default (props) => {
         <img
           src={Right}
           alt="right"
-          onClick={() => childRef.current.onClick()}
+          onClick={handleClickRight}
+		// onClick={onClickRight}
           style={{ right: "40px", position: "fixed", height: "50px", opacity: "0.7" }}
         />
         <img
           src={Left}
           alt="left"
-          onClick={() => childRef.current.onClick()}
+          onClick={handleClickLeft}
           style={{ left: "40px", position: "fixed", height: "50px", opacity: "0.7" }}
         />
       </div>
@@ -68,7 +85,6 @@ export default (props) => {
 			</header>  */}
 			
 		<Canvas
-
 			pixelRatio={window.devicePixelRatio}
 			camera={{ position: [0, 0, 10] }}
 			gl={{ antialias: false }}
@@ -81,7 +97,7 @@ export default (props) => {
         <Suspense fallback={<Html center><Loading/></Html>}>
 			<fog attach="fog" args={["black", 10, 20]} />
 				<Objects 
-					ref={childRef}
+					rotation={rotation}
 				/>
 				<Environment /> 
 			<PerspectiveCamera makeDefault position={[1, 1, -15]}>
