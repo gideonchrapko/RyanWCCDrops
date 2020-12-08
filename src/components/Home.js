@@ -47,7 +47,6 @@ export default (props) => {
 	  };
 
 
-
 	return (
 		<div>
 		<div style={{ position: "absolute", zIndex: "9", padding: "25px" }}>
