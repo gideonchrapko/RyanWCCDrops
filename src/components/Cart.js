@@ -35,7 +35,6 @@ export default (props) => {
 		} else {
 			button.classList.remove("hide")
 		}
-
 		function getCount() {
 			let lineItems =
 				checkoutState.lineItems && checkoutState.lineItems.length > 0
@@ -46,56 +45,61 @@ export default (props) => {
 				count += item.quantity
 				return count
 			})
-
 			setCount(count)
 		}
-
 		getCount()
 	}, [cartStatus, checkoutState])
 
 	return (
-		<div id="cart">
-			<div className={`Cart ${cartStatus ? "Cart--open" : ""}`}>
-				<div className="App__view-cart-wrapper2">
-					<button className="App__view-cart" onClick={(e) => handleOpen(e)}>
-						<MdShoppingCart />
-					</button>
+		<div>
+			<div className="App__view-cart-wrapper2">
+				<button className="App__view-cart" onClick={(e) => handleOpen(e)}>
+					<MdShoppingCart />
+				</button>
+				<button className="Cart__close" onClick={(e) => handleClose(e)}>
+					<MdRemoveShoppingCart />
+				</button>
+			</div>
+			<div id="cart">
+				<div className={`Cart ${cartStatus ? "Cart--open" : ""}`}>
+					{/* <div className="App__view-cart-wrapper2">
+						<button className="App__view-cart" onClick={(e) => handleOpen(e)}>
+							<MdShoppingCart />
+						</button>
+					</div> */}
+					<header className="Cart__header">
+						<h2>Your cart</h2>
+					</header>
+					<ul className="Cart__line-items">
+						<LineItem />
+					</ul>
+					<footer className="Cart__footer">
+						<div className="Cart-info clearfix">
+							<div className="Cart-info__total Cart-info__small">Subtotal</div>
+							<div className="Cart-info__pricing">
+								<span className="pricing">$ {checkoutState.subtotalPrice}</span>
+							</div>
+						</div>
+						<div className="Cart-info clearfix">
+							<div className="Cart-info__total Cart-info__small">Taxes</div>
+							<div className="Cart-info__pricing">
+								<span className="pricing">$ {checkoutState.totalTax}</span>
+							</div>
+						</div>
+						<div className="Cart-info clearfix">
+							<div className="Cart-info__total Cart-info__small">Total</div>
+							<div className="Cart-info__pricing">
+								<span className="pricing">$ {checkoutState.totalPrice}</span>
+							</div>
+						</div>
+						<button
+							className="Cart__checkout button"
+							onClick={(e) => openCheckout(e)}
+						>
+							Checkout
+						</button>
+					</footer>
 				</div>
-				<header className="Cart__header">
-					<h2>Your cart</h2>
-					<button className="Cart__close" onClick={(e) => handleClose(e)}>
-						<MdRemoveShoppingCart />
-					</button>
-				</header>
-				<ul className="Cart__line-items">
-					<LineItem />
-				</ul>
-				<footer className="Cart__footer">
-					<div className="Cart-info clearfix">
-						<div className="Cart-info__total Cart-info__small">Subtotal</div>
-						<div className="Cart-info__pricing">
-							<span className="pricing">$ {checkoutState.subtotalPrice}</span>
-						</div>
-					</div>
-					<div className="Cart-info clearfix">
-						<div className="Cart-info__total Cart-info__small">Taxes</div>
-						<div className="Cart-info__pricing">
-							<span className="pricing">$ {checkoutState.totalTax}</span>
-						</div>
-					</div>
-					<div className="Cart-info clearfix">
-						<div className="Cart-info__total Cart-info__small">Total</div>
-						<div className="Cart-info__pricing">
-							<span className="pricing">$ {checkoutState.totalPrice}</span>
-						</div>
-					</div>
-					<button
-						className="Cart__checkout button"
-						onClick={(e) => openCheckout(e)}
-					>
-						Checkout
-					</button>
-				</footer>
 			</div>
 		</div>
 	)

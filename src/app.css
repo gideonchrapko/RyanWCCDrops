@@ -70,14 +70,16 @@ h2 {
 	justify-content: center;
 }
 
+/* Cart icon */
 .App__view-cart-wrapper {
 	float: right;
 }
 
 .App__view-cart-wrapper2 {
-	position: absolute;
+	position: fixed;
 	top: 10px;
-	left: -65px;
+	right: 105px;
+	z-index: 9; 
 }
 
 .App__view-cart {
@@ -156,15 +158,16 @@ h2 {
   * ============================== */
 .Cart {
 	position: fixed;
+	z-index: 9;
 	top: 0;
-	right: 0;
+	left: 0;
 	height: 100%;
 	width: 350px;
 	background-color: white;
 	display: flex;
 	flex-direction: column;
 	border-left: 1px solid #e5e5e5;
-	transform: translateX(100%);
+	transform: translateX(-100%);
 	transition: transform 0.15s ease-in-out;
 }
 
@@ -174,14 +177,17 @@ h2 {
 
 .Cart__close {
 	position: absolute;
-	right: 9px;
-	top: 8px;
+	top: 10px;
+	right: 105px;
+
 	font-size: 35px;
 	color: #999;
 	border: none;
 	background: transparent;
 	transition: transform 100ms ease;
 	cursor: pointer;
+
+
 }
 
 .Cart__header {
