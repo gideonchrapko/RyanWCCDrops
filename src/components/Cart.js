@@ -53,22 +53,17 @@ export default (props) => {
 	return (
 		<div>
 			<div className="App__view-cart-wrapper2">
-				<button className="App__view-cart" onClick={(e) => handleOpen(e)}>
+				<button className="App__view-cart" onClick={(e) => { cartStatus ? handleClose(e) : handleOpen(e) }}>
 					<MdShoppingCart />
-				</button>
-				<button className="Cart__close" onClick={(e) => handleClose(e)}>
-					<MdRemoveShoppingCart />
-				</button>
+				</button> 
 			</div>
 			<div id="cart">
 				<div className={`Cart ${cartStatus ? "Cart--open" : ""}`}>
-					{/* <div className="App__view-cart-wrapper2">
-						<button className="App__view-cart" onClick={(e) => handleOpen(e)}>
-							<MdShoppingCart />
-						</button>
-					</div> */}
 					<header className="Cart__header">
 						<h2>Your cart</h2>
+						<button className="Cart__close" onClick={(e) => handleClose(e)}>
+							<MdRemoveShoppingCart />
+						</button>
 					</header>
 					<ul className="Cart__line-items">
 						<LineItem />

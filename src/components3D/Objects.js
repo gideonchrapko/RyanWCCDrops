@@ -1,11 +1,9 @@
-import React,{ forwardRef, useImperativeHandle, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useSpring } from '@react-spring/core'
 import { a } from '@react-spring/three'
 
 import ShirtDraco from './ShirtDraco'
 import FrameDraco from './FrameDraco'
-// import CarDraco from './CarDraco'
-// import Car from './Car'
 
 
 const Objects = ({rotation}) => {
@@ -21,7 +19,6 @@ const Objects = ({rotation}) => {
 
     return (
         <>
-            {/* <a.group> */}
             <a.group {...spring}>
                 <ShirtDraco       
                     onPointerUp={() => window.appHistory.push("/shop")}
