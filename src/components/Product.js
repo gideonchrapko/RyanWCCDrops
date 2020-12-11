@@ -1,12 +1,9 @@
 import React from "react"
 import { useShopify } from "../hooks"
-
-import Cart from './Cart'
+import PurchaseButton from "../images/PurchaseButton.svg"
 
 export default (props) => {
 	const { products, fetchProduct } = useShopify()
-
-
 
 	function handleClick(e, product_id) {
 		e.preventDefault()
@@ -25,18 +22,17 @@ export default (props) => {
 					return (
 						<div className="Product" key={product.id + i}>
 							{image ? (
-								<img src={image.src} alt={`${product.title} product shot`} />
+								<img src={image.src} alt={`${product.title} product shot`} className="image" />
 							) : null}
 							<div>
 								<h4 className="Product__title">{product.title}</h4>
 								<p className="Product__price">${product.variants[0].price}</p>
 							</div>
-							<button
-								className="Product__buy button"
+							<img
+								className="Product__buy button__purchase"
+								src={PurchaseButton}
 								onClick={(e) => handleClick(e, product.id)}
-							>
-								View Details
-							</button>
+							/>
 						</div>
 					)
 				})}

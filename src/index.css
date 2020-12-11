@@ -12,12 +12,12 @@ body,
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
-#root {
+/* #root {
   overflow: hidden;
   outline: none;
-}
+} */
 
 .App {
   font-family: sans-serif;
@@ -26,7 +26,7 @@ body,
 
 body {
   outline: none;
-  overflow: hidden;
+  /* overflow: scroll; */
   overscroll-behavior-y: none;
   font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir,
     helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
@@ -91,7 +91,6 @@ h3 {
   z-index: 999999;
 }
 
-
 .menu-button { 
   height: 3vh;
   top: 40px;
@@ -101,12 +100,13 @@ h3 {
   position: fixed;
   right: 20px; 
   font-size: 1em; 
-  /* transition: background 0.1s linear;  */
   cursor: pointer; 
 }
-   
-/* .menu-button:hover,
-.menu-button:focus { 
- background: darkgrey; 
- outline: none;
-} */
+
+.branding {
+  position: fixed;
+  padding: 15px;
+  z-index: 9;
+  top: 15px;
+  height: 23vh;
+}

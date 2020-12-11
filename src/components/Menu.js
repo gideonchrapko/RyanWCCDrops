@@ -26,6 +26,11 @@ import './menu.css';
         <a.div style={rightMenuAnimation} className="menu menu--right">
           <nav> 
                 <li className="menu-list-item menu-list-item--right">
+                  <Link to="/Home">
+                    Home
+                  </Link>
+                </li>
+                <li className="menu-list-item menu-list-item--right">
                   <Link to="/shop">
                     Shop  
                   </Link>
