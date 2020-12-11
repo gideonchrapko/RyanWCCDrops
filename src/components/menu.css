@@ -6,6 +6,10 @@
     border-radius: 15px 0px 0px 15px;
   }
 
+  #overflow_Menu {
+    overflow-y: none;
+  }
+
   .menu--right { 
     top: 20px; 
     right: 0; 
@@ -26,7 +30,7 @@
 }
     
 .menu-list-item--right { 
-  margin: 15px 30px; 
+  margin: 30px 40px; 
 }
 
   .menu a { 
@@ -37,4 +41,16 @@
   .menu a:hover, 
   .menu a:focus { 
     color: #14639c; 
+  }
+
+  .menu-button { 
+    height: 3vh;
+    top: 40px;
+    outline: none;
+    z-index: 40; 
+    border: none; 
+    position: fixed;
+    right: 20px; 
+    font-size: 1em; 
+    cursor: pointer; 
   }

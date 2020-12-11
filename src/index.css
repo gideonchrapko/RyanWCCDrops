@@ -12,12 +12,7 @@ body,
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  /* overflow: hidden; */
 }
-/* #root {
-  overflow: hidden;
-  outline: none;
-} */
 
 .App {
   font-family: sans-serif;
@@ -26,8 +21,6 @@ body,
 
 body {
   outline: none;
-  /* overflow: scroll; */
-  overscroll-behavior-y: none;
   font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir,
     helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
   color: white;
@@ -88,25 +81,14 @@ h3 {
 }
 
 .row {
-  z-index: 999999;
-}
-
-.menu-button { 
-  height: 3vh;
-  top: 40px;
-  outline: none;
-  z-index: 40; 
-  border: none; 
-  position: fixed;
-  right: 20px; 
-  font-size: 1em; 
-  cursor: pointer; 
+  z-index: 9;
 }
 
 .branding {
   position: fixed;
   padding: 15px;
-  z-index: 9;
+  z-index: 8;
   top: 15px;
   height: 23vh;
+  cursor: pointer;
 }

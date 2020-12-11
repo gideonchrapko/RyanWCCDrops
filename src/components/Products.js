@@ -2,6 +2,7 @@ import React from "react"
 // import { Link } from 'react-router-dom'
 
 import Product from "./Product"
+import { Link } from "react-scroll"
 
 import Branding from '../images/wccMin.png'
 import PanelOneWorld from '../images/PanelOneWorld.svg'
@@ -15,35 +16,56 @@ export default (props) => {
 	return (
 		<div >
 			<div>
-				<img src={Branding} alt="logo" className="branding" />
+				<img 
+					src={Branding} 
+					alt="logo" 
+					className="branding" 
+					onClick={() => window.appHistory.push("/Home")}
+				/>
 				<div className="Panel">
-					<div className="Highlight">
+					{/* <div className="Highlight">
+					</div> */}
+					<div className="container">
+						<Link 
+							to="One"
+							smooth={true}
+							duration={1000}
+						>
+							<img 
+								src={PanelOneWorld}
+								className="icon"
+							/>
+						</Link>
+						<Link 
+							to="Two"	
+							smooth={true}	
+							duration={1000}
+						>
+							<img 
+								src={PanelTwoGallery}
+								className="icon"
+							/>
+						</Link>
+						<Link 
+							to="Three"
+							smooth={true}
+							duration={1000}
+						>
+							<img 
+								src={PanelThreeShirt}
+								className="icon"
+							/>
+						</Link>
 					</div>
-					<img 
-						src={PanelOneWorld}
-						className="icon"
-					/>
-					<img 
-						src={PanelTwoGallery}
-						className="icon"						
-					/>
-					<img 
-						src={PanelThreeShirt}
-						className="icon"
-					/>
 				</div>
 			</div>
-				<MenuRight />
-				<Cart />
-			<div className="section_One">
-				<Product history={props.history}/>
+			<div className="section_One" id="One">
+				<h1>Start</h1>
 			</div>
-			<div className="section_Two">
-				<h1>Section Boys</h1>
-				<Product history={props.history}/>
+			<div className="section_Two" id="Two">
+				<h1>Gallery</h1>
 			</div>
-			<div className="section_Three">
-				<h1>Section Boys</h1>
+			<div className="section_Three" id="Three">
 				<Product history={props.history}/>
 			</div>
 		</div>

@@ -43,17 +43,15 @@ export default (props) => {
 					src={Right}
 					alt="right"
 					onClick={handleClickRight}
-					style={{ right: "40px", position: "fixed", height: "50px", opacity: "0.7" }}
+					style={{ right: "40px", position: "fixed", height: "50px", opacity: "0.7", cursor: "pointer" }}
 				/>
 				<img
 					src={Left}
 					alt="left"
 					onClick={handleClickLeft}
-					style={{ left: "40px", position: "fixed", height: "50px", opacity: "0.7" }}
+					style={{ left: "40px", position: "fixed", height: "50px", opacity: "0.7", cursor: "pointer" }}
 				/>
 			</div>
-			<Cart />
-			<MenuRight />
 			<Canvas
 				pixelRatio={window.devicePixelRatio}
 				camera={{ position: [0, 0, 10] }}
