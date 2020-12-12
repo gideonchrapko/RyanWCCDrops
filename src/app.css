@@ -415,7 +415,7 @@ h2 {
 .Panel {
 	background-color: rgba(112, 112, 112, 0.15);
 	height: 26vh;
-	width: 7vw;
+	width: 70px;
 	border-radius: 33px;
 	position: fixed;
 	top: 35%;
@@ -439,7 +439,7 @@ h2 {
 
 .icon {
 	width: 30%;
-	margin: 0 auto;
+	margin: 1vh auto;
 	position: relative;
 	display: grid;
 	padding-top: 25%;

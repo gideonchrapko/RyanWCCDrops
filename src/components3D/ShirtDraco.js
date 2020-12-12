@@ -9,7 +9,7 @@ import { a } from '@react-spring/three'
 
 export default function ShirtDraco(props) {
   const [expand, setExpand] = useState(false);
-  const [active, setActive] = useState(false)
+  // const [active, setActive] = useState(false)
   // React spring expand animation
   const animatedProps = useSpring({
     hovered: expand ? [0.035, 0.035, 0.035] : [0.025, 0.025, 0.025],

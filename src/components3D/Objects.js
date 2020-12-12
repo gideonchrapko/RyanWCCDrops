@@ -15,7 +15,7 @@ const Objects = ({rotation}) => {
 
       useEffect(() => {
         set({ rotation: [...rotation] });
-      }, [rotation]);
+      }, [rotation, set]);
 
     return (
         <>

@@ -31,6 +31,7 @@ export default (props) => {
 							<img
 								className="Product__buy button__purchase"
 								src={PurchaseButton}
+								alt="clothing"
 								onClick={(e) => handleClick(e, product.id)}
 							/>
 						</div>

@@ -39,7 +39,7 @@ export default (props) => {
 
 	useEffect(() => {
 		fetchProduct(id)
-	}, [id])
+	}, [id, fetchProduct])
 
 	return (
 		<div id="individualProduct">
