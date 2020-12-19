@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+// import { Link } from "react-router-dom"
 import { useShopify } from "../hooks"
+import { Container, Row, Col } from 'react-bootstrap'
+
 import Cart from './Cart'
 import MenuRight from './Menu'
+import Branding from '../images/wccMin.png'
+
 
 export default (props) => {
 	const {
@@ -39,79 +43,88 @@ export default (props) => {
 
 	useEffect(() => {
 		fetchProduct(id)
-	}, [id, fetchProduct])
+	}, [id])
 
 	return (
-		<div id="individualProduct">
-			<Link className="homeButton button" to={"/Home"}>
-				Home
-			</Link>
+		<Container id="individualProduct" fluid>
+			<img
+				src={Branding}
+				alt="logo"
+				className="branding"
+				onClick={() => window.appHistory.push("/Home")}
+			/>
 			<Cart />
 			<MenuRight />
-			<div className="Product-wrapper2">
-				<div className="Images">
-					{product.images &&
-						product.images.map((image, i) => {
-							return (
-								<img
-									key={image.id + i}
-									src={image.src}
-									alt={`${product.title} product shot`}
-								/>
-							)
-						})}
-				</div>
-				<div className="Product__info">
-					<h2 className="Product__title2">{product.title}</h2>
-					<ul className="Product__description">
-						{description &&
-							description.map((each, i) => {
-								return <li key={`line-description +${i}`}>{each}</li>
-							})}
-					</ul>
-					<div>
-						<label htmlFor={"prodOptions"}>Size</label>
-						<select
-							id="prodOptions"
-							name={size}
-							onChange={(e) => {
-								setSize(e.target.value)
-							}}
-						>
-							{product.variants &&
-								product.variants.map((item, i) => {
+				<Row className="Product-wrapper2">
+					<Col lg="5">
+						{/* <div className="Images"> */}
+							{product.images &&
+								product.images.map((image, i) => {
 									return (
-										<option
-											value={item.id.toString()}
-											key={item.title + i}
-										>{`${item.title}`}</option>
+										<img
+											className="image_edit"
+											key={image.id + i}
+											src={image.src}
+											alt={`${product.title} product shot`}
+										/>
 									)
 								})}
-						</select>
-					</div>
-					<div>
-						<label>Quantity</label>
-						<input
-							className="quantity"
-							type="number"
-							min={1}
-							value={quantity}
-							onChange={(e) => {
-								setQuantity(e.target.value)
-							}}
-						></input>
-					</div>
-					<h3 className="Product__price">
-						${product.variants && product.variants[0].price}
-					</h3>
-					<button
-						className="prodBuy button"
-						onClick={(e) => changeSize(size, quantity)}
-					>
-						Add to Cart
-					</button>
-				</div>
-			</div>
-		</div>
+						{/* </div> */}
+					</Col>
+					<Col lg="7" >
+						<div className="Product__info">
+							<h2 className="Product__title2">{product.title}</h2>
+							<ul className="Product__description">
+								{description &&
+									description.map((each, i) => {
+										return <li key={`line-description +${i}`}>{each}</li>
+									})}
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+							</ul>
+							<div>
+								<label htmlFor={"prodOptions"}>Size</label>
+								<select
+									id="prodOptions"
+									name={size}
+									onChange={(e) => {
+										setSize(e.target.value)
+									}}
+								>
+									{product.variants &&
+										product.variants.map((item, i) => {
+											return (
+												<option
+													value={item.id.toString()}
+													key={item.title + i}
+												>{`${item.title}`}</option>
+											)
+										})}
+								</select>
+							</div>
+							<h3 className="Product__price">
+								${product.variants && product.variants[0].price}
+							</h3>
+							<div style={{ display: "flex", height: "7vh", marginTop: "10%" }}>
+								{/* <label>Quantity</label> */}
+								<input
+									className="quantity"
+									type="number"
+									min={1}
+									value={quantity}
+									onChange={(e) => {
+										setQuantity(e.target.value)
+									}}
+								></input>
+								<button
+									className="prodBuy"
+									onClick={(e) => changeSize(size, quantity)}
+								>
+									ADD TO CART
+								</button>
+							</div>
+						</div>
+					</Col>
+				</Row>
+		</Container>
 	)
 }

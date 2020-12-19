@@ -14,6 +14,7 @@ import persistor from './redux/persistStore';
 
 import "./app.css"
 import "./index.css";
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 const rootElement = document.getElementById("root");
 const customHistory = createBrowserHistory({
