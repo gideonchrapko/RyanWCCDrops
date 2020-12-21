@@ -22,7 +22,7 @@ export default function ShirtDraco(props) {
       <a.mesh
       onClick={() => window.appHistory.push("/shop")}
       position={[0, -2, -4.5]}
-      onPointerIn={() => setExpand(true)}
+      onPointerOver={() => setExpand(true)}
       onPointerOut={() => setExpand(false)}
       scale={animatedProps.hovered}
         material={materials.Material}
