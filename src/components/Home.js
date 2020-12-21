@@ -40,18 +40,18 @@ export default (props) => {
 			<div>
 				<img src={Branding} alt="logo" className="branding"/>
 			</div>
-			<div style={{ marginRight: "0px", top: "50vh", position: "absolute", zIndex: "9", }}>
+			<div style={{ marginRight: "0px", top: "50vh", position: "fixed", zIndex: "9", }}>
 				<img
 					src={Right}
 					alt="right"
 					onClick={handleClickRight}
-					style={{ right: "40px", position: "fixed", height: "50px", opacity: "0.7", cursor: "pointer" }}
+					className="arrowR"
 				/>
 				<img
 					src={Left}
 					alt="left"
 					onClick={handleClickLeft}
-					style={{ left: "40px", position: "fixed", height: "50px", opacity: "0.7", cursor: "pointer" }}
+					className="arrowL"
 				/>
 			</div>
 			<MenuRight />
@@ -64,10 +64,11 @@ export default (props) => {
 				gl.toneMapping = THREE.ACESFilmicToneMapping
 				gl.outputEncoding = THREE.sRGBEncoding
 				scene.background = new THREE.Color('black')
-			}}>
+			}}
+			>
 			<Controls/>
 			<Suspense fallback={<Html center><Loading/></Html>}>
-				<fog attach="fog" args={["black", 10, 20]} />
+				<fog attach="fog" args={["black", 10, 20]}/>
 				<Objects 
 					rotation={rotation}
 				/>

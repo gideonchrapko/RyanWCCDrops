@@ -18,10 +18,11 @@ export default function ShirtDraco(props) {
   const group = useRef()
   const { nodes, materials } = useGLTF('/shirt.glb')
   return (
-    <group ref={group} {...props}>
+    <group ref={group} {...props} style={{ cursor: "pointer" }}>
       <a.mesh
+      onClick={() => window.appHistory.push("/shop")}
       position={[0, -2, -4.5]}
-      onPointerOver={() => setExpand(true)}
+      onPointerIn={() => setExpand(true)}
       onPointerOut={() => setExpand(false)}
       scale={animatedProps.hovered}
         material={materials.Material}

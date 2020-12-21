@@ -20,12 +20,8 @@ const Objects = ({rotation}) => {
     return (
         <>
             <a.group {...spring}>
-                <ShirtDraco       
-                    onPointerUp={() => window.appHistory.push("/shop")}
-                />
-                <FrameDraco 
-                    onPointerUp={() => window.appHistory.push("/gallery")}
-                />
+                <ShirtDraco/>
+                <FrameDraco/>
                 {/* <Car 
                     onPointerUp={() => window.appHistory.push("/about")}                
                 /> */}

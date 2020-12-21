@@ -56,7 +56,7 @@ export default (props) => {
 			<Cart />
 			<MenuRight />
 				<Row className="Product-wrapper2">
-					<Col lg="5">
+					<Col lg="6">
 						{/* <div className="Images"> */}
 							{product.images &&
 								product.images.map((image, i) => {
@@ -71,7 +71,7 @@ export default (props) => {
 								})}
 						{/* </div> */}
 					</Col>
-					<Col lg="7" >
+					<Col lg="6" >
 						<div className="Product__info">
 							<h2 className="Product__title2">{product.title}</h2>
 							<ul className="Product__description">

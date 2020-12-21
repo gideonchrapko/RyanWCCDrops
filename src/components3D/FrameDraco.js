@@ -23,7 +23,7 @@ export default function FrameDraco(props) {
       <a.mesh
         material={materials['initialShadingGroup.001']}
         geometry={nodes.g_PictureFrame001.geometry}
-        onPointerUp={() => window.appHistory.push("/gallery")}
+        onClick={() => window.appHistory.push("/Gallery")}
         position={[4, -0.5, 1.8]}
         rotation={[1.67, 0.2, 0.1]}
         scale={animatedProps.hovered}

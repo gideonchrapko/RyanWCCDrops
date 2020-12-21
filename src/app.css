@@ -475,28 +475,27 @@ div > .active {
 	* ============================== */
 #individualProduct {
 	/* margin: 0; */
-	/* position: absolute;
-	top: 25%; */
-	
+	position: relative;
+	height: 100vh;
+	/* width: 100vw; */
 }
 
 .Product-wrapper2 {
-	max-width: 80%;
-	margin: 0px auto 0px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	max-width: 100vw;
+	/* margin: -10px auto 100px; */
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	width: 70vw;
+	/* margin-top: 100px; */
 	/* margin-bottom: auto; */
-	/* justify-content: center;
-	align-items: center; */
+	justify-content: center;
+	align-items: center;
 	border: white 2px solid;
 	border-radius: 55px;
 }
-
-/* .Images { */
-	/* display: grid; */
-	/* grid-template-columns: repeat(3, 1fr); */
-	/* border-radius: 55px; */
-	/* border-radius: 9px; */
-	/* width: 20%; */
-/* } */
 
 .image_edit {
 	border-radius: 45px;
