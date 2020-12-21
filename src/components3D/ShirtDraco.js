@@ -20,6 +20,8 @@ export default function ShirtDraco(props) {
   return (
     <group ref={group} {...props} style={{ cursor: "pointer" }}>
       <a.mesh
+      className="cursor"
+      style={{ cursor: "pointer" }}
       onClick={() => window.appHistory.push("/shop")}
       position={[0, -2, -4.5]}
       onPointerOver={() => setExpand(true)}

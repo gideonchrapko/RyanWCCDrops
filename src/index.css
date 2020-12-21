@@ -34,6 +34,8 @@ canvas {
   width: 100vw;
   position: relative;
   outline: none;
+  /* cursor: pointer; */
+  
 }
 
 .bg {
@@ -142,5 +144,9 @@ h3 {
 .arrowR:hover {
   transform: scale(1.2);
   transition: transform 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.cursor {
   cursor: pointer;
 }
