@@ -22,9 +22,6 @@ const Objects = ({rotation}) => {
             <a.group {...spring}>
                 <ShirtDraco/>
                 <FrameDraco/>
-                {/* <Car 
-                    onPointerUp={() => window.appHistory.push("/about")}                
-                /> */}
             </a.group>
         </>
     )
