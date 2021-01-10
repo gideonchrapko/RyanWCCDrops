@@ -14,14 +14,14 @@ body,
   user-select: none;
   /* cursor: pointer; */
   touch-action: none;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .App {
   font-family: sans-serif;
   text-align: center;
   /* cursor: pointer; */
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 body {
@@ -34,7 +34,7 @@ body {
   height: 100%;
   /* cursor: pointer; */
   touch-action: none;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 canvas {
@@ -42,7 +42,7 @@ canvas {
   width: 100vw;
   position: relative;
   outline: none;
-  cursor: pointer;
+  /* cursor: pointer; */
   touch-action: none;
 }
 
@@ -165,4 +165,13 @@ h3 {
 
 .cursor:hover {
   cursor: help;
+}
+
+.background {
+  width: 100vw; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  position: absolute;
+  z-index: -2;
 }

@@ -15,14 +15,34 @@ export default function ShirtDraco(props) {
     hovered: expand ? [0.035, 0.035, 0.035] : [0.025, 0.025, 0.025],
   });
 
-   function handlePageRouting() {
-      window.appHistory.push("/shop");
-    };
+
+  const [downClick, setDownClick] = useState()
+
+  function handleUserKeyPress() {
+    window.appHistory.push("/shop");
+  }
+
+  //  function handlePageRouting() {
+  //     window.appHistory.push("/shop");
+  //   };
 
   const mesh = useRef();
-  const setClicked = () => {
-    mesh.current.addEventListener('pointerup', handlePageRouting())
-  }
+
+  // const setClicked = () => {
+  //   mesh.current.addEventListener('pointerup', e => {
+  //           window.appHistory.push("/shop");
+  //           console.log(e)
+  //   })
+  // }
+
+  useEffect(() => {
+    if (downClick == true)
+    console.log("before")
+    return () => {
+      mesh.current.addEventListener('pointerup', handleUserKeyPress);
+      console.log("after")
+    }
+  })
 
   const group = useRef()
   const { nodes, materials } = useGLTF('/shirt.glb')
@@ -30,7 +50,10 @@ export default function ShirtDraco(props) {
     <group ref={group} {...props}>
       <a.mesh
       ref={mesh}
-      onPointerDown={setClicked}
+      style={{cursor: "pointer"}}
+      // onClick={() => window.appHistory.push("/shop")}
+      onPointerDown={() => setDownClick(true)}
+      onPointerUp={() => setDownClick(false)}
       position={[0, -2, -4.5]}
       onPointerOver={() => setExpand(true)}
       onPointerOut={() => setExpand(false)}

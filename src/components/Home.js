@@ -23,7 +23,6 @@ export default (props) => {
 	// const { shopDetails } = useShopify();
 
 	const [rotation, setRotation] = useState([0, 2, 0])
-	console.log(...rotation)
 
 	const handleClickLeft = () => {
 		rotation[1] += 2.1;

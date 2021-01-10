@@ -23,7 +23,7 @@ export default function FrameDraco(props) {
 
 const mesh = useRef();
 const setClicked = () => {
-  mesh.current.addEventListener('pointerup', handlePageRouting())
+  mesh.current.addEventListener('onPointerUp', handlePageRouting())
 }
 
   const group = useRef()
