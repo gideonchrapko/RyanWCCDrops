@@ -47,14 +47,12 @@
 
 
 import React, { useEffect } from "react"
-import { Route, useLocation, Switch } from "react-router-dom";
+// import { Route, useLocation, Switch } from "react-router-dom";
 
 
-
-import React from "react";
 import { Switch, Route, BrowserRouter as Router, Link } from "react-router-dom";
 import { TransitionGroup, Transition } from "react-transition-group"
-import { playOne, playTwo, exit } from './timeline/Timeline'
+// import { playOne, playTwo, exit } from './timeline/Timeline'
 
 
 import Products from "./Products"
@@ -87,15 +85,13 @@ export default (props) => {
 		return (
 			<div>
 				<Route exact path="/" render={Welcome} />
-		<Route path="/Home" component={Home} />
-		<Route path="/shop" component={Products} />
-		<Route path="/Product/:productId" component={ProductView} />
-		<Route path="/About" component={About} />
-		
-		<div style={{ bottom: "0", position: "fixed", textAlign: "center", width: "100vw" }}>
-            <h6>© 2020 West Coast Customs. | All Rights Reserved | Made With ♥ In SoCal</h6>
-        </div>
-		</div>
-
-)
+				<Route path="/Home" component={Home} />
+				<Route path="/shop" component={Products} />
+				<Route path="/Product/:productId" component={ProductView} />
+				<Route path="/About" component={About} />
+				<div style={{ bottom: "0", position: "fixed", textAlign: "center", width: "100vw" }}>
+					<h6>© 2020 West Coast Customs. | All Rights Reserved | Made With ♥ In SoCal</h6>
+				</div>
+			</div>
+		)
 }
