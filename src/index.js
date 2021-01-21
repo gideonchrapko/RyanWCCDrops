@@ -8,12 +8,12 @@ import { Router, Route } from "react-router-dom";
 import store from "./redux/store"
 import App from "./components/App"
 
-import { PersistGate } from 'redux-persist/integration/react';
-// import persistor from './redux/store';
-import persistor from './redux/persistStore';
+// import { PersistGate } from 'redux-persist/integration/react';
+// import persistor from './redux/persistStore';
 
 import "./app.css"
 import "./index.css";
+
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 const rootElement = document.getElementById("root");
@@ -23,7 +23,7 @@ const customHistory = createBrowserHistory({
 
 ReactDOM.render(
 	<Provider store={store}>
-		<PersistGate loading={null} persistor={persistor}>
+		{/* <PersistGate loading={null} persistor={persistor}> */}
 			<Router history={customHistory}>
 				<Route component={({history}) => {
 					window.appHistory = history
@@ -32,7 +32,7 @@ ReactDOM.render(
 					)
 				}}/>
 			</Router>
-		</PersistGate>
+		{/* </PersistGate> */}
 	</Provider>,
 	rootElement
   );

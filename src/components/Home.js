@@ -4,6 +4,8 @@ import { Canvas } from 'react-three-fiber';
 import { PerspectiveCamera, Html } from 'drei';
 // import { useShopify } from "../hooks"
 
+// import { animated } from 'react-spring/renderprops'
+
 import Controls from '../components3D/Controls'
 import Lights from '../components3D/Lights'
 import Environment from '../components3D/Environment'
@@ -18,7 +20,7 @@ import Branding from '../images/wccMin.png';
 import Left from '../images/arrowLeft.png';
 import Right from '../images/arrowRight.png';
 
-export default (props) => {
+const Home = (props) => {
 
 	// const { shopDetails } = useShopify();
 
@@ -81,3 +83,5 @@ export default (props) => {
 		</div>
 	)
 }
+
+export default Home

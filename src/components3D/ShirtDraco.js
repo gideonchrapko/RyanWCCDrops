@@ -35,14 +35,14 @@ export default function ShirtDraco(props) {
   //   })
   // }
 
-  useEffect(() => {
-    if (downClick == true)
-    console.log("before")
-    return () => {
-      mesh.current.addEventListener('pointerup', handleUserKeyPress);
-      console.log("after")
-    }
-  })
+  // useEffect(() => {
+  //   if (downClick === true)
+  //   console.log("before")
+  //   return () => {
+  //     mesh.current.addEventListener('pointerup', handleUserKeyPress);
+  //     console.log("after")
+  //   }
+  // })
 
   const group = useRef()
   const { nodes, materials } = useGLTF('/shirt.glb')

@@ -4,6 +4,7 @@ import { useGesture } from 'react-use-gesture'
 
 import MenuRight from './Menu'
 import Cart from './Cart'
+// import '../styles/gallery.css'
 
 const cards = [
     'https://upload.wikimedia.org/wikipedia/en/f/f5/RWS_Tarot_08_Strength.jpg',
@@ -40,7 +41,7 @@ const cards = [
     })
     // Now we're just mapping the animated values to our view, that's it. Btw, this component only renders once. :-)
     return props.map(({ x, y, rot, scale }, i) => (
-    <div>
+    <div id="group" className="cardGroup">
         <Cart />
         <MenuRight />
         <animated.div className="cardSection" key={i} style={{ transform: interpolate([x, y], (x, y) => `translate3d(${x}px,${y}px,0)`) }}>
