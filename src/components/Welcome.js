@@ -15,7 +15,7 @@ const Welcome = () => {
                 if (open === false) {    
                     return  setTimeout(function() {
                         window.appHistory.push("/home");
-                     }, 100);
+                     }, 300);
                 }  
             })();
      },[open])
