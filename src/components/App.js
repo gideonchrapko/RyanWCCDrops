@@ -5,7 +5,7 @@ import React, { useEffect } from "react"
 import { Switch, Route, BrowserRouter as Router, Link } from "react-router-dom";
 // import { TransitionGroup, Transition } from "react-transition-group"
 // import { playOne, playTwo, exit } from './timeline/Timeline'
-import { Transition, animated } from 'react-spring/renderprops'
+// import { Transition, animated } from 'react-spring/renderprops'
 
 import Products from "./Products"
 import Home from "./Home"
