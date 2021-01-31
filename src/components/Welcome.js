@@ -29,45 +29,31 @@ const Welcome = () => {
         y: 100,
       }));
 
+      const RANGE = 100;
+
       const bind = useDrag(
-        ({ down, movement: [my] }) => {
-          if (down === true) {
-            set({ y: down ? my : 0, immediate: down, config: { duration: 100 } });
+        ({ down, tap, movement: [, y] }) => {
+          // Tap handler
+          if (!down && tap) {
+            //click toggles between 0px
+            set({ y: toggled ? RANGE : 0 });
+            setToggled(!toggled);
             return;
-          } 
-          if (down === false) {
-            setToggled(!toggled);            
+          }
+          // Drag handler
+          if (down) {
+            set({ y });
+          } else {
+            const isToggled = y > -RANGE / 2;
+            set({ y: isToggled ? 0 : -RANGE });
+            setToggled(isToggled);
           }
         },
-        { 
-          initial: () => [y.get(), 0] 
+        {
+          initial: () => [0, y.get()],
+          bounds: { left: 0, right: 0, top: 0, bottom: RANGE }
         }
-      )
-
-      // const RANGE = -100;
-
-      // const bind = useDrag(
-      //   ({ down, tap, movement: [y] }) => {
-      //     // Tap handler
-      //     if (!down && tap) {
-      //       set({ y: toggled ? -RANGE : 0 });
-      //       setToggled(!toggled);
-      //       return;
-      //     }
-      //     // Drag handler
-      //     if (down) {
-      //       set({ y });
-      //     } else {
-      //       const isToggled = y > -RANGE / 2;
-      //       set({ y: isToggled ? 0 : -RANGE });
-      //       setToggled(isToggled);
-      //     }
-      //   },
-      //   {
-      //     initial: () => [y.get(), 0],
-      //     bounds: { left: -RANGE, right: 0, top: 0, bottom: 0, rubberband: true },
-      //   }
-      // );
+      );
 
 const backgroundStyle = {
     backgroundImage: `url(${ArrowBack})`,
@@ -88,7 +74,8 @@ const backgroundStyle = {
   };
 
     return (
-        <animated.div style={props}>
+        //  <animated.div>
+                   <animated.div style={props}>
             <div style={{ height: "100vh", zIndex: "10", alignItems: "center", display: "flex", justifyContent: "center", textAlign: "center" }}>
                 <img src={Background}  className="background" alt="Background"/>
                   <div // Background

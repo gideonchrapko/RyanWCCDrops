@@ -19,9 +19,9 @@ export default function Model(props) {
     hovered: expand ? [9, 9, 9] : [6, 6, 6],
   });
 
-  function handlePageRouting() {
-    window.appHistory.push("/gallery");
-  };
+  // function handlePageRouting() {
+  //   window.appHistory.push("/gallery");
+  // };
 
   const group = useRef()
   const { nodes, materials } = useGLTF('/logoButton.glb')
