@@ -168,13 +168,21 @@ h3 {
 }
 
 .background {
-  width: 100vw; /* You must set a specified height */
+  /* width: 100%; */
+   /* You must set a specified height */
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover;
-  position: absolute;
+  position: fixed;
   z-index: -2;
   /* transform: translateY(0px); */
+}
+
+@media (min-width: 768px) {
+  .background {
+    background-position: center;
+    background-attachment: fixed;
+  }
 }
 
 .welcomeButton {
@@ -190,3 +198,9 @@ h3 {
   top: 50%;
   left: 50%;
 } 
+
+.header {
+  font-family: neuzon,sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}

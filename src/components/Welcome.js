@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { useSpring, animated, config } from '@react-spring/web'
 import { useDrag } from 'react-use-gesture'
+import { Container, Row, Col, Image } from "react-bootstrap"
 
 import Background from '../images/BackgroundWelcome.png'
 import Arrow from '../images/Arrow.svg'
 import ArrowBack from '../images/ArrowBack.svg'
+
+
 
 const Welcome = () => {
 
@@ -12,7 +15,7 @@ const Welcome = () => {
 
     const props = useSpring({
         transform: toggled ? 'translateY(-1000px)' : 'translateY(0%)',
-        config: { duration: 4000 }
+        config: { duration: 3000 }
     })
 
      useEffect(() => {
@@ -35,7 +38,6 @@ const Welcome = () => {
         ({ down, tap, movement: [, y] }) => {
           // Tap handler
           if (!down && tap) {
-            //click toggles between 0px
             set({ y: toggled ? RANGE : 0 });
             setToggled(!toggled);
             return;
@@ -44,8 +46,8 @@ const Welcome = () => {
           if (down) {
             set({ y });
           } else {
-            const isToggled = y > -RANGE / 2;
-            set({ y: isToggled ? 0 : -RANGE });
+            const isToggled = y > -RANGE / 4;
+            set({ y: isToggled ? RANGE : 0 });
             setToggled(isToggled);
           }
         },
@@ -61,9 +63,10 @@ const backgroundStyle = {
     backgroundPosition: "center",
     cursor: "pointer",
     height: 200,
-    width: 100,
+    width: 100
+  };
 
-  };const knobStyle = {
+const knobStyle = {
     y,
     backgroundImage: `url(${Arrow})`,
     backgroundSize: "cover",
@@ -72,21 +75,31 @@ const backgroundStyle = {
     height: 100,
     width: 100,
   };
+   
+  const divStyle = {
+    height: "100vh", 
+    zIndex: "10", 
+    alignItems: "center", 
+    display: "flex", 
+    justifyContent: "center", 
+    textAlign: "center", 
+    backgroundImage: `url(${Background})`, 
+    backgroundSize: "cover",
+    backgroundPosition: "center"
+  }
 
     return (
-        //  <animated.div>
-                   <animated.div style={props}>
-            <div style={{ height: "100vh", zIndex: "10", alignItems: "center", display: "flex", justifyContent: "center", textAlign: "center" }}>
-                <img src={Background}  className="background" alt="Background"/>
-                  <div // Background
-                    style={backgroundStyle}
-                   >
-                    <animated.div // Knob
-                      style={knobStyle}
-                      {...bind()}
-                     ></animated.div>
-                  </div>
-                  {/* <h1>Pull to Enter</h1> */}
+      <animated.div style={props}>
+            <div style={divStyle}>
+                <div // Background
+                   style={backgroundStyle}
+                >
+                  <animated.div // Knob
+                     style={knobStyle}
+                     {...bind()}
+                  ></animated.div>
+                </div>
+                <h2 className="header" style={{ position: "fixed", zIndex: "9", bottom: "175px" }}>Drag to Enter</h2>
             </div>
       </animated.div>
     )
