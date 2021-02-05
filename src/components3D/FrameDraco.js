@@ -35,14 +35,14 @@ const setClicked = () => {
         material={materials['initialShadingGroup.001']}
         geometry={nodes.g_PictureFrame001.geometry}
         onPointerDown={setClicked}
-        position={[4, -0.5, 1.8]}
+        position={[3.5, -0.5, 1.8]}
         rotation={[1.67, 0.2, 0.1]}
         scale={animatedProps.hovered}
         onPointerOver={() => setExpand(true)}
         onPointerOut={() => setExpand(false)}
       />
-      <Html scaleFactor={5} position={[4, -2.3, 1.8]}>
-        <h1 style={{ color: 'white', opacity: '0.2' }}>Gallery</h1>
+      <Html scaleFactor={5} position={[3.5, -2.3, 1.8]}>
+        <h1 style={{ color: 'white', opacity: '0.1' }}>Gallery</h1>
       </Html>
     </group>
   )

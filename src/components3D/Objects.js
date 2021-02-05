@@ -5,7 +5,7 @@ import { a } from '@react-spring/three'
 import ShirtDraco from './ShirtDraco'
 import FrameDraco from './FrameDraco'
 import LogoButton from './LogoButton'
-
+import Label from './Label'
 
 const Objects = ({rotation}) => {
 
@@ -21,9 +21,9 @@ const Objects = ({rotation}) => {
     return (
         <>
             <a.group {...spring}>
+                <Label/>
                 <ShirtDraco/>
                 <FrameDraco/>
-                <LogoButton/>
             </a.group>
         </>
     )
