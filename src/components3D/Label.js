@@ -54,7 +54,7 @@ export default function Model(props) {
         </group>
       </group>
       <Html scaleFactor={5} position={[-0.1, 5.5, 0.3]}>
-        <h1 style={{ color: 'white', opacity: '0.1' }}>Brand</h1>
+        <h1 style={{ color: 'white', opacity: '0.1' }}>Connect</h1>
       </Html>
     </a.group>
   )
