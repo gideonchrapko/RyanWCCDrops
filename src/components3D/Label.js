@@ -17,7 +17,7 @@ export default function Model(props) {
   // React spring expand animation
 
   const animatedProps = useSpring({
-    hovered: expand ? [0.4, 0.4, 0.4] : [0.3, 0.3, 0.3],
+    hovered: expand ? [0.5, 0.5, 0.5] : [0.4, 0.4, 0.4],
   });
 
   return (
@@ -25,7 +25,7 @@ export default function Model(props) {
       ref={group} 
       {...props} 
       dispose={null}
-      rotation={[Math.PI / -0.9, 1, 0.4]}
+      rotation={[Math.PI / -0.8, 1, 0.9]}
       position={[-4, -0.5, 2]}
       scale={animatedProps.hovered}
       onPointerOver={() => setExpand(true)}
@@ -33,13 +33,10 @@ export default function Model(props) {
       // rotation={[1.67, 0.2, 0.7]}
       >
       <group >
-        <group position={[0, 0, -0.29]}>
+      <group position={[0, 0, -0.29]}>
           <group rotation={[-Math.PI / 2, 0, 0]}>
             <group position={[1.39, -0.05, 0.37]}>
               <mesh material={materials.Lable_V3} geometry={nodes.Lable_V3_Lable_02_001.geometry} />
-            </group>
-            <group position={[-1.38, -0.02, 1.49]}>
-              <mesh material={materials.Lable_V3} geometry={nodes.Lable_V3_Lable_01_001.geometry} />
             </group>
             <group position={[0.55, 0, -4.29]}>
               <mesh material={materials.Lable_V3} geometry={nodes.Lable_V3_Rope_001.geometry} />
