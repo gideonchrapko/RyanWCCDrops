@@ -16,7 +16,7 @@ function MyVolSpotlight(props) {
     penumbra = 0.1,
     distance = 60,
     color='#1024b5',
-    intensity= 5,
+    intensity= 1,
     position = [-15, 6, 12],
   } = props;
 
