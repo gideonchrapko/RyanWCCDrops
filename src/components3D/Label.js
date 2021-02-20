@@ -32,14 +32,20 @@ export default function Model(props) {
       onPointerOut={() => setExpand(false)}
       // rotation={[1.67, 0.2, 0.7]}
       >
-      <group >
-      <group position={[0, 0, -0.29]}>
+
+<group position={[0, 0, -0.29]}>
           <group rotation={[-Math.PI / 2, 0, 0]}>
             <group position={[1.39, -0.05, 0.37]}>
               <mesh material={materials.Lable_V3} geometry={nodes.Lable_V3_Lable_02_001.geometry} />
             </group>
             <group position={[0.55, 0, -4.29]}>
-              <mesh material={materials.Lable_V3} geometry={nodes.Lable_V3_Rope_001.geometry} />
+              <mesh
+                material={materials.Lable_V3}
+                geometry={nodes.Lable_V3_Rope_001.geometry}
+                position={[0.71, -0.4, -0.52]}
+                rotation={[0, 0, -1.5]}
+                scale={[0.69, 0.69, 0.69]}
+              />
             </group>
             <group position={[1.39, 0.02, -3.04]}>
               <mesh material={materials.Metal} geometry={nodes.Lable_V3_Metal_01_001.geometry} />
@@ -49,7 +55,7 @@ export default function Model(props) {
             </group>
           </group>
         </group>
-      </group>
+        
       <Html scaleFactor={5} position={[-0.1, 5.5, 0.3]}>
         <h1 style={{ color: 'white', opacity: '0.1' }}>Connect</h1>
       </Html>

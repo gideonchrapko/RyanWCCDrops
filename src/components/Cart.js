@@ -1,6 +1,8 @@
 import React, { useEffect } from "react"
 import LineItem from "./LineItem"
 import { useShopify } from "../hooks"
+
+import Cart from '../images/shopping-cart.svg'
 import { MdShoppingCart, MdRemoveShoppingCart } from "react-icons/md"
 
 export default (props) => {
@@ -53,7 +55,13 @@ export default (props) => {
 	return (
 		<div>
 			<div className="App__view-cart-wrapper2">
-				<button className="App__view-cart" onClick={(e) => { cartStatus ? handleClose(e) : handleOpen(e) }}>
+				<button onClick={(e) => { cartStatus ? handleClose(e) : handleOpen(e) }} className="App__view-cart" >
+					{/* <img
+						alt="menu"
+						// className="menu-button"
+						style={{ height: "10" }}
+						src={Cart}
+					/> */}
 					<MdShoppingCart />
 				</button> 
 			</div>
