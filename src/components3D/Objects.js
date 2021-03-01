@@ -2,9 +2,9 @@ import React, { useEffect } from 'react'
 import { useSpring } from '@react-spring/core'
 import { a } from '@react-spring/three'
 
-import ShirtDraco from './ShirtDraco'
+// import ShirtDraco from './ShirtDraco'
+import Shirt from './Shirt'
 import FrameDraco from './FrameDraco'
-import LogoButton from './LogoButton'
 import Label from './Label'
 
 const Objects = ({rotation}) => {
@@ -22,7 +22,8 @@ const Objects = ({rotation}) => {
         <>
             <a.group {...spring}>
                 <Label/>
-                <ShirtDraco/>
+                <Shirt />
+                {/* <ShirtDraco/> */}
                 <FrameDraco/>
             </a.group>
         </>

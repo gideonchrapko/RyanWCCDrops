@@ -3,17 +3,17 @@ import Client from "shopify-buy"
 
 // Creates the client with Shopify-Buy and store info
 //
-const client = Client.buildClient({
-	storefrontAccessToken: "a416f71ae0b8cea01da02b110f7af961",
-	domain: "schweiz-foundry.myshopify.com",
-})
+// const client = Client.buildClient({
+// 	storefrontAccessToken: "a416f71ae0b8cea01da02b110f7af961",
+// 	domain: "schweiz-foundry.myshopify.com",
+// })
 //
 // Example Storefront
 //
-// const client = Client.buildClient({
-// 	storefrontAccessToken: "dd4d4dc146542ba7763305d71d1b3d38",
-// 	domain: "graphql.myshopify.com",
-// })
+const client = Client.buildClient({
+	storefrontAccessToken: "dd4d4dc146542ba7763305d71d1b3d38",
+	domain: "graphql.myshopify.com",
+})
 
 const PRODUCTS_FOUND = "shopify/PRODUCTS_FOUND"
 const PRODUCT_FOUND = "shopify/PRODUCT_FOUND"
@@ -46,7 +46,9 @@ export default (state = initialState, action) => {
 			return { ...state, product: action.payload }
 		case COLLECTION_FOUND:
 			return { ...state, featured: action.payload }
+		//Figure out if the type is correct
 		case CHECKOUT_FOUND:
+		//Attaching the payload to the redux state
 			return { ...state, checkout: action.payload }
 		case SHOP_FOUND:
 			return { ...state, shop: action.payload }
