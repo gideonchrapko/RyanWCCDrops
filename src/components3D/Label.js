@@ -26,6 +26,7 @@ export default function Model(props) {
       {...props} 
       dispose={null}
       rotation={[Math.PI / -0.8, 1, 0.9]}
+      onPointerDown={() => {window.appHistory.push("/about")}}
       position={[-4, -0.5, 2]}
       scale={animatedProps.hovered}
       onPointerOver={() => setExpand(true)}

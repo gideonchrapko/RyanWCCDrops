@@ -128,17 +128,17 @@ h3 {
 }
 
 .arrowR {
-  right: 30px;
+  right: 2vw;
   position: fixed;
-  height: 10vh;
+  height: 8vh;
   opacity: 0.7;
   cursor: pointer;
 }
 
 .arrowL {
-  left: 30px;
+  left: 2vw;
   position: fixed;
-  height: 10vh;
+  height: 8vh;
   opacity: 0.7;
   cursor: pointer;
 }

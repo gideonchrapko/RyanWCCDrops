@@ -24,6 +24,7 @@ export default function Shirt(props) {
       <a.mesh 
         position={[0, -2, -4.5]}
         rotation={[Math.PI / 2, 0, 3]}
+        onPointerDown={() => {window.appHistory.push("/shop")}}
         material={materials.wire_177148027} 
         geometry={nodes.T_Shirt_V2.geometry} 
         onPointerOver={() => setExpand(true)}

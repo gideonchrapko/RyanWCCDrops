@@ -101,7 +101,8 @@ h2 {
     position: fixed;
     right: 5%; 
     cursor: pointer; 
-	color: white;
+	color: red;
+	background-color: white;
 }
 
 .button {

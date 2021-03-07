@@ -22,6 +22,7 @@ import './menu.css';
 					className="menu-button"
 					onClick={() => setRightMenuVisible(!rightMenuVisible)}
 					src={rightMenuVisible ? Close : Open}
+          style={{ backgroundColor: "blue" }}
         />
         <a.div style={rightMenuAnimation} className="menu menu--right">
           <nav> 
