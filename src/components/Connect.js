@@ -4,7 +4,7 @@ import MenuRight from './Menu';
 import Close from "../images/Close.svg";
 import Open from "../images/Open.svg";
 
-const About = () => {
+const Connect = () => {
     const [rightMenuVisible, setRightMenuVisible] = useState(false);
     const rightMenuAnimation = useSpring({
       opacity: rightMenuVisible ? 1 : 0,
@@ -25,4 +25,4 @@ const About = () => {
     )
 }
 
-export default About
+export default Connect

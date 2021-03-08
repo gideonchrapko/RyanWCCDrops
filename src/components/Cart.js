@@ -5,6 +5,8 @@ import { useShopify } from "../hooks"
 import Cart from '../images/shopping-cart.svg'
 import { MdShoppingCart, MdRemoveShoppingCart } from "react-icons/md"
 
+import Open from "../images/Open.svg";
+
 export default (props) => {
 	const {
 		cartStatus,
@@ -55,14 +57,8 @@ export default (props) => {
 	return (
 		<div>
 			<div className="App__view-cart-wrapper2">
-				<button onClick={(e) => { cartStatus ? handleClose(e) : handleOpen(e) }} className="App__view-cart" >
-					{/* <img
-						alt="menu"
-						// className="menu-button"
-						style={{ height: "10" }}
-						src={Cart}
-					/> */}
-					<MdShoppingCart />
+				<button src={Open} onClick={(e) => { cartStatus ? handleClose(e) : handleOpen(e) }} className="App__view-cart" >
+					<MdShoppingCart style={{ fontSize: "4vh" }}/>
 				</button> 
 			</div>
 			<div id="cart">

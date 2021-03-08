@@ -8,7 +8,7 @@ import { Html } from 'drei';
 import { useSpring } from '@react-spring/core';
 import { a } from '@react-spring/three';
 
-export default function FrameDraco(props, capture) {
+export default function FrameDraco(props) {
 
   const [expand, setExpand] = useState(false);
   const [clicked, setClicked] = useState(false);
@@ -17,67 +17,25 @@ export default function FrameDraco(props, capture) {
     hovered: expand ? [2, 2, 2] : [1.5, 1.5, 1.5],
   });
 
-  // function handlePageRouting() {
-  //   // window.appHistory.push("/gallery");
-  //   console.log("hello")
-  // };
-
-  const mesh = useRef();
-
-// const pageRoute = () => {
-//   if (clicked === true) {
-//   } return 
-//   mesh.current.addEventListener('onPointerUp', function (event) {
-//     alert('Element clicked through function!');
-//   })
-// }
-
-// useEffect(() => {
-//        if (clicked === true) {    
-//            return mesh.current.addEventListener('onPointerUp', handlePageRouting() )
-//       }
-// },[clicked])
-
-// useEffect(() => {
-//   (async () => {
-//        if (clicked === true) {    
-//            return setTimeout(function() {
-//             mesh.current.addEventListener('onClick', function (event) {
-//                   console.log('Element clicked through function!');
-//                 })
-//         }, );
-//       }
-//   })();
-// },[clicked])
-
-// function handlePointerDown(e) {
-//   console.log('PointerDown')
-//   setClicked(true)
-//   capture && e.target.setPointerCapture(e.pointerId).then(() => {
-//     if (clicked === false) {
-//       // capture && e.target.releasePointerCapture(e.pointerId)
-//       console.log('Element clicked through function!');
-//     }
-//   })
-// }
-
+//creating my own onClick event because normal onClick won't work on mobile
 useEffect(() => {
   if (clicked === false) {
     return 
   } else {
     if (clicked === true) {
-      return window.appHistory.push("/gallery")
+      window.appHistory.push("/gallery")
+      //consle.log("clicked")
     } 
   }
+  return () => {setClicked(true)};
 },[clicked])
 
   const group = useRef();
-
   const { nodes, materials } = useGLTF('/frame.glb')
+
   return (
     <group ref={group} {...props}>
       <a.mesh
-        ref={mesh}
         material={materials['initialShadingGroup.001']}
         geometry={nodes.g_PictureFrame001.geometry}
         onPointerDown={() => {setClicked(false)}}
