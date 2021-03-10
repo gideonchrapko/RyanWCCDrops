@@ -110,7 +110,10 @@ function getProduct(id) {
 // 	}
 // }
 
-// Creates initial checkout state from Shopify
+// Creates initial checkout state from Shopify - I think I need to make this checkout save to local storage
+// and then I need to make a new fetchCheckout thing but I'm not entirely sure yet
+// https://github.com/netlify/swag-site/blob/main/src/context/cart-context.js example of local checkout 
+
 function checkout() {
 	return (dispatch) => {
 		client.checkout.create().then((resp) => {

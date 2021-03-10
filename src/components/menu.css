@@ -14,7 +14,7 @@
     top: 20px; 
     right: 0; 
     width: 250px; 
-    height: 45vh;
+    /* height: 45vh; */
   }
 
   .menu-list { 
@@ -50,6 +50,6 @@
     z-index: 40; 
     border: none; 
     position: fixed;
-    right: 20px; 
+    right: 4%; 
     cursor: pointer; 
   }
