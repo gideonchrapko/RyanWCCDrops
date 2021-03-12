@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import LineItem from "./LineItem"
 import { useShopify } from "../hooks"
 
-import Cart from '../images/shopping-cart.svg'
+// import Cart from '../images/shopping-cart.svg'
 import { MdShoppingCart, MdRemoveShoppingCart } from "react-icons/md"
 
 import Open from "../images/Open.svg";

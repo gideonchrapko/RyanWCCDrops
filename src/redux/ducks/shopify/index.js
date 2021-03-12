@@ -2,17 +2,17 @@ import { useSelector, useDispatch } from "react-redux"
 import Client from "shopify-buy"
 
 // Creates the client with Shopify-Buy and store info
-//
+
 // const client = Client.buildClient({
 // 	storefrontAccessToken: "a416f71ae0b8cea01da02b110f7af961",
 // 	domain: "schweiz-foundry.myshopify.com",
 // })
-//
+
 // Example Storefront
-//
+
 const client = Client.buildClient({
-	storefrontAccessToken: "dd4d4dc146542ba7763305d71d1b3d38",
-	domain: "graphql.myshopify.com",
+	storefrontAccessToken: process.env.REACT_APP_SHOPIFY_API,
+	domain: process.env.REACT_APP_SHOPIFY_DOMAIN
 })
 
 const PRODUCTS_FOUND = "shopify/PRODUCTS_FOUND"
@@ -26,6 +26,7 @@ const REMOVE_LINE_ITEM_IN_CART = "shopify/REMOVE_LINE_ITEM_IN_CART"
 const OPEN_CART = "shopify/OPEN_CART"
 const CLOSE_CART = "shopify/CLOSE_CART"
 const CART_COUNT = "shopify/CART_COUNT"
+const CHECKOUT_FETCHED = "shopify/CHECKOUT_FETCHED"
 
 const initialState = {
 	isCartOpen: false,
@@ -50,6 +51,11 @@ export default (state = initialState, action) => {
 		case CHECKOUT_FOUND:
 		//Attaching the payload to the redux state
 			return { ...state, checkout: action.payload }
+
+		case CHECKOUT_FETCHED:
+				//test to see if this works
+			return { ...state, checkout: action.payload }
+
 		case SHOP_FOUND:
 			return { ...state, shop: action.payload }
 		case ADD_VARIANT_TO_CART:
@@ -95,9 +101,8 @@ function getProduct(id) {
 	}
 }
 
-//
 // Gets a  collection based on that collection's id
-//
+
 // function getCollection() {
 // 	const collectionId = "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzIwODAyMDYwMzAzMw=="
 // 	return (dispatch) => {
@@ -114,16 +119,42 @@ function getProduct(id) {
 // and then I need to make a new fetchCheckout thing but I'm not entirely sure yet
 // https://github.com/netlify/swag-site/blob/main/src/context/cart-context.js example of local checkout 
 
+//this goes into the creatCheckOut function thing
+// starts here then is dipatched to the redux state
+
 function checkout() {
-	return (dispatch) => {
-		client.checkout.create().then((resp) => {
+	return async (dispatch) => {
+		const checkout = await client.checkout.create()
+		localStorage.setItem("checkout-id", checkout.id)
+		dispatch({
+ 			type: CHECKOUT_FOUND,
+ 			payload: checkout,
+		})
+		return checkout
+	}
+}
+
+function fetchCheckout(checkoutId) {
+	return async (dispatch) => {
+		client.checkout.fetch(checkoutId).then((checkout) => {
 			dispatch({
-				type: CHECKOUT_FOUND,
-				payload: resp,
+				type: CHECKOUT_FETCHED,
+				payload: checkout,
 			})
 		})
 	}
 }
+
+// function checkout() {
+// 	return async (dispatch) => {
+// 		client.checkout.create().then((resp) => {
+// 			dispatch({
+// 				type: CHECKOUT_FOUND,
+// 				payload: resp,
+// 			})
+// 		})
+// 	}
+// }
 
 // Gets Shopify store information
 function shopInfo() {
@@ -138,6 +169,7 @@ function shopInfo() {
 }
 
 // Adds variants to cart/checkout
+//LineItemsToAdd is a combination of qauntity and VariantId(which is size)
 function addVariantToCart(checkoutId, lineItemsToAdd) {
 	return async (dispatch) => {
 		const response = await client.checkout.addLineItems(
@@ -217,7 +249,16 @@ export function useShopify() {
 	const fetchProducts = () => dispatch(getProducts())
 	const fetchProduct = (id) => dispatch(getProduct(id))
 	// const fetchCollection = () => dispatch(getCollection())
+
+	//dispatch sends checkout() function to redux state
+	// this is where the checkout() function is called 
+	// from I'm not sure what this part has to do with redux
 	const createCheckout = () => dispatch(checkout())
+	const fetchedCheckout = () => dispatch(fetchCheckout())
+	//looks like createCheckout is a function with a ton of arguments and objects in it 
+	
+	//it is found in the App component and contains all of the redux state in it
+	//equivalent of store.getState() function
 	const createShop = () => dispatch(shopInfo())
 	const closeCart = () => dispatch(handleCartClose())
 	const openCart = () => dispatch(handleCartOpen())
@@ -249,5 +290,6 @@ export function useShopify() {
 		updateQuantity,
 		removeLineItem,
 		setCount,
+		fetchedCheckout,
 	}
 }

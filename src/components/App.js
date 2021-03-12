@@ -12,7 +12,7 @@ import Gallery from './Gallery'
 // import MenuRight from './Menu'
 
 import { useShopify } from "../hooks"
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 
 
 export default (props) => {
@@ -20,15 +20,23 @@ export default (props) => {
 		createShop,
 		createCheckout,
 		fetchProducts,
+		checkoutState,
+		fetchedCheckout,
 		// fetchCollection,
 	} = useShopify()
 
 	useEffect(() => {
 		createShop()
 		fetchProducts()
-		createCheckout()
 		// fetchCollection()
+		// createCheckout()
+		if (localStorage.checkout_id) {
+			fetchedCheckout(localStorage.checkout_id)
+		} else {
+			createCheckout()
+		}
 	}, [])
+
 		return (
 			<div>
 					<Route exact path="/" component={Welcome} />

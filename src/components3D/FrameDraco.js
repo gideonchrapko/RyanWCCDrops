@@ -17,17 +17,22 @@ export default function FrameDraco(props) {
     hovered: expand ? [2, 2, 2] : [1.5, 1.5, 1.5],
   });
 
+  function RoutePage() {
+    window.appHistory.push("/gallery")
+  }
+
 //creating my own onClick event because normal onClick won't work on mobile
 useEffect(() => {
   if (clicked === false) {
     return 
   } else {
     if (clicked === true) {
-      window.appHistory.push("/gallery")
-      //consle.log("clicked")
+      return RoutePage()
     } 
   }
-  return () => {setClicked(true)};
+  return function cleanup() {
+    (setClicked(false))
+  }
 },[clicked])
 
   const group = useRef();

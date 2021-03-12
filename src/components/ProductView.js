@@ -16,6 +16,7 @@ export default (props) => {
 		checkoutState,
 		addVariant,
 	} = useShopify()
+
 	const id = props.match.params.productId
 	const defaultSize = product.variants && product.variants[0].id.toString()
 	const [size, setSize] = useState("")
@@ -23,6 +24,7 @@ export default (props) => {
 
 	const description = product.description && product.description.split(".")
 
+	//This runs when you click ADD TO CART
 	function changeSize(sizeId, quantity) {
 		openCart()
 		if (sizeId === "") {
@@ -30,6 +32,7 @@ export default (props) => {
 			const lineItemsToAdd = [
 				{ variantId: sizeId, quantity: parseInt(quantity, 10) },
 			]
+			//checkoutState.id is just he id of the product and it is saved in the checkoutState 
 			const checkoutId = checkoutState.id
 			addVariant(checkoutId, lineItemsToAdd)
 		} else {
@@ -44,6 +47,7 @@ export default (props) => {
 	useEffect(() => {
 		fetchProduct(id)
 	}, [id])
+
 
 	return (
 		<Container id="individualProduct" fluid>
