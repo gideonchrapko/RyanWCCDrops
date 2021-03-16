@@ -83,7 +83,7 @@ export default (props) => {
 									description.map((each, i) => {
 										return <li key={`line-description +${i}`}>{each}</li>
 									})}
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+									Hard Coded text 
 							</ul>
 							<div>
 								<label htmlFor={"prodOptions"}>Size</label>

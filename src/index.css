@@ -94,6 +94,17 @@ h3 {
   cursor: pointer;
 }
 
+.headerImage {
+  position: fixed;
+  padding: 15px;
+  z-index: 8;
+  left: 40%;
+  top: 15px;
+  height: 23vh;
+  cursor: pointer;
+  z-index: -100;
+}
+
 .cardSection {
   position: absolute;
   width: 100vw;

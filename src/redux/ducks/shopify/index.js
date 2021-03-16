@@ -1,5 +1,8 @@
+import React from 'react'
 import { useSelector, useDispatch } from "react-redux"
 import Client from "shopify-buy"
+
+
 
 // Creates the client with Shopify-Buy and store info
 
@@ -17,7 +20,10 @@ const client = Client.buildClient({
 
 const PRODUCTS_FOUND = "shopify/PRODUCTS_FOUND"
 const PRODUCT_FOUND = "shopify/PRODUCT_FOUND"
+
 const COLLECTION_FOUND = "shopify/COLLECTION_FOUND"
+const CHECKOUT_FETCHED = "shopify/CHECKOUT_FETCHED"
+
 const CHECKOUT_FOUND = "shopify/CHECKOUT_FOUND"
 const SHOP_FOUND = "shopify/SHOP_FOUND"
 const ADD_VARIANT_TO_CART = "shopify/ADD_VARIANT_TO_CART"
@@ -26,7 +32,6 @@ const REMOVE_LINE_ITEM_IN_CART = "shopify/REMOVE_LINE_ITEM_IN_CART"
 const OPEN_CART = "shopify/OPEN_CART"
 const CLOSE_CART = "shopify/CLOSE_CART"
 const CART_COUNT = "shopify/CART_COUNT"
-const CHECKOUT_FETCHED = "shopify/CHECKOUT_FETCHED"
 
 const initialState = {
 	isCartOpen: false,
@@ -47,11 +52,11 @@ export default (state = initialState, action) => {
 			return { ...state, product: action.payload }
 		case COLLECTION_FOUND:
 			return { ...state, featured: action.payload }
+
 		//Figure out if the type is correct
 		case CHECKOUT_FOUND:
 		//Attaching the payload to the redux state
 			return { ...state, checkout: action.payload }
-
 		case CHECKOUT_FETCHED:
 				//test to see if this works
 			return { ...state, checkout: action.payload }
@@ -102,7 +107,6 @@ function getProduct(id) {
 }
 
 // Gets a  collection based on that collection's id
-
 // function getCollection() {
 // 	const collectionId = "Z2lkOi8vc2hvcGlmeS9Db2xsZWN0aW9uLzIwODAyMDYwMzAzMw=="
 // 	return (dispatch) => {
@@ -118,32 +122,34 @@ function getProduct(id) {
 // Creates initial checkout state from Shopify - I think I need to make this checkout save to local storage
 // and then I need to make a new fetchCheckout thing but I'm not entirely sure yet
 // https://github.com/netlify/swag-site/blob/main/src/context/cart-context.js example of local checkout 
-
 //this goes into the creatCheckOut function thing
 // starts here then is dipatched to the redux state
 
-function checkout() {
-	return async (dispatch) => {
-		const checkout = await client.checkout.create()
-		localStorage.setItem("checkout-id", checkout.id)
-		dispatch({
- 			type: CHECKOUT_FOUND,
- 			payload: checkout,
-		})
-		return checkout
-	}
-}
+// need to figure out how to get the checkoutState hook thing in here 
 
-function fetchCheckout(checkoutId) {
-	return async (dispatch) => {
-		client.checkout.fetch(checkoutId).then((checkout) => {
+//in order to use the hook here I think my function needs an export statement 
+
+function checkout() {
+	return (dispatch) => {
+		client.checkout.create().then((resp) => {
 			dispatch({
-				type: CHECKOUT_FETCHED,
-				payload: checkout,
+				type: CHECKOUT_FOUND,
+				payload: resp,
 			})
 		})
 	}
 }
+
+// function fetchCheckout(checkoutState) {
+// 	return (dispatch) => {
+// 		client.checkout.fetch(checkoutState).then((checkout) => {
+// 			dispatch({
+// 				type: CHECKOUT_FETCHED,
+// 				payload: checkout,
+// 			})
+// 		})
+// 	}
+// }
 
 // function checkout() {
 // 	return async (dispatch) => {
@@ -180,6 +186,7 @@ function addVariantToCart(checkoutId, lineItemsToAdd) {
 			type: ADD_VARIANT_TO_CART,
 			payload: response,
 		})
+		console.log(checkoutId)
 		return response
 	}
 }
@@ -237,6 +244,10 @@ function handleSetCount(count) {
 	}
 }
 
+export function useFuck() {
+	return <h1></h1>
+}
+
 export function useShopify() {
 	const dispatch = useDispatch()
 	const cartStatus = useSelector((appState) => appState.shopifyState.isCartOpen)
@@ -250,15 +261,15 @@ export function useShopify() {
 	const fetchProduct = (id) => dispatch(getProduct(id))
 	// const fetchCollection = () => dispatch(getCollection())
 
-	//dispatch sends checkout() function to redux state
-	// this is where the checkout() function is called 
-	// from I'm not sure what this part has to do with redux
-	const createCheckout = () => dispatch(checkout())
-	const fetchedCheckout = () => dispatch(fetchCheckout())
-	//looks like createCheckout is a function with a ton of arguments and objects in it 
+	/*dispatch sends checkout() function to redux state
+	 this is where the checkout() function is called 
+	 from I'm not sure what this part has to do with redux */
+	const createCheckout = (checkoutId) => dispatch(checkout(checkoutId))
+	// const fetchedCheckout = () => dispatch(fetchCheckout())
+	/* looks like createCheckout is a function with a ton of arguments and objects in it 
 	
-	//it is found in the App component and contains all of the redux state in it
-	//equivalent of store.getState() function
+	it is found in the App component and contains all of the redux state in it
+	equivalent of store.getState() function */
 	const createShop = () => dispatch(shopInfo())
 	const closeCart = () => dispatch(handleCartClose())
 	const openCart = () => dispatch(handleCartOpen())
@@ -290,6 +301,6 @@ export function useShopify() {
 		updateQuantity,
 		removeLineItem,
 		setCount,
-		fetchedCheckout,
+		// fetchedCheckout,
 	}
 }

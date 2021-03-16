@@ -32,6 +32,8 @@ export default (props) => {
 		window.location.replace(checkoutState.webUrl) // opens checkout in same window
 	}
 
+
+
 	useEffect(() => {
 		const button = document.querySelector("button.App__view-cart")
 		if (cartStatus === true) {
