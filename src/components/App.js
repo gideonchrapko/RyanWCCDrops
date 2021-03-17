@@ -18,20 +18,20 @@ export default (props) => {
 		createCheckout,
 		fetchProducts,
 		checkoutState,
-		// fetchedCheckout,
+		fetchedCheckout,
 		// fetchCollection,
 	} = useShopify()
 
 	useEffect(() => {
 		createShop()
 		fetchProducts()
-		// fetchCollection()
-		// createCheckout()
-		// if (localStorage.checkout_id) {
-		// 	fetchedCheckout(localStorage.checkout_id)
-		// } else {
-		// 	createCheckout()
-		// }
+
+		if (localStorage.state) {
+			fetchedCheckout(localStorage.state)
+		} else {
+			createCheckout()
+		}
+
 	}, [])
 
 		return (
