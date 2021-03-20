@@ -32,7 +32,7 @@ export default (props) => {
 			const lineItemsToAdd = [
 				{ variantId: sizeId, quantity: parseInt(quantity, 10) },
 			]
-			//checkoutState.id is just he id of the product and it is saved in the checkoutState 
+			//checkoutState.id is just the id of the product and it is saved in the checkoutState 
 			const checkoutId = checkoutState.id
 			addVariant(checkoutId, lineItemsToAdd)
 		} else {

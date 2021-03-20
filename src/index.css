@@ -97,12 +97,25 @@ h3 {
 .headerImage {
   position: fixed;
   padding: 15px;
-  z-index: 8;
   left: 40%;
-  top: 15px;
-  height: 23vh;
-  cursor: pointer;
+  top: -10px;
+  height: 28vh;
   z-index: -100;
+  /* cursor: pointer;
+
+  /* display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%; */
+}
+
+.imageBanner {
+  width: 100%;
+  padding: 10%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* width: 50%; */
 }
 
 .cardSection {

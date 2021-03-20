@@ -11,7 +11,6 @@ import Gallery from './Gallery'
 import { useShopify } from "../hooks"
 // import { connect } from "react-redux";
 
-
 export default (props) => {
 	const {
 		createShop,
@@ -25,14 +24,18 @@ export default (props) => {
 	useEffect(() => {
 		createShop()
 		fetchProducts()
+		createCheckout()
+		// fetchedCheckout()
 
-		if (localStorage.state) {
-			fetchedCheckout(localStorage.state)
-		} else {
-			createCheckout()
-		}
+		// if (localStorage.state) {
+		// 	fetchedCheckout(localStorage.state)
+		// } else {
+		// 	createCheckout()
+		// }
 
 	}, [])
+
+	// console.log(localStorage.state)
 
 		return (
 			<div>
@@ -43,7 +46,7 @@ export default (props) => {
 				<Route path="/Product/:productId" component={ProductView} />
 				<Route path="/connect" component={Connect} />
 				<div style={{ bottom: "0", position: "fixed", textAlign: "center", width: "100vw" }}>
-						<h6>© 2020 West Coast Customs. | All Rights Reserved | Made With ♥ In SoCal</h6>
+					<h6 alt="copywrite">© 2020 West Coast Customs. | All Rights Reserved | Made With ♥ In SoCal</h6>
 				</div>
 			</div>
 		)

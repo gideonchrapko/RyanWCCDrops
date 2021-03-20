@@ -1,4 +1,3 @@
-import { render } from 'react-dom'
 import React, { useState } from 'react'
 import { useSprings, animated, interpolate } from 'react-spring'
 import { useDrag } from 'react-use-gesture'
@@ -56,13 +55,13 @@ function Gallery() {
       <MenuRight />
 			<Cart />
       <animated.div key={i} style={{ transform: interpolate([x, y], (x, y) => `translate3d(${x}px,${y}px,0)`) }} className="cardContainer">
-        <Card_ {...bind(i)} style={{ transform: interpolate([rot, scale], trans), backgroundImage: `url(${cards[i]})` }} className="card"/>
+        <Card {...bind(i)} style={{ transform: interpolate([rot, scale], trans), backgroundImage: `url(${cards[i]})` }} className="card"/>
       </animated.div>
     </div>
   ))
 }
 
-const Card_ = styled(animated.div)`
+const Card = styled(animated.div)`
   background-color: white;
   background-size: auto 100%;
   background-repeat: no-repeat;

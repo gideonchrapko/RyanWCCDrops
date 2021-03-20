@@ -1,8 +1,5 @@
-import React from 'react'
 import { useSelector, useDispatch } from "react-redux"
 import Client from "shopify-buy"
-
-
 
 // Creates the client with Shopify-Buy and store info
 
@@ -118,18 +115,32 @@ function getProduct(id) {
 
 // Creates initial checkout state from Shopify
 
+// function checkout() {
+// 	return (dispatch) => {
+// 		client.checkout.create(checkoutState).then((resp) => {
+// 			console.log(checkoutState)
+// 			dispatch({
+// 				type: CHECKOUT_FOUND,
+// 				payload: resp,
+// 			})
+// 		})
+// 	}
+// }
+
 function checkout() {
-	return (dispatch) => {
-		client.checkout.create().then((resp) => {
-			dispatch({
-				type: CHECKOUT_FOUND,
-				payload: resp,
-			})
+	return async (dispatch) => {
+		const response = await client.checkout.create(
+		)
+		dispatch({
+			type: ADD_VARIANT_TO_CART,
+			payload: response,
 		})
+		return response
 	}
 }
 
 function fetchCheckout(checkoutId) {
+	const checkout = localStorage.state
 	return (dispatch) => {
 		client.checkout.fetch(checkoutId).then((checkout) => {
 			dispatch({
@@ -173,7 +184,6 @@ function updateQuantityInCart(lineItemId, quantity, checkoutId) {
 	const lineItemsToUpdate = [
 		{ id: lineItemId, quantity: parseInt(quantity, 10) },
 	]
-
 	return async (dispatch) => {
 		const resp = await client.checkout.updateLineItems(
 			checkoutId,
@@ -221,10 +231,6 @@ function handleSetCount(count) {
 	}
 }
 
-export function useFuck() {
-	return <h1></h1>
-}
-
 export function useShopify() {
 	const dispatch = useDispatch()
 	const cartStatus = useSelector((appState) => appState.shopifyState.isCartOpen)
@@ -239,6 +245,7 @@ export function useShopify() {
 	// const fetchCollection = () => dispatch(getCollection())
 	const createCheckout = () => dispatch(checkout())
 	const fetchedCheckout = (checkoutId) => dispatch(fetchCheckout(checkoutId))
+
 	const createShop = () => dispatch(shopInfo())
 	const closeCart = () => dispatch(handleCartClose())
 	const openCart = () => dispatch(handleCartOpen())

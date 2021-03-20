@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { useSpring, animated } from '@react-spring/web'
 import { useDrag } from 'react-use-gesture'
 
+import { useShopify } from "../hooks"
+
 import Background from '../images/BackgroundWelcome.png'
 import Arrow from '../images/Arrow.svg'
 import ArrowBack from '../images/ArrowBack.svg'
@@ -17,6 +19,7 @@ const Welcome = () => {
         config: { duration: 3000 }
     })
 
+    //this allows the animation to finish before it changes pages
      useEffect(() => {
          (async () => {
               if (toggled === true) {    
@@ -98,7 +101,12 @@ const knobStyle = {
                      {...bind()}
                   ></animated.div>
                 </div>
-                <h2 className="header" style={{ position: "fixed", zIndex: "9", bottom: "175px" }}>Drag to Enter</h2>
+                <h2  
+                  className="header" 
+                  style={{ position: "fixed", zIndex: "9", bottom: "175px" }}
+                >
+                  Drag to Enter
+                </h2>
             </div>
       </animated.div>
     )

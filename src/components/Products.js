@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Link, Element } from "react-scroll"
+// import { Link, Element } from "react-scroll"
 import { Container, Row, Col } from "react-bootstrap"
 
 import Product from "./Product"
@@ -7,40 +7,43 @@ import Cart from './Cart'
 import MenuRight from './Menu'
 
 import Branding from '../images/wccMin.png'
-import PanelOneWorld from '../images/PanelOneWorld.svg'
-import PanelTwoGallery from '../images/PanelTwoGallery.svg'
-import PanelThreeShirt from '../images/PanelThreeShirt.svg'
+import arrowDown from '../images/arrowDown.png'
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+// import PanelOneWorld from '../images/PanelOneWorld.svg'
+// import PanelTwoGallery from '../images/PanelTwoGallery.svg'
+// import PanelThreeShirt from '../images/PanelThreeShirt.svg'
 
 export default (props) => {
 
-	const [Class, setClass] = useState()
-	const [Class2, setClass2] = useState()
-	const [Class3, setClass3] = useState()
+	// const [Class, setClass] = useState()
+	// const [Class2, setClass2] = useState()
+	// const [Class3, setClass3] = useState()
 
-	const doSomething = () => {
-		setClass(true);
-	  }
+	// const doSomething = () => {
+	// 	setClass(true);
+	//   }
 
-	  const dontDoSomething = () => {
-		setClass(false);
-	  }
+	//   const dontDoSomething = () => {
+	// 	setClass(false);
+	//   }
 
-	  const doSomething2 = () => {
-		setClass2(true);
-	  }
+	//   const doSomething2 = () => {
+	// 	setClass2(true);
+	//   }
 
-	  const dontDoSomething2 = () => {
-		setClass2(false);
-	  }
+	//   const dontDoSomething2 = () => {
+	// 	setClass2(false);
+	//   }
 
+	//   const doSomething3 = () => {
+	// 	setClass3(true);
+	//   }
 
-	  const doSomething3 = () => {
-		setClass3(true);
-	  }
-
-	  const dontDoSomething3 = () => {
-		setClass3(false);
-	  }
+	//   const dontDoSomething3 = () => {
+	// 	setClass3(false);
+	//   }
 
 	return (
 		<div>
@@ -52,10 +55,18 @@ export default (props) => {
 				/>
 				<MenuRight />
 				<Cart />
-			<Container fluid>
+			<Container fluid style={{width: "100vw", height: "100vh"}}>
 				<Row>
-					<Col>
-						<div className="Panel">
+					<Col lg={12}>
+					<img
+						src="https://i.ibb.co/wYnZ6ds/Group-158.png"
+						className="imageBanner"
+					/>
+					<img 
+						src="https://i.ibb.co/p0jSqQj/Shop-min.png"
+						className="headerImage"
+					/>
+						{/* <div className="Panel">
 							<div className="container">
 								<Link 
 									onSetActive={doSomething}
@@ -101,18 +112,41 @@ export default (props) => {
 									/>
 								</Link>
 							</div>
-						</div>
+						</div> */}
 					</Col>
 				</Row>
-				<Element className="section_One" id="One">
+				<Row>
+					<Col 
+						md={{ span: 4, offset: 7 }} 
+						sm={{ span: 4, offset: 7 }} 
+						xs={{ span: 4, offset: 7 }} 
+						lg={{ span: 4, offset: 7 }} 
+						style={{ 
+							marginTop: "-20vh",
+							fontFamily: "neuzon,sans-serif",
+							fontWeight: "400",
+							fontStyle: "normal",
+						 }} 
+					>
+						<h1 style={{ position: "relative", display: "inline"  }}>Shop Capsule</h1>
+						<img 
+							style={{ position: "relative", height: "15vh", display: "inline", opacity: "0.6", top: "0" }}
+							src={arrowDown}
+						/>
+					</Col>
+				</Row>
+				<Row>
+					<Col>
+						<Product history={props.history}/>
+					</Col>
+				</Row>
+				{/* <Element className="section_One" id="One">
 					<h1>Start</h1>
 				</Element>
 				<Element className="section_Two" id="Two">
 					<h1>Gallery</h1>
-				</Element>
-				<Element className="section_Three" id="Three">
-					<Product history={props.history}/>
-				</Element>
+				</Element> */}
+
 			</Container>
 		</div>
 	)
