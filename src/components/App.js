@@ -6,6 +6,7 @@ import Home from "./Home"
 import ProductView from "./ProductView"
 import Welcome from './Welcome'
 import Connect from './Connect'
+
 import Gallery from './Gallery'
 
 import { useShopify } from "../hooks"
@@ -35,8 +36,6 @@ export default (props) => {
 
 	}, [])
 
-	// console.log(localStorage.state)
-
 		return (
 			<div>
 				<Route exact path="/" component={Welcome} />
@@ -45,7 +44,7 @@ export default (props) => {
 				<Route path="/gallery" component={Gallery} />
 				<Route path="/Product/:productId" component={ProductView} />
 				<Route path="/connect" component={Connect} />
-				<div style={{ bottom: "0", position: "fixed", textAlign: "center", width: "100vw" }}>
+				<div style={{ bottom: "0", position: "fixed", textAlign: "center", width: "100vw", mixBlendMode: "exclusion" }}>
 					<h6 alt="copywrite">© 2020 West Coast Customs. | All Rights Reserved | Made With ♥ In SoCal</h6>
 				</div>
 			</div>
