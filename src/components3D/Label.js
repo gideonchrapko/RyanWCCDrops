@@ -13,7 +13,7 @@ export default function Model(props) {
   const group = useRef()
   const { nodes, materials } = useGLTF('/Label.glb')
 
-  const [clicked, setClicked] = useState(false);
+  // const [clicked, setClicked] = useState(false);
   const [expand, setExpand] = useState(false);
   // React spring expand animation
 
@@ -21,16 +21,16 @@ export default function Model(props) {
     hovered: expand ? [0.5, 0.5, 0.5] : [0.4, 0.4, 0.4],
   });
 
-  useEffect(() => {
-    if (clicked === false) {
-      return 
-    } else {
-      if (clicked === true) {
-        window.appHistory.push("/connect")
-      } 
-    }
-    return () => {setClicked(true)};
-  },[clicked])
+  // useEffect(() => {
+  //   if (clicked === false) {
+  //     return 
+  //   } else {
+  //     if (clicked === true) {
+  //       window.appHistory.push("/connect")
+  //     } 
+  //   }
+  //   return () => {setClicked(true)};
+  // },[clicked])
 
   return (
     <a.group 
@@ -38,8 +38,9 @@ export default function Model(props) {
       {...props} 
       dispose={null}
       rotation={[Math.PI / -0.8, 1, 0.9]}
-      onPointerDown={() => {setClicked(false)}}
-      onPointerUp={() => {setClicked(true)}}
+      // onPointerDown={() => {setClicked(false)}}
+      // onPointerUp={() => {setClicked(true)}}
+      onPointerUp={() => window.appHistory.push("/connect")}
       position={[-4, -0.5, 2]}
       scale={animatedProps.hovered}
       onPointerOver={() => setExpand(true)}

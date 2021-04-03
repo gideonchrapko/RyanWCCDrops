@@ -7,7 +7,7 @@ import Cart from './Cart'
 import MenuRight from './Menu'
 
 import Branding from '../images/wccMin.png'
-import arrowDown from '../images/arrowDown.png'
+import arrowDown from '../images/arrowDown.svg'
 import headerImage from '../images/JBRolls_min.png'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -20,22 +20,9 @@ export default (props) => {
 		setClass(false);
 	  }
 
-	  console.log(Class)
-
 	const dontDoSomething = () => {
 		setClass(true);
 	  }
-
-							{/* <h1 
-								style={{ 
-									position: "relative", 
-									display: "inline-block", 
-									textAlign: "right", 
-									padding: "10px",
-									zIndex: "10000"
-							}}>
-								Shop<br/>Capsule
-							</h1> */}
 
   return (
 		<div>
@@ -50,23 +37,10 @@ export default (props) => {
 			<Container fluid style={{ width: "100vw" }}>
 				<Row>
 					<Col lg={12}>
-						<img 
-							src="https://i.ibb.co/p0jSqQj/Shop-min.png"
-							className="headerImage"
-						/>
-						<Link
-												onSetActive={doSomething}
-												onSetInactive={dontDoSomething}	
-												to="One"
-												smooth={true}
-												duration={1000}
-												spy={true}
-						>
 						<img
 							src={headerImage}
 							className="imageBanner"
 						/>
-						</Link>
 					</Col>
 				</Row>
 				<Row>
@@ -74,31 +48,24 @@ export default (props) => {
 						md={{ span: 5, offset: 7 }} 
 						sm={{ span: 7, offset: 5 }} 
 						xs={{ span: 9, offset: 3 }} 
-						lg={{ span: 4, offset: 7 }} 
+						lg={{ span: 2, offset: 7 }} 
 						style={{ 
 							fontFamily: "neuzon,sans-serif",
 							fontWeight: "400",
 							fontStyle: "normal",
-							display:"inline",
-							marginTop: "-15%",
+							display:"flex",
+							marginTop: "-30px",
 						 }} 
 					>
-						<Link 
-							onSetActive={doSomething}
-							onSetInactive={dontDoSomething}	
-							to="One"
-							smooth={true}
-							duration={1000}
-							spy={true}
-						>
-							Hello
-						</Link>
+						<h2 style={{ textAlign: "right" }}>Shop Capsule</h2>
 						<img 
-							style={{ position: "relative", 
-							opacity: "0.6", 
-							height: "20vh", 
-							display: "inline-block",
-							marginTop: "-30px"
+							style={{ 
+								position: "relative", 
+								opacity: "0.6", 
+								height: "12vh",
+								display: "inline-block",
+								marginTop: "-10px",
+								padding: "5px",
 						}}
 							src={arrowDown}
 						/>
@@ -106,12 +73,9 @@ export default (props) => {
 				</Row>
 				<Row>
 					<Col>
-						<Element id="One">
+						<div>
 							<Product history={props.history}/>
-						</Element>
-						<Element id="Two" style={{ height: "100vh", backgroundColor: "blue" }}>
-							hello
-						</Element>
+						</div>
 					</Col>
 				</Row>
 			</Container>

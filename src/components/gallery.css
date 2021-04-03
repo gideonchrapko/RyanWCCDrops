@@ -7,6 +7,7 @@
 
 .cardContainer {
   position: absolute;
+  top: 0vh;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -14,7 +15,7 @@
   justify-content: center;
 }
 
-.card {
+/* .card {
   background-color: white;
   width: 45vh;
   height: 85vh;
@@ -24,6 +25,6 @@
   background-size: auto 85%;
   background-repeat: no-repeat;
   background-position: center center;
-  /* box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4),
-    0 10px 10px -10px rgba(50, 50, 73, 0.3); */
-}
+  box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4),
+    0 10px 10px -10px rgba(50, 50, 73, 0.3);
+} */

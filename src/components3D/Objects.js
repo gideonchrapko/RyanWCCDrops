@@ -21,8 +21,8 @@ const Objects = ({rotation}) => {
     return (
         <>
             <a.group {...spring}>
-                <Label capture/>
-                <Shirt capture/>
+                <Label />
+                <Shirt />
                 <FrameDraco />
             </a.group>
         </>

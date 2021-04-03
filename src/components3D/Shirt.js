@@ -12,22 +12,22 @@ import { a } from '@react-spring/three';
 
 export default function Shirt(props) {
 
-  const [clicked, setClicked] = useState(false);
+  // const [clicked, setClicked] = useState(false);
   const [expand, setExpand] = useState(false);
   const animatedProps = useSpring({
     hovered: expand ? [0.05, 0.05, 0.05] : [0.04, 0.04, 0.04],
   });
 
-  useEffect(() => {
-    if (clicked === false) {
-      return 
-    } else {
-      if (clicked === true) {
-        window.appHistory.push("/shop")
-      } 
-    }
-    return () => {setClicked(true)};
-  },[clicked])
+  // useEffect(() => {
+  //   if (clicked === false) {
+  //     return 
+  //   } else {
+  //     if (clicked === true) {
+  //       window.appHistory.push("/shop")
+  //     } 
+  //   }
+  //   return () => {setClicked(true)};
+  // },[clicked])
 
   const group = useRef()
   const { nodes, materials } = useGLTF('/Shirt1.glb')
@@ -36,8 +36,9 @@ export default function Shirt(props) {
       <a.mesh 
         position={[0, -2, -4.5]}
         rotation={[Math.PI / 2, 0, 3]}
-        onPointerDown={() => {setClicked(false)}}
-        onPointerUp={() => {setClicked(true)}}
+        // onPointerDown={() => {setClicked(false)}}
+        // onPointerUp={() => {setClicked(true)}}
+        onPointerUp={() => window.appHistory.push("/shop")}
         material={materials.wire_177148027} 
         geometry={nodes.T_Shirt_V2.geometry} 
         onPointerOver={() => setExpand(true)}

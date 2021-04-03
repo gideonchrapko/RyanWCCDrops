@@ -46,15 +46,15 @@ function Cards() {
 }
 
 const Card = styled(animated.div)`
-  background-color: white;
+  background-color: black;
   background-size: auto 100%;
   background-repeat: no-repeat;
   background-position: center center;
-  width: 700px;
-  height: 325px;
+  height: 200px;
   will-change: transform;
-  border-radius: 10px;
+  border-radius: 15px;
 `
 // box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4), 0 10px 10px -10px rgba(50, 50, 73, 0.3);
+  // width: 90%;
 
 export default Cards

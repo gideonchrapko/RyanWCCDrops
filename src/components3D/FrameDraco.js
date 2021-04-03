@@ -11,29 +11,29 @@ import { a } from '@react-spring/three';
 export default function FrameDraco(props) {
 
   const [expand, setExpand] = useState(false);
-  const [clicked, setClicked] = useState(false);
+  // const [clicked, setClicked] = useState(false);
 
   const animatedProps = useSpring({
     hovered: expand ? [2, 2, 2] : [1.5, 1.5, 1.5],
   });
 
-  function RoutePage() {
-    window.appHistory.push("/gallery")
-  }
+  // function RoutePage() {
+  //   window.appHistory.push("/gallery")
+  // }
 
 //creating my own onClick event because normal onClick won't work on mobile
-useEffect(() => {
-  if (clicked === false) {
-    return 
-  } else {
-    if (clicked === true) {
-      return RoutePage()
-    } 
-  }
-  return function cleanup() {
-    (setClicked(false))
-  }
-},[clicked])
+// useEffect(() => {
+//   if (clicked === false) {
+//     return 
+//   } else {
+//     if (clicked === true) {
+//       return RoutePage()
+//     } 
+//   }
+//   return function cleanup() {
+//     (setClicked(false))
+//   }
+// },[clicked])
 
   const group = useRef();
   const { nodes, materials } = useGLTF('/frame.glb')
@@ -43,8 +43,9 @@ useEffect(() => {
       <a.mesh
         material={materials['initialShadingGroup.001']}
         geometry={nodes.g_PictureFrame001.geometry}
-        onPointerDown={() => {setClicked(false)}}
-        onPointerUp={() => {setClicked(true)}}
+        // onPointerDown={() => {setClicked(false)}}
+        // onPointerUp={() => {setClicked(true)}}
+        onPointerUp={() => window.appHistory.push("/gallery")}
         position={[3.5, -0.5, 1.8]}
         rotation={[1.67, 0.2, 0.1]}
         scale={animatedProps.hovered}

@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from "react-redux"
+import React, { useEffect, useState } from "react"
 import Client from "shopify-buy"
 
 // Creates the client with Shopify-Buy and store info
@@ -140,15 +141,15 @@ function checkout() {
 }
 
 function fetchCheckout(checkoutId) {
-	const checkout = localStorage.state
-	return (dispatch) => {
-		client.checkout.fetch(checkoutId).then((checkout) => {
-			dispatch({
-				type: CHECKOUT_FETCHED,
-				payload: checkout,
-			})
-		})
-	}
+	// const checkout = localStorage.state
+	// return (dispatch) => {
+	// 	client.checkout.fetch(checkoutId).then((checkout) => {
+	// 		dispatch({
+	// 			type: CHECKOUT_FETCHED,
+	// 			payload: checkout,
+	// 		})
+	// 	})
+	// }
 }
 
 // Gets Shopify store information
@@ -243,6 +244,45 @@ export function useShopify() {
 	const fetchProducts = () => dispatch(getProducts())
 	const fetchProduct = (id) => dispatch(getProduct(id))
 	// const fetchCollection = () => dispatch(getCollection())
+
+	// const useCart = () => dispatch(getCheckout())
+	
+	// const [checkout, setCheckout] = useState(checkoutId)
+
+	// in here make a dispatch thing that 
+	// useEffect((checkoutId) => {
+	// 		async function getCheckout() {
+
+	// 			const existingCheckoutID = localStorage.getItem('shopify_checkout_id');
+	// 			if (existingCheckoutID && existingCheckoutID !== 'null') {
+	// 			  try {
+	// 				const existingCheckout = await client.checkout.fetch(
+	// 				  existingCheckoutID,
+	// 				);
+		  
+	// 				// if this cart was already purchased, clear it and start fresh
+	// 				// how would I do this in redux 
+	// 				if (!existingCheckout.completedAt) {
+	// 				  setCheckout(existingCheckout);
+	// 				  return;
+	// 				}
+	// 			  } catch (error) {
+	// 				localStorage.removeItem('shopify_checkout_id');
+	// 			  }
+	// 			}
+		  
+				// if we get here, we need to create a new checkout session
+				// we should be dispatching the new state to the store 
+
+			// 	const newCheckout = await client.checkout.create();
+			// 	localStorage.setItem('shopify_checkout_id', newCheckout.id);
+			// 	setCheckout(newCheckout);
+
+				
+			// }
+		// }, [checkout, setCheckout]);
+	// }, [checkout, setCheckout]);
+
 	const createCheckout = () => dispatch(checkout())
 	const fetchedCheckout = (checkoutId) => dispatch(fetchCheckout(checkoutId))
 
