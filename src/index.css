@@ -224,15 +224,11 @@ h3 {
 }
 
 .view__closed {
-  /* position: absolute; */
   opacity: 0;
-  /* transition: opacity 1s ease-in-out; */
 }
 
 hr {
-  /* padding: 100px; */
   width: 70%;
-  /* height: 30px; */
   margin-left: auto;
   margin-right: auto;
   background-color: white;

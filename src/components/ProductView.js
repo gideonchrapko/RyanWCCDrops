@@ -50,7 +50,7 @@ export default (props) => {
 
 
 	return (
-		<Container id="individualProduct" fluid>
+		<div id="individualProduct">
 			<img
 				src={Branding}
 				alt="logo"
@@ -59,76 +59,72 @@ export default (props) => {
 			/>
 			<Cart />
 			<MenuRight />
-				<Row className="Product-wrapper2">
-					<Col lg="6">
-						{/* <div className="Images"> */}
-							{product.images &&
-								product.images.map((image, i) => {
-									return (
-										<img
-											className="image_edit"
-											key={image.id + i}
-											src={image.src}
-											alt={`${product.title} product shot`}
-										/>
-									)
-								})}
-						{/* </div> */}
-					</Col>
-					<Col lg="6" >
-						<div className="Product__info">
-							<h2 className="Product__title2">{product.title}</h2>
-							<ul className="Product__description">
-								{description &&
-									description.map((each, i) => {
-										return <li key={`line-description +${i}`}>{each}</li>
-									})}
-									Hard Coded text 
-							</ul>
-							<div>
-								<label htmlFor={"prodOptions"}>Size</label>
-								<select
-									id="prodOptions"
-									name={size}
-									onChange={(e) => {
-										setSize(e.target.value)
-									}}
-								>
-									{product.variants &&
-										product.variants.map((item, i) => {
-											return (
-												<option
-													value={item.id.toString()}
-													key={item.title + i}
-												>{`${item.title}`}</option>
-											)
-										})}
-								</select>
-							</div>
-							<h3 className="Product__price">
+				<div className="Product-wrapper2">
+					<div className="Images">
+						{product.images &&
+							product.images.map((image, i) => {
+								return (
+									<img
+										key={image.id + i}
+										src={image.src}
+										alt={`${product.title} product shot`}
+									/>
+								)
+							})}
+					</div>
+					<div className="Product__info">
+						<h2 className="Product__title2">{product.title}</h2>
+						<h3 className="Product__price">
 								${product.variants && product.variants[0].price}
 							</h3>
-							<div style={{ display: "flex", height: "7vh", marginTop: "10%" }}>
-								{/* <label>Quantity</label> */}
-								<input
-									className="quantity"
-									type="number"
-									min={1}
+						<div style={{ paddingTop: "30px" }}>
+							<label htmlFor={"prodOptions"}>Size</label><br/>
+							<select
+								className="style__dropdown"
+								id="prodOptions"
+								name={size}
+								onChange={(e) => {
+									setSize(e.target.value)
+								}}
+							>
+								{product.variants &&
+									product.variants.map((item, i) => {
+										return (
+											<option
+												className="size__option"
+												value={item.id.toString()}
+												key={item.title + i}
+											>{`${item.title}`}</option>
+										)
+									})}
+							</select>
+						</div>
+						<div>
+							<label>Quantity</label>
+							<input
+								className="quantity"
+								type="number"
+								min={1}
 									value={quantity}
 									onChange={(e) => {
 										setQuantity(e.target.value)
 									}}
 								></input>
-								<button
-									className="prodBuy"
-									onClick={(e) => changeSize(size, quantity)}
-								>
-									ADD TO CART
-								</button>
 							</div>
+							<button
+								className="prodBuy button"
+								onClick={(e) => changeSize(size, quantity)}
+							>
+								Add to Cart
+							</button>
+							<ul className="Product__description">
+							{description &&
+								description.map((each, i) => {
+									return <li key={`line-description +${i}`}>{each}</li>
+								})}
+						</ul>
 						</div>
-					</Col>
-				</Row>
-		</Container>
+				</div>
+		</div>
 	)
 }
