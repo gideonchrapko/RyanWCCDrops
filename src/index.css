@@ -18,7 +18,7 @@ body,
 }
 
 .App {
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
   text-align: center;
 }
 
@@ -106,8 +106,8 @@ h3 {
 }
 
 .imageBanner {
-  margin-top: 10%;
-  width: 60%;
+  margin-top: 7%;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -203,20 +203,38 @@ h3 {
   font-style: normal;
 }
 
-/* body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+.view__type {
+  font-family: futura-pt, sans-serif;
+	font-weight: 300;
+	font-style: normal;
+	font-size: 1.8rem;
+	text-align: center;
+  color: black;
 }
 
-.App {
-  font-family: sans-serif;
-  text-align: center;
-  background-color: cornflowerblue;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-} */
+.view__open {
+  opacity: 1;
+  transform: translateY(-30px);
+  transition: transform 0.5s, opacity 0.5s ease-in-out;
+  background-color: white;
+  border-radius: 8px 8px 0px 0px;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.view__closed {
+  /* position: absolute; */
+  opacity: 0;
+  /* transition: opacity 1s ease-in-out; */
+}
+
+hr {
+  /* padding: 100px; */
+  width: 70%;
+  /* height: 30px; */
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  border: 1 none;
+}

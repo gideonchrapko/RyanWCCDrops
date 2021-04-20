@@ -7,6 +7,7 @@ export default (props) => {
 	function decrementQuantity(lineItemId, lineItemQuantity, e) {
 		e.preventDefault()
 		const checkoutId = checkoutState.id
+		console.log(checkoutId)
 		const updatedQuantity = lineItemQuantity - 1
 		updateQuantity(lineItemId, updatedQuantity, checkoutId)
 	}

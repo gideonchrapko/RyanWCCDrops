@@ -71,13 +71,10 @@ export default (props) => {
 						/>
 					</Col>
 				</Row>
-				<Row>
-					<Col>
 						<div>
-							<Product history={props.history}/>
+							<hr style={{ marginTop: "50px" }}/>
+							<Product history={props.history} />
 						</div>
-					</Col>
-				</Row>
 			</Container>
 		</div>
 	)

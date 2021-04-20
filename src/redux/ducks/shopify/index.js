@@ -245,11 +245,6 @@ export function useShopify() {
 	const fetchProduct = (id) => dispatch(getProduct(id))
 	// const fetchCollection = () => dispatch(getCollection())
 
-	// const useCart = () => dispatch(getCheckout())
-	
-	// const [checkout, setCheckout] = useState(checkoutId)
-
-	// in here make a dispatch thing that 
 	// useEffect((checkoutId) => {
 	// 		async function getCheckout() {
 
@@ -286,6 +281,7 @@ export function useShopify() {
 	const createCheckout = () => dispatch(checkout())
 	const fetchedCheckout = (checkoutId) => dispatch(fetchCheckout(checkoutId))
 
+	// I still don't understand how these hooks work April 19 2021
 	const createShop = () => dispatch(shopInfo())
 	const closeCart = () => dispatch(handleCartClose())
 	const openCart = () => dispatch(handleCartOpen())
