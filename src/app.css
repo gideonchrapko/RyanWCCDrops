@@ -54,7 +54,6 @@ h2 {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-
 }
 
 /* Cart icon */
@@ -345,6 +344,7 @@ h2 {
 	width: 100%;
   	height: auto;
 	cursor: pointer;
+	min-width: 300px;
 }
 
 .box {
@@ -454,7 +454,57 @@ div > .active {
 }
 
 .Product__description {
-	font-size: 20px;
+	margin-top: 2%;
+	font-family: futura-pt, sans-serif;
+	font-weight: 300;
+	font-style: normal;
+
+	font-size: 1.2rem;
+}
+
+.prodQuantity-container {
+	border: 1px solid white;
+	float: left;
+	border-radius: 5px;
+	display: table;
+}
+
+.prodQuantity-update {
+	color: #767676;
+	display: block;
+	float: left;
+	height: 50px;
+	line-height: 16px;
+	font-family: futura-pt, sans-serif;
+	font-weight: 100;
+	width: 25px;
+	padding: 0;
+	border: none;
+	background: transparent;
+	box-shadow: none;
+	cursor: pointer;
+	font-size: 3rem;
+	text-align: center;
+}
+
+.prodQuantity {
+	color: black;
+	width: 100px;
+	height: 50px;
+	line-height: 23px;
+	font-size: 2rem;
+	border: none;
+	text-align: center;
+	-moz-appearance: textfield;
+	bottom: -5px;
+	background: transparent;
+	/* border-left: 1px solid #767676;
+	border-right: 1px solid #767676; */
+	display: table-cell; 
+	vertical-align: middle;
+	float: left;
+	padding: 0;
+	border-radius: 0;
 }
 
 .Product__title2 {
@@ -462,7 +512,7 @@ div > .active {
 	font-weight: 800;
 	font-style: normal;
 
-	font-size: 4rem;
+	font-size: 3.5vw;
 }
 
 .Product__info {
@@ -474,7 +524,24 @@ div > .active {
 	box-sizing: content-box;
 	position: -webkit-sticky;
 	position: sticky;
-	top: 10%;
+	top: 0;
+	padding-top: 15%;
+}
+
+.size__option {
+	position: relative;
+	z-index: 999;
+	font-size: 50px;
+}
+
+.Productview__price {
+	font-family: futura-pt, sans-serif;
+	font-weight: 300;
+	font-style: normal;
+	color: white;
+	display: block;
+	font-size: 2.5rem;
+	text-align: left;
 }
 
 .Product__price {
@@ -484,8 +551,6 @@ div > .active {
 	color: white;
 	display: block;
 	font-size: 2.5rem;
-	/* margin-bottom: 0.4rem;
-	padding-top: 2%; */
 	text-align: center;
 }
 
@@ -500,16 +565,31 @@ div > .active {
 	/* font-size: 2.5rem; */
 }
 
-.prodBuy {
-	/* height: 20px; */
-	background-color: #2752ff;
+.prodBuyButton {
+	margin-top: 2%;
+
+	font-family: futura-pt, sans-serif;
+	font-weight: 800;
+	font-style: normal;
+
 	color: white;
-	border: none;
-	border-radius: 9px;
+	border: #009AFF solid 1px;
+	border-radius: 5px;
 	font-size: 2rem;
 	padding: 5px 5px;
 	cursor: pointer;
-	margin-left: 2%;
+	width: 90%;
+	background: transparent;
+}
+
+.prodBuyButton:hover,
+.prodBuyButton:focus {
+	background-color: #009AFF;
+}
+
+.prodBuyButton:disabled {
+	background: #bfbfbf;
+	cursor: not-allowed;
 }
 
 .quantity {

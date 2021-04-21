@@ -17,11 +17,11 @@ export default (props) => {
 		addVariant,
 	} = useShopify()
 
+
 	const id = props.match.params.productId
 	const defaultSize = product.variants && product.variants[0].id.toString()
 	const [size, setSize] = useState("")
 	const [quantity, setQuantity] = useState(1)
-
 	const description = product.description && product.description.split(".")
 
 	//This runs when you click ADD TO CART
@@ -74,10 +74,10 @@ export default (props) => {
 					</div>
 					<div className="Product__info">
 						<h2 className="Product__title2">{product.title}</h2>
-						<h3 className="Product__price">
+						<h3 className="Productview__price">
 								${product.variants && product.variants[0].price}
 							</h3>
-						<div style={{ paddingTop: "30px" }}>
+						<div style={{ marginTop: "2%" }}>
 							<label htmlFor={"prodOptions"}>Size</label><br/>
 							<select
 								className="style__dropdown"
@@ -99,9 +99,10 @@ export default (props) => {
 									})}
 							</select>
 						</div>
-						<div>
-							<label>Quantity</label>
-							<input
+						<div style={{ marginTop: "2%" }}>
+							<label>Quantity</label><br/>
+
+							{/* <input
 								className="quantity"
 								type="number"
 								min={1}
@@ -109,10 +110,41 @@ export default (props) => {
 									onChange={(e) => {
 										setQuantity(e.target.value)
 									}}
-								></input>
+								></input> */}
+
+								{/* start here  */}
+								<div className="prodQuantity-container">
+									{ quantity > 1 ?
+											<button
+											className="prodQuantity-update"
+											onClick={() =>
+												setQuantity(quantity - 1)
+											}
+										>
+											-
+										</button> :
+										<button
+											className="prodQuantity-update"
+											>
+											-
+										</button>
+									}
+										<span className="prodQuantity" style={{ color: "white"}}>
+											{quantity}
+										</span>
+										<button
+											className="prodQuantity-update"
+											onClick={() =>
+												setQuantity(quantity + 1)
+											}
+										>
+											+
+										</button>
+									</div>
+
 							</div>
 							<button
-								className="prodBuy button"
+								className="prodBuyButton"
 								onClick={(e) => changeSize(size, quantity)}
 							>
 								Add to Cart

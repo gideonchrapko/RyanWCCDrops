@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react"
 import { useShopify } from "../hooks"
 import PurchaseButton from "../images/PurchaseButton.svg"
 
+import { Container } from 'react-bootstrap'
+
 export default (props) => {
 	const { products, fetchProduct } = useShopify()
 	const [hover, setHover] = useState(false)
@@ -16,7 +18,7 @@ export default (props) => {
 	}
 
 	return (
-		<div>
+		<Container fluid>
 			<div className="Product-wrapper">
 				{products &&
 					// when you map a list of items each item needs to have a key == thats what (product, i) is
@@ -96,6 +98,6 @@ export default (props) => {
 						)
 					})}
 			</div>
-		</div>
+		</Container>
 	)
 }

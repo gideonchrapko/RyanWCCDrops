@@ -24,7 +24,7 @@ import './menu.css';
 					src={rightMenuVisible ? Close : Open}
         />
         <a.div style={rightMenuAnimation} className="menu menu--right">
-          <nav> 
+          <nav style={{ paddingTop: "20px", paddingBottom: "20px" }}> 
                 <li className="menu-list-item menu-list-item--right">
                   <Link to="/Home">
                     Home
@@ -41,15 +41,15 @@ import './menu.css';
                   </Link>
                 </li>
                 <li className="menu-list-item menu-list-item--right">
-                  <Link to="/about">
-                    About 
+                  <Link to="/connect">
+                    Connect 
                   </Link>
                 </li>
-                <li className="menu-list-item menu-list-item--right">
+                {/* <li className="menu-list-item menu-list-item--right">
                   <Link to="/about">
                     Contact 
                   </Link>
-                </li>
+                </li> */}
           </nav> 
       </a.div >
     </div>
