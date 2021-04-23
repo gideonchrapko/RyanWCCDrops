@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react"
-// import { Link } from "react-router-dom"
 import { useShopify } from "../hooks"
-import { Container, Row, Col } from 'react-bootstrap'
+import { a } from '@react-spring/web';
+import { useSpring } from '@react-spring/core';
+
 
 import Cart from './Cart'
 import MenuRight from './Menu'
 import Branding from '../images/wccMin.png'
+import SoldOutBannerImage from '../images/SoldOut.svg'
+import DropDownArrow from '../images/dropDownArrow.svg'
 
 
 export default (props) => {
@@ -21,8 +24,20 @@ export default (props) => {
 	const id = props.match.params.productId
 	const defaultSize = product.variants && product.variants[0].id.toString()
 	const [size, setSize] = useState("")
+	const [sizeTitle, setSizeTitle] = useState("")
 	const [quantity, setQuantity] = useState(1)
 	const description = product.description && product.description.split(".")
+	const [rotate, setRotate] = useState()
+	const [dropDownMenu, setdropDownMenu] = useState(false);
+
+	const rotationAnimation = useSpring({
+		transform: !rotate ? `rotate(0deg)` : `rotate(180deg)`,
+	});
+
+    const dropDownMenuAnimation = useSpring({
+      opacity: dropDownMenu ? 1 : 0,
+      transform: dropDownMenu ? `translateY(0)` : `translateY(-120%)`
+    }); 
 
 	//This runs when you click ADD TO CART
 	function changeSize(sizeId, quantity) {
@@ -47,7 +62,6 @@ export default (props) => {
 	useEffect(() => {
 		fetchProduct(id)
 	}, [id])
-
 
 	return (
 		<div id="individualProduct">
@@ -75,57 +89,53 @@ export default (props) => {
 					<div className="Product__info">
 						<h2 className="Product__title2">{product.title}</h2>
 						<h3 className="Productview__price">
-								${product.variants && product.variants[0].price}
-							</h3>
-						<div style={{ marginTop: "2%" }}>
-							<label htmlFor={"prodOptions"}>Size</label><br/>
-							<select
-								className="style__dropdown"
-								id="prodOptions"
-								name={size}
-								onChange={(e) => {
-									setSize(e.target.value)
-								}}
-							>
-								{product.variants &&
-									product.variants.map((item, i) => {
-										return (
-											<option
-												className="size__option"
-												value={item.id.toString()}
-												key={item.title + i}
-											>{`${item.title}`}</option>
-										)
+							${product.variants && product.variants[0].price}
+						</h3>
+							<label htmlFor={"prodOptions"} style={{ marginTop: "2%" }}>Size</label><br/>
+							<div style={{ width: "90%", position: "relateive" }} >
+								<div 
+									className="style__dropdown" 
+									id="prodOptions" 
+									onClick={e => {
+										setdropDownMenu(!dropDownMenu);
+										setRotate(!rotate);
+									}}>
+									{sizeTitle ? sizeTitle : "small"}
+									<a.img src={DropDownArrow} alt="drop down arrow" style={rotationAnimation} className="dropDownArrow"/>
+								</div>
+								<a.div className="style__dropdownDiv" style={dropDownMenuAnimation}>	
+									{product.variants &&
+										product.variants.map((item, i) => {
+											return (
+												<li
+													onClick={e => {
+														setSize(item.id.toString());
+														setSizeTitle(item.title);
+														setRotate(!rotate);
+														setdropDownMenu(!dropDownMenu);
+													}}
+													className="size__option"
+													key={item.title + i}
+												>{`${item.title}`}</li>	
+											)
 									})}
-							</select>
-						</div>
+								</a.div>	
+							</div>
 						<div style={{ marginTop: "2%" }}>
 							<label>Quantity</label><br/>
-
-							{/* <input
-								className="quantity"
-								type="number"
-								min={1}
-									value={quantity}
-									onChange={(e) => {
-										setQuantity(e.target.value)
-									}}
-								></input> */}
-
-								{/* start here  */}
 								<div className="prodQuantity-container">
 									{ quantity > 1 ?
 											<button
 											className="prodQuantity-update"
 											onClick={() =>
 												setQuantity(quantity - 1)
-											}
+									}
 										>
 											-
 										</button> :
 										<button
 											className="prodQuantity-update"
-											>
+										>
 											-
 										</button>
 									}
@@ -136,26 +146,32 @@ export default (props) => {
 											className="prodQuantity-update"
 											onClick={() =>
 												setQuantity(quantity + 1)
-											}
+									}
 										>
 											+
 										</button>
 									</div>
-
 							</div>
-							<button
-								className="prodBuyButton"
-								onClick={(e) => changeSize(size, quantity)}
-							>
-								Add to Cart
-							</button>
+							{product.availableForSale ?
+									<button
+										className="prodBuyButton"
+										onClick={(e) => changeSize(size, quantity)}
+									>
+										Add to Cart
+									</button> :
+									<button
+										className="prodBuyButtonSold"
+									>
+										Sold Out
+								</button>
+							}
 							<ul className="Product__description">
 							{description &&
 								description.map((each, i) => {
 									return <li key={`line-description +${i}`}>{each}</li>
 								})}
 						</ul>
-						</div>
+					</div>
 				</div>
 		</div>
 	)

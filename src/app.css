@@ -54,6 +54,10 @@ h2 {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	height: 100%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	/* width: 100vw; */
 }
 
 /* Cart icon */
@@ -422,6 +426,7 @@ div > .active {
     height: 100%;
     margin: 0;
     padding: 0;
+	overflow-x: none;
 }
 
 .Images {
@@ -431,11 +436,14 @@ div > .active {
 	overflow: auto;
 	box-sizing: content-box;
 	padding: 0.4em;
+	padding-top: 100px;
 }
 
 .Product-wrapper2 {
 	height: 100%;
 	display:flex;
+	/* overflow-x: hidden;
+	width: 100%; */
 }
 
 .image_edit {
@@ -466,10 +474,12 @@ div > .active {
 	border: 1px solid white;
 	float: left;
 	border-radius: 5px;
-	display: table;
+	/* display: table; */
 }
 
 .prodQuantity-update {
+
+
 	color: #767676;
 	display: block;
 	float: left;
@@ -488,23 +498,32 @@ div > .active {
 }
 
 .prodQuantity {
+	font-family: futura-pt, sans-serif;
+	font-weight: 300;
+	font-style: normal;
+
+	align-items: center;
+	vertical-align: middle;
+	display: flex;
+	text-align: center;
+	justify-content:center;
+
 	color: black;
 	width: 100px;
 	height: 50px;
-	line-height: 23px;
-	font-size: 2rem;
-	border: none;
-	text-align: center;
+	/* line-height: 23px; */
+	font-size: 1.5rem;
+	/* border: none; */
 	-moz-appearance: textfield;
 	bottom: -5px;
 	background: transparent;
 	/* border-left: 1px solid #767676;
 	border-right: 1px solid #767676; */
-	display: table-cell; 
+	/* display: table-cell;  */
 	vertical-align: middle;
 	float: left;
-	padding: 0;
-	border-radius: 0;
+	/* padding: 0;
+	border-radius: 0; */
 }
 
 .Product__title2 {
@@ -516,6 +535,10 @@ div > .active {
 }
 
 .Product__info {
+	font-family: futura-pt, sans-serif;
+	font-weight: 300;
+	font-style: normal;
+
 	padding-right: 5%;
 	float: left;
 	width: 50%;
@@ -525,14 +548,16 @@ div > .active {
 	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
-	padding-top: 15%;
+	padding-top: 100px;
 }
 
 .size__option {
-	position: relative;
 	z-index: 999;
-	font-size: 50px;
+	font-size: 2rem;
+	background-color: white;
+	color: black;
 }
+
 
 .Productview__price {
 	font-family: futura-pt, sans-serif;
@@ -555,18 +580,52 @@ div > .active {
 }
 
 .style__dropdown {
+	/* display: table-cell; */
+	align-items: center;
+	height: 50px;
+	vertical-align: middle;
+	display: flex;
+
+
 	padding: 20px;
 	background: black;
 	border: #ffffff solid 1px;
 	border-radius: 5px;
-	width: 90%;
+	/* width: 100%; */
 	color: white;
-	height: 50px;
-	/* font-size: 2.5rem; */
+	text-align: left;
+	font-size: 1.5rem;
+}
+
+.dropDownArrow {
+	display: block;
+
+	position: relative;
+	right: 0;
+	float: right;
+	text-align: right;
+
+	align-items: right;
+}
+
+.style__dropdownDiv{
+	padding: 1%;
+	/* padding: 20px; */
+	background: white;
+	border-radius: 5px;
+	width: 80%;
+	color: black;
+	/* height: 50px; */
+	position: absolute;
+	text-align: left;
+}
+
+li {
+	list-style: none;
 }
 
 .prodBuyButton {
-	margin-top: 2%;
+	margin-top: 3%;
 
 	font-family: futura-pt, sans-serif;
 	font-weight: 800;
@@ -582,14 +641,27 @@ div > .active {
 	background: transparent;
 }
 
+
 .prodBuyButton:hover,
 .prodBuyButton:focus {
 	background-color: #009AFF;
 }
 
-.prodBuyButton:disabled {
-	background: #bfbfbf;
-	cursor: not-allowed;
+.prodBuyButtonSold {
+	margin-top: 3%;
+
+	font-family: futura-pt, sans-serif;
+	font-weight: 800;
+	font-style: normal;
+
+	color: white;
+	border: grey solid 1px;
+	border-radius: 5px;
+	font-size: 2rem;
+	padding: 5px 5px;
+	cursor: none;
+	width: 90%;
+	background: transparent;
 }
 
 .quantity {
