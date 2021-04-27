@@ -37,7 +37,7 @@ export default (props) => {
 
     const dropDownMenuAnimation = useSpring({
       opacity: dropDownMenu ? 1 : 0,
-      transform: dropDownMenu ? `translateY(0)` : `translateY(-120%)`
+      transform: dropDownMenu ? `translateY(0) scaleY(1)` : `translateY(-130%) scaleY(0)`
     }); 
 
 	//This runs when you click ADD TO CART
@@ -63,6 +63,11 @@ export default (props) => {
 	useEffect(() => {
 		fetchProduct(id)
 	}, [id])
+
+
+	// console.log(product.availableForSale)
+
+	console.log(product.variants)
 
 	return (
 		<div id="individualProduct">
@@ -105,7 +110,7 @@ export default (props) => {
 										setdropDownMenu(!dropDownMenu);
 										setRotate(!rotate);
 									}}>
-									{sizeTitle ? sizeTitle : "Small"}
+									{sizeTitle ? sizeTitle : "Pick a Size"}
 									<a.img src={DropDownArrow} alt="drop down arrow" style={rotationAnimation} className="dropDownArrow"/>
 								</div>
 								<a.div className="style__dropdownDiv" style={dropDownMenuAnimation}>	
@@ -169,13 +174,14 @@ export default (props) => {
 									>
 										Sold Out
 								</button>
+								
 							}
-							<ul className="Product__description">
+							<div className="Product__description">
 							{description &&
 								description.map((each, i) => {
 									return <li key={`line-description +${i}`}>{each}</li>
 								})}
-						</ul>
+						</div>
 					</div>
 				</div>
 		</div>
