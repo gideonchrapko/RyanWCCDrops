@@ -432,11 +432,22 @@ div > .active {
 .Images {
 	float: left;
 	width: 50%;
-	height: 100%;
+	height: 80%;
 	overflow: auto;
 	box-sizing: content-box;
 	padding: 0.4em;
 	padding-top: 100px;
+}
+
+.navigationText {
+	margin-top: 2%;
+	font-family: futura-pt, sans-serif;
+	font-weight: 300;
+	font-style: normal;
+
+	padding: 5%;
+	/* font-size: 1.2rem; */
+
 }
 
 .Product-wrapper2 {
@@ -558,6 +569,13 @@ div > .active {
 	color: black;
 }
 
+.size__option:hover {
+	z-index: 999;
+	font-size: 2rem;
+	background-color: white;
+	color: #D8D8D8;
+}
+
 
 .Productview__price {
 	font-family: futura-pt, sans-serif;
@@ -580,45 +598,50 @@ div > .active {
 }
 
 .style__dropdown {
-	/* display: table-cell; */
+	cursor: pointer;
 	align-items: center;
-	height: 50px;
+	/* height: 5%; */
 	vertical-align: middle;
 	display: flex;
+	height: 50px;
 
+	/* padding: 5px 5px; */
 
 	padding: 20px;
+
 	background: black;
 	border: #ffffff solid 1px;
 	border-radius: 5px;
 	/* width: 100%; */
 	color: white;
-	text-align: left;
+	/* text-align: left; */
 	font-size: 1.5rem;
 }
 
 .dropDownArrow {
-	display: block;
-
-	position: relative;
-	right: 0;
+	cursor: pointer;
+	right: 22%;
+	/* margin-right: -50%; */
 	float: right;
-	text-align: right;
+	position: absolute;
+	/* text-align: right;
 
-	align-items: right;
+	align-items: right; */
 }
 
 .style__dropdownDiv{
+	cursor: pointer;
 	padding: 1%;
 	/* padding: 20px; */
 	background: white;
 	border-radius: 5px;
-	width: 80%;
+	width: 81.5%;
 	color: black;
 	/* height: 50px; */
 	position: absolute;
-	text-align: left;
+	/* text-align: left; */
 }
+
 
 li {
 	list-style: none;

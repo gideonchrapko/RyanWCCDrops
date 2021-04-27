@@ -3,6 +3,7 @@ import { useShopify } from "../hooks"
 import { a } from '@react-spring/web';
 import { useSpring } from '@react-spring/core';
 
+import { Link } from 'react-router-dom';
 
 import Cart from './Cart'
 import MenuRight from './Menu'
@@ -75,6 +76,10 @@ export default (props) => {
 			<MenuRight />
 				<div className="Product-wrapper2">
 					<div className="Images">
+						{/* <div className="navigationText">
+							<h5 to="/shop">Capsule ></h5>
+							<h5>{product.title}</h5>
+						</div> */}
 						{product.images &&
 							product.images.map((image, i) => {
 								return (
@@ -91,7 +96,7 @@ export default (props) => {
 						<h3 className="Productview__price">
 							${product.variants && product.variants[0].price}
 						</h3>
-							<label htmlFor={"prodOptions"} style={{ marginTop: "2%" }}>Size</label><br/>
+						<label htmlFor={"prodOptions"} style={{ marginTop: "2%" }}>Size</label><br/>
 							<div style={{ width: "90%", position: "relateive" }} >
 								<div 
 									className="style__dropdown" 
@@ -100,7 +105,7 @@ export default (props) => {
 										setdropDownMenu(!dropDownMenu);
 										setRotate(!rotate);
 									}}>
-									{sizeTitle ? sizeTitle : "small"}
+									{sizeTitle ? sizeTitle : "Small"}
 									<a.img src={DropDownArrow} alt="drop down arrow" style={rotationAnimation} className="dropDownArrow"/>
 								</div>
 								<a.div className="style__dropdownDiv" style={dropDownMenuAnimation}>	
