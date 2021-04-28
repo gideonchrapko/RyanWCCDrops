@@ -25,36 +25,26 @@ export default (props) => {
 	useEffect(() => {
 		createShop()
 		fetchProducts()
-		// createCheckout()
+		createCheckout()
 		// fetchedCheckout()
 
-		const serializedState = localStorage.getItem('state')
-		const parsedState = JSON.parse(serializedState)
-		if (serializedState === null) {
-			return createCheckout() 
-		} else {
-			fetchedCheckout(parsedState.shopifyState.checkout.id)
-		}
-		
-		
-		// {
-		// 	fetchedCheckout(loadFromLocalStorage())
+		// const serializedState = localStorage.getItem('state')
+		// const parsedState = JSON.parse(serializedState)
+		// if (serializedState === null) {
+		// 	return console.log(serializedState) 
 		// } else {
-		// 	createCheckout()
+		// 	console.log(parsedState.shopifyState.checkout.id)
 		// }
 
-		// console.log(persistedState)
-
-		// function loadFromLocalStorage() {
-		// 	try {
-		// 	  const serializedState = localStorage.getItem('state')
-		// 	  if (serializedState === null) return undefined
-		// 		return JSON.parse(serializedState)
-		// 	} catch(e) {
-		// 		console.log(e)
-		// 	  return undefined
-		// 	}
-		//   }
+		try {
+			const serializedState = localStorage.getItem('state')
+			const parsedState = JSON.parse(serializedState)
+			if (serializedState === null) return createCheckout()
+			  return fetchedCheckout(parsedState.shopifyState.checkout.id)
+		  } catch(e) {
+			  console.log(e)
+			return undefined
+		  }
 
 	}, [])
 
