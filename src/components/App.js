@@ -25,7 +25,7 @@ export default (props) => {
 	useEffect(() => {
 		createShop()
 		fetchProducts()
-		createCheckout()
+		// createCheckout()
 		// fetchedCheckout()
 
 		// const serializedState = localStorage.getItem('state')
