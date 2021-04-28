@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux"
 import React, { useEffect, useState } from "react"
-import Client from "shopify-buy"
+import Client from "shopify-buy/index.unoptimized.umd"
 
 // Creates the client with Shopify-Buy and store info
 
@@ -15,6 +15,13 @@ const client = Client.buildClient({
 	storefrontAccessToken: process.env.REACT_APP_SHOPIFY_API,
 	domain: process.env.REACT_APP_SHOPIFY_DOMAIN
 })
+
+// const productsQuery = client.graphQLClient.query((root) => {
+// 	root.addConnection('products', {args: {first: 10}}, (product) => {
+// 	  product.add('availableForSale');
+// 	//   product.add('availableQuantity');
+// 	});
+//   });
 
 const PRODUCTS_FOUND = "shopify/PRODUCTS_FOUND"
 const PRODUCT_FOUND = "shopify/PRODUCT_FOUND"
@@ -141,15 +148,15 @@ function checkout() {
 }
 
 function fetchCheckout(checkoutId) {
-	// const checkout = localStorage.state
-	// return (dispatch) => {
-	// 	client.checkout.fetch(checkoutId).then((checkout) => {
-	// 		dispatch({
-	// 			type: CHECKOUT_FETCHED,
-	// 			payload: checkout,
-	// 		})
-	// 	})
-	// }
+	const checkout = localStorage.state
+	return (dispatch) => {
+		client.checkout.fetch(checkoutId).then((checkout) => {
+			dispatch({
+				type: CHECKOUT_FETCHED,
+				payload: checkout,
+			})
+		})
+	}
 }
 
 // Gets Shopify store information

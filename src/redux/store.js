@@ -4,36 +4,38 @@
 
   import { useShopify } from "../hooks"
 
-  // function saveToLocalStorage(appState) {
-  //   try {
-  //     const serializedState = JSON.stringify(appState.shopifyState.checkout.id)
-  //     // console.log(appState.shopifyState.checkout)
-  //     localStorage.setItem('state', serializedState)
-  //   } catch(e) {
-  //     console.log(e)
-  //   }
-  // }
+  function saveToLocalStorage(shopifyState) {
+    try {
+      const serializedState = JSON.stringify(shopifyState)
+      // console.log(appState.shopifyState.checkout)
+      localStorage.setItem('state', serializedState)
+    } catch(e) {
+      console.log(e)
+    }
+  }
 
-  // function loadFromLocalStorage() {
-  //   try {
-  //     const serializedState = localStorage.getItem('state')
-  //     if (serializedState === null) return undefined
-  //       return JSON.parse(serializedState)
-  //   } catch(e) {
-  //       console.log(e)
-  //     return undefined
-  //   }
-  // }
+  // I think this needs to be performed in the useEffect
+  function loadFromLocalStorage() {
+    try {
+      const serializedState = localStorage.getItem('state')
+      if (serializedState === null) return undefined
+        return JSON.parse(serializedState)
+    } catch(e) {
+        console.log(e)
+      return undefined
+    }
+  }
 
-  // const persistedState = loadFromLocalStorage()
+  const persistedState = loadFromLocalStorage()
 
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
   const rootReducer = combineReducers(reducers)
   const enhancer = composeEnhancers(applyMiddleware(thunk))
   
-  const store = createStore(rootReducer, enhancer)
-  // const store = createStore(rootReducer, persistedState, enhancer)
+//  const store = createStore(rootReducer, enhancer)
+  const store = createStore(rootReducer, persistedState, enhancer)
 
-  // store.subscribe(() => saveToLocalStorage(store.getState()))
+
+  store.subscribe(() => saveToLocalStorage(store.getState()))
   
   export default store
