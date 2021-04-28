@@ -1,5 +1,5 @@
 .menu { 
-    position: absolute; 
+    position: fixed; 
     background-color: white; 
     color: #3395dd; 
     z-index: 999990; 
