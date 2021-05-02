@@ -28,23 +28,24 @@ export default (props) => {
 		// createCheckout()
 		// fetchedCheckout()
 
-		// const serializedState = localStorage.getItem('state')
-		// const parsedState = JSON.parse(serializedState)
-		// if (serializedState === null) {
-		// 	return console.log(serializedState) 
-		// } else {
-		// 	console.log(parsedState.shopifyState.checkout.id)
-		// }
+		const serializedState = localStorage.getItem('state')
+		const parsedState = JSON.parse(serializedState)
+		if (serializedState === undefined) {
+			return  createCheckout()
+		} else {
+			fetchedCheckout(parsedState.shopifyState.checkout.id)
+		}
+		return console.log('yes')
 
-		try {
-			const serializedState = localStorage.getItem('state')
-			const parsedState = JSON.parse(serializedState)
-			if (serializedState === null) return createCheckout()
-			  return fetchedCheckout(parsedState.shopifyState.checkout.id)
-		  } catch(e) {
-			  console.log(e)
-			return undefined
-		  }
+		// try {
+		// 	const serializedState = localStorage.getItem('state')
+		// 	const parsedState = JSON.parse(serializedState)
+		// 	if (serializedState === undefined) return createCheckout()
+		// 	  return fetchedCheckout(parsedState.shopifyState.checkout.id)
+		//   } catch(e) {
+		// 	  console.log(e)
+		// 	return undefined
+		//   }
 
 	}, [])
 

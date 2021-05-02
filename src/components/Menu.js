@@ -16,7 +16,7 @@ import './menu.css';
     }); 
 
     return (
-      <div style={{ overflowY: "hidden"}}>
+      <div>
         <img
         	alt="menu"
 					className="menu-button"
