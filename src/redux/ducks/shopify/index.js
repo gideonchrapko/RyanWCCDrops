@@ -132,10 +132,10 @@ function checkout() {
 }
 
 function fetchCheckout(checkoutId) {
-	const checkout = localStorage.state
+	const checkout = localStorage.getItem('state')
 	console.log(checkout)
 	return (dispatch) => {
-		client.checkout.fetch(checkoutId).then((checkout) => {
+		client.checkout.fetch(checkout).then((checkout) => {
 			dispatch({
 				type: CHECKOUT_FETCHED,
 				payload: checkout,

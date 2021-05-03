@@ -48,7 +48,6 @@ export default (props) => {
 			const lineItemsToAdd = [
 				{ variantId: sizeId, quantity: parseInt(quantity, 10) },
 			]
-			//checkoutState.id is just the id of the product and it is saved in the checkoutState 
 			const checkoutId = checkoutState.id
 			addVariant(checkoutId, lineItemsToAdd)
 		} else {
@@ -64,12 +63,6 @@ export default (props) => {
 		fetchProduct(id)
 	}, [id])
 
-
-	// console.log(product.availableForSale)
-
-	// console.log(product)
-
-
 	return (
 		<div id="individualProduct">
 			<img
@@ -82,10 +75,6 @@ export default (props) => {
 			<MenuRight />
 				<div className="Product-wrapper2">
 					<div className="Images">
-						{/* <div className="navigationText">
-							<h5 to="/shop">Capsule ></h5>
-							<h5>{product.title}</h5>
-						</div> */}
 						{product.images &&
 							product.images.map((image, i) => {
 								return (

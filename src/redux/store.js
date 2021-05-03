@@ -4,17 +4,17 @@
 
   import { useShopify } from "../hooks"
 
-  function saveToLocalStorage(appState) {
-    try {
-      const stateVariable = appState.shopifyState.checkout.id
-      // const serializedState = JSON.stringify(stateVariable)
-      // console.log(stateVariable)
-      // console.log(appState.shopifyState.checkout)
-      localStorage.setItem('state', stateVariable)
-    } catch(e) {
-      console.log(e)
-    }
-  }
+  // function saveToLocalStorage(appState) {
+  //   try {
+  //     const stateVariable = appState.shopifyState.checkout.id
+  //     // const serializedState = JSON.stringify(stateVariable)
+  //     console.log(stateVariable)
+  //     // console.log(appState.shopifyState.checkout)
+  //     localStorage.setItem('state', stateVariable)
+  //   } catch(e) {
+  //     console.log(e)
+  //   }
+  // }
 
 
   // I think this needs to be performed in the useEffect
@@ -39,6 +39,6 @@
   // const store = createStore(rootReducer, persistedState, enhancer)
 
 
-  store.subscribe(() => saveToLocalStorage(store.getState()))
+  // store.subscribe(() => saveToLocalStorage(store.getState()))
   
   export default store
