@@ -119,18 +119,6 @@ function getProduct(id) {
 // need action creator that creates a new checkout in my try loop
 // action creator that 
 
-// function checkout() {
-// 	return async (dispatch) => {
-// 		const response = await client.checkout.create(
-// 		)
-// 		dispatch({
-// 			type: ADD_VARIANT_TO_CART,
-// 			payload: response,
-// 		})
-// 		return response
-// 	}
-// }
-
 function checkout() {
 	return (dispatch) => {
 		client.checkout.create().then((resp) => {
@@ -138,6 +126,8 @@ function checkout() {
 				type: CHECKOUT_FOUND,
 				payload: resp,
 			})
+			console.log(resp)
+			localStorage.setItem('state', resp.id)
 		})
 	}
 }

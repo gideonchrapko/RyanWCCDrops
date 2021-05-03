@@ -25,31 +25,41 @@ export default (props) => {
 	useEffect(() => {
 		createShop()
 		fetchProducts()
-		// createCheckout()
 
-		// async function getCheckout() {
-			const existingCheckoutID = localStorage.getItem('state');
-			if (existingCheckoutID == null) {
-				try {
+		const existingCheckoutID = localStorage.getItem('state');
+		const stringified = JSON.stringify(existingCheckoutID)
+			if (stringified === "null") {
 					createCheckout();
-					localStorage.setItem('state', "fuck")
-
 					console.log("create")
-					
-				// if this cart was already purchased, clear it and start fresh
-				  if (existingCheckoutID !== null) {
-						fetchedCheckout()
-						console.log("fetched")
-						console.log(existingCheckoutID)
-						return;
-				  }
-				} catch (error) {
-				console.log("error")
-				}
+			} else {
+					fetchedCheckout()
+					console.log("fetched")
 			}
 
+		// async function getCheckout() {
+		// 	const existingCheckoutID = localStorage.getItem('state');
+		// 	const stringified = JSON.stringify(existingCheckoutID)
+		// 	if (stringified === "null") {
+		// 		try {
+		// 			createCheckout();
+		// 			console.log("create")
+		// 			console.log(stringified)
+		// 			console.log(existingCheckoutID)
+					
+		// 		// if this cart was already purchased, clear it and start fresh
+		// 		  if (stringified !== "null") {
+		// 				fetchedCheckout()
+		// 				console.log("fetched")
+		// 				// console.log(existingCheckoutID)
+		// 				return;
+		// 		  }
+		// 		} catch (error) {
+		// 		console.log("error")
+		// 		}
+		// 	}
 		// }
 		// getCheckout()
+
 	},[])
 
 		return (
