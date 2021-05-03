@@ -22,79 +22,35 @@ export default (props) => {
 		// fetchCollection,
 	} = useShopify()
 
-
 	useEffect(() => {
 		createShop()
 		fetchProducts()
 		// createCheckout()
 
+		// async function getCheckout() {
+			const existingCheckoutID = localStorage.getItem('state');
+			if (existingCheckoutID == null) {
+				try {
+					createCheckout();
+					localStorage.setItem('state', "fuck")
 
+					console.log("create")
+					
+				// if this cart was already purchased, clear it and start fresh
+				  if (existingCheckoutID !== null) {
+						fetchedCheckout()
+						console.log("fetched")
+						console.log(existingCheckoutID)
+						return;
+				  }
+				} catch (error) {
+				console.log("error")
+				}
+			}
+
+		// }
 		// getCheckout()
-
-		// createCheckout()
-		// fetchedCheckout()
-
-async function getCheckout() {
-	const existingCheckoutID = localStorage.getItem('state');
-	if (existingCheckoutID) {
-		return fetchedCheckout()
-	} else {
-		return createCheckout()
-		// localStorage.setItem('state', checkoutState.id)
-		// console.log(checkoutState.id)
-	}
-}
-getCheckout()
-
-			// async function getCheckout() {
-
-			// 	if (checkoutState) return;
-			// 	// const stateVariable = appState.shopifyState.checkout.id
-			// 	// const serializedState = JSON.stringify(stateVariable)
-
-			// 	const existingCheckoutID = localStorage.getItem('state');
-			// 	// const parsedState = JSON.parse(existingCheckoutID);
-			// 	// if (existingCheckoutID && existingCheckoutID !== 'null') {
-			// 	if (existingCheckoutID) {
-			// 	  try {
-			// 		  console.log(existingCheckoutID)
-			// 		// const existingCheckout = await client.checkout.fetch(
-			// 		//   existingCheckoutID,
-			// 		// );
-			// 		// const existingCheckout = existingCheckoutID
-			// 		const parsedState = JSON.parse(existingCheckoutID);
-			// 		fetchedCheckout()
-			// 		// const exisitingCheckout = fetchedCheckout(existingCheckoutID)
-			// 		console.log(parsedState)
-			// 		console.log("fetched")
-			// 		// if this cart was already purchased, clear it and start fresh
-			// 		if (!parsedState.completedAt) {
-			// 			const parsedState = existingCheckoutID
-			// 		  return;
-			// 		}
-			// 	  } catch (error) {
-			// 		// localStorage.removeItem('state');
-			// 		console.log("remove")
-			// 	  }
-			// 	}
-			// 	// if we get here, we need to create a new checkout session
-			// 	// const newCheckout = await client.checkout.create();
-			// 	createCheckout()
-			// 	// localStorage.setItem('state', checkoutState.checkout.id);
-			// 	// const existingCheckout = checkoutState.checkout.id
-			// 	console.log("do the create checkout")
-			//   }
-			// 	// we should be dispatching the new state to the store 
-			// getCheckout();
-	
-
 	},[])
-
-	// async function getCheckout() {
-	//  	console.log(checkoutState)
-	// }
-
-	// getCheckout()
 
 		return (
 			<div>
