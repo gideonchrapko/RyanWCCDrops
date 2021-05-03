@@ -31,9 +31,8 @@ export default (props) => {
 		if (existingCheckoutID && existingCheckoutID !== 'null') {
 			try {
 				fetchedCheckout()
-				console.log("fetched")
-	
-			  // if this cart was already purchased, clear it and start fresh
+				// console.log("fetched")
+			  	// if this cart was already purchased, clear it and start fresh
 			  if (!checkoutState.checkout.completedAt) {
 				// console.log("nothing to do here")
 				// console.log(checkoutState.checkout.completedAt)
@@ -41,7 +40,7 @@ export default (props) => {
 			  }
 			} catch (error) {
 			  localStorage.removeItem('state');
-			//   console.log("remove state")
+				//   console.log("remove state")
 			}
 		  }
 		  createCheckout();
