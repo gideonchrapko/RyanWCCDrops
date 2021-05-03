@@ -22,10 +22,11 @@ export default (props) => {
 		// fetchCollection,
 	} = useShopify()
 
-	createShop()
-	fetchProducts()
 
 	useEffect(() => {
+
+		createShop()
+		fetchProducts()
 
 		// createCheckout()
 		// fetchedCheckout()
