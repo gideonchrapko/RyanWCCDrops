@@ -22,50 +22,13 @@ export default (props) => {
 		// fetchCollection,
 	} = useShopify()
 
-	// console.log(checkoutState)
+	createShop()
+	fetchProducts()
 
 	useEffect(() => {
 
 		// createCheckout()
 		// fetchedCheckout()
-
-
-			// async function getCheckout() {
-			// 	// create a variable to verify if there is cart saved in the local storage
-			// 	const existingCheckoutID = localStorage.getItem('state');
-			// 	const parsedState = JSON.parse(existingCheckoutID);
-
-			// 	// existing the storage variable doesnt exactly == "null"
-			// 	if (existingCheckoutID && existingCheckoutID !== 'null') {
-			// 	  try {
-			// 		//fetch the cart with my custom action creator
-			// 		fetchedCheckout(parsedState.shopifyState.checkout.id)
-			// 		console.log("verified cart")
-			// 		// const existingCheckout = await client.checkout.fetch(
-			// 		//   existingCheckoutID,
-			// 		// );
-		  
-			// 		// if this cart was already purchased, clear it and start fresh
-			// 		// create a creator that changes adds a new checkoutID
-			// 		if (!existingCheckoutID.completedAt) {
-			// 		//restart the checkout 
-
-			// 		//   setCheckout(existingCheckout);
-			// 		console.log("hello")
-			// 		  return;
-			// 		}
-			// 	  } catch (error) {
-			// 		// if theres an error remove the state from local storage I need to get here to stop getting that error 
-			// 		localStorage.removeItem('state');
-			// 		console.log("goodbye")
-			// 	  }
-			// 	}
-
-			// createCheckout()
-			// // localStorage.setItem('state', newCheckout.id);
-			// // need to add a new checkout id to this 
-			// localStorage.setItem('state', );
-			// setCheckout(newCheckout);
 
 			 function getCheckout() {
 				if (checkoutState) return;
@@ -105,23 +68,6 @@ export default (props) => {
 			  }
 				// we should be dispatching the new state to the store 
 			getCheckout();
-
-			createShop()
-			fetchProducts()
-
-	// }
-	// , [checkout, setCheckout]);
-
-
-		// try {
-		// 	const serializedState = localStorage.getItem('state')
-		// 	const parsedState = JSON.parse(serializedState)
-		// 	if (serializedState === undefined) return createCheckout()
-		// 	  return fetchedCheckout(parsedState.shopifyState.checkout.id)
-		//   } catch(e) {
-		// 	  console.log(e)
-		// 	return undefined
-		//   }
 
 	}, [])
 
