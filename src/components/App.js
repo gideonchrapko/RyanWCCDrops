@@ -26,39 +26,36 @@ export default (props) => {
 		createShop()
 		fetchProducts()
 
+		
 		const existingCheckoutID = localStorage.getItem('state');
-		const stringified = JSON.stringify(existingCheckoutID)
-			if (existingCheckoutID && existingCheckoutID !== 'null') {
-					fetchedCheckout()
-					console.log("fetched")
-			} else {
-					createCheckout();
-					console.log("create")
+		if (existingCheckoutID && existingCheckoutID !== 'null') {
+			try {
+				fetchedCheckout()
+				console.log("fetched")
+	
+			  // if this cart was already purchased, clear it and start fresh
+			  if (!checkoutState.checkout.completedAt) {
+				// console.log("nothing to do here")
+				// console.log(checkoutState.checkout.completedAt)
+				return;
+			  }
+			} catch (error) {
+			  localStorage.removeItem('state');
+			//   console.log("remove state")
 			}
+		  }
+		  createCheckout();
+		//   console.log("create")
 
-		// async function getCheckout() {
-		// 	const existingCheckoutID = localStorage.getItem('state');
-		// 	const stringified = JSON.stringify(existingCheckoutID)
-		// 	if (stringified === "null") {
-		// 		try {
+
+		// const stringified = JSON.stringify(existingCheckoutID)
+		// 	if (existingCheckoutID && existingCheckoutID !== 'null') {
+		// 			fetchedCheckout()
+		// 			console.log("fetched")
+		// 	} else {
 		// 			createCheckout();
 		// 			console.log("create")
-		// 			console.log(stringified)
-		// 			console.log(existingCheckoutID)
-					
-		// 		// if this cart was already purchased, clear it and start fresh
-		// 		  if (stringified !== "null") {
-		// 				fetchedCheckout()
-		// 				console.log("fetched")
-		// 				// console.log(existingCheckoutID)
-		// 				return;
-		// 		  }
-		// 		} catch (error) {
-		// 		console.log("error")
-		// 		}
 		// 	}
-		// }
-		// getCheckout()
 
 	},[])
 

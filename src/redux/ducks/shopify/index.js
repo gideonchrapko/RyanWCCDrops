@@ -2,26 +2,15 @@ import { useSelector, useDispatch } from "react-redux"
 import React, { useEffect, useState } from "react"
 import Client from "shopify-buy/index.unoptimized.umd"
 
-// Creates the client with Shopify-Buy and store info
-
 const client = Client.buildClient({
 	storefrontAccessToken: process.env.REACT_APP_SHOPIFY_API,
 	domain: process.env.REACT_APP_SHOPIFY_DOMAIN
 })
 
-// const productsQuery = client.graphQLClient.query((root) => {
-// 	root.addConnection('products', {args: {first: 10}}, (product) => {
-// 	  product.add('availableForSale');
-// 	//   product.add('availableQuantity');
-// 	});
-//   });
-
 const PRODUCTS_FOUND = "shopify/PRODUCTS_FOUND"
 const PRODUCT_FOUND = "shopify/PRODUCT_FOUND"
-
 const COLLECTION_FOUND = "shopify/COLLECTION_FOUND"
 const CHECKOUT_FETCHED = "shopify/CHECKOUT_FETCHED"
-
 const CHECKOUT_FOUND = "shopify/CHECKOUT_FOUND"
 const SHOP_FOUND = "shopify/SHOP_FOUND"
 const ADD_VARIANT_TO_CART = "shopify/ADD_VARIANT_TO_CART"
@@ -50,12 +39,10 @@ export default (state = initialState, action) => {
 			return { ...state, product: action.payload }
 		case COLLECTION_FOUND:
 			return { ...state, featured: action.payload }
-
 		case CHECKOUT_FOUND:
 			return { ...state, checkout: action.payload }
 		case CHECKOUT_FETCHED:
 			return { ...state, checkout: action.payload }
-
 		case SHOP_FOUND:
 			return { ...state, shop: action.payload }
 		case ADD_VARIANT_TO_CART:
@@ -114,11 +101,6 @@ function getProduct(id) {
 // 	}
 // }
 
-// Creates initial checkout state from Shopify
-
-// need action creator that creates a new checkout in my try loop
-// action creator that 
-
 function checkout() {
 	return (dispatch) => {
 		client.checkout.create().then((resp) => {
@@ -126,7 +108,6 @@ function checkout() {
 				type: CHECKOUT_FOUND,
 				payload: resp,
 			})
-			console.log(resp)
 			localStorage.setItem('state', resp.id)
 		})
 	}
@@ -236,11 +217,8 @@ export function useShopify() {
 	const fetchProducts = () => dispatch(getProducts())
 	const fetchProduct = (id) => dispatch(getProduct(id))
 	// const fetchCollection = () => dispatch(getCollection())
-
 	const createCheckout = () => dispatch(checkout())
 	const fetchedCheckout = (checkoutId) => dispatch(fetchCheckout(checkoutId))
-
-	// I still don't understand how these hooks work April 19 2021
 	const createShop = () => dispatch(shopInfo())
 	const closeCart = () => dispatch(handleCartClose())
 	const openCart = () => dispatch(handleCartOpen())
