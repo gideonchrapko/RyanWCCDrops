@@ -28,14 +28,23 @@ export default (props) => {
 		fetchProducts()
 		// createCheckout()
 
-		// async function getCheckout() {
-		// 	await console.log(checkoutState)
-		// }
 
 		// getCheckout()
 
 		// createCheckout()
-		fetchedCheckout()
+		// fetchedCheckout()
+
+async function getCheckout() {
+	const existingCheckoutID = localStorage.getItem('state');
+	if (existingCheckoutID) {
+		return fetchedCheckout()
+	} else {
+		return createCheckout()
+		// localStorage.setItem('state', checkoutState.id)
+		// console.log(checkoutState.id)
+	}
+}
+getCheckout()
 
 			// async function getCheckout() {
 

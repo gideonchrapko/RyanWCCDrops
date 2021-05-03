@@ -119,21 +119,31 @@ function getProduct(id) {
 // need action creator that creates a new checkout in my try loop
 // action creator that 
 
+// function checkout() {
+// 	return async (dispatch) => {
+// 		const response = await client.checkout.create(
+// 		)
+// 		dispatch({
+// 			type: ADD_VARIANT_TO_CART,
+// 			payload: response,
+// 		})
+// 		return response
+// 	}
+// }
+
 function checkout() {
-	return async (dispatch) => {
-		const response = await client.checkout.create(
-		)
-		dispatch({
-			type: ADD_VARIANT_TO_CART,
-			payload: response,
+	return (dispatch) => {
+		client.checkout.create().then((resp) => {
+			dispatch({
+				type: CHECKOUT_FOUND,
+				payload: resp,
+			})
 		})
-		return response
 	}
 }
 
-function fetchCheckout(checkoutId) {
+function fetchCheckout() {
 	const checkout = localStorage.getItem('state')
-	console.log(checkout)
 	return (dispatch) => {
 		client.checkout.fetch(checkout).then((checkout) => {
 			dispatch({
