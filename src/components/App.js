@@ -68,7 +68,7 @@ export default (props) => {
 			// setCheckout(newCheckout);
 
 			 function getCheckout() {
-				// if (checkoutState) return;
+				if (checkoutState) return;
 				// const stateVariable = appState.shopifyState.checkout.id
 				// const serializedState = JSON.stringify(stateVariable)
 
