@@ -28,7 +28,7 @@ export default (props) => {
 
 		const existingCheckoutID = localStorage.getItem('state');
 		const stringified = JSON.stringify(existingCheckoutID)
-			if (stringified === "null") {
+			if (stringified === "undefined") {
 					createCheckout();
 					console.log("create")
 			} else {
