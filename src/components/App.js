@@ -22,20 +22,95 @@ export default (props) => {
 		// fetchCollection,
 	} = useShopify()
 
+	// console.log(checkoutState)
+
 	useEffect(() => {
 		createShop()
 		fetchProducts()
+
 		// createCheckout()
 		// fetchedCheckout()
 
-		const serializedState = localStorage.getItem('state')
-		const parsedState = JSON.parse(serializedState)
-		if (serializedState === undefined) {
-			return  createCheckout()
-		} else {
-			fetchedCheckout(parsedState.shopifyState.checkout.id)
-		}
-		return console.log('yes')
+
+			// async function getCheckout() {
+			// 	// create a variable to verify if there is cart saved in the local storage
+			// 	const existingCheckoutID = localStorage.getItem('state');
+			// 	const parsedState = JSON.parse(existingCheckoutID);
+
+			// 	// existing the storage variable doesnt exactly == "null"
+			// 	if (existingCheckoutID && existingCheckoutID !== 'null') {
+			// 	  try {
+			// 		//fetch the cart with my custom action creator
+			// 		fetchedCheckout(parsedState.shopifyState.checkout.id)
+			// 		console.log("verified cart")
+			// 		// const existingCheckout = await client.checkout.fetch(
+			// 		//   existingCheckoutID,
+			// 		// );
+		  
+			// 		// if this cart was already purchased, clear it and start fresh
+			// 		// create a creator that changes adds a new checkoutID
+			// 		if (!existingCheckoutID.completedAt) {
+			// 		//restart the checkout 
+
+			// 		//   setCheckout(existingCheckout);
+			// 		console.log("hello")
+			// 		  return;
+			// 		}
+			// 	  } catch (error) {
+			// 		// if theres an error remove the state from local storage I need to get here to stop getting that error 
+			// 		localStorage.removeItem('state');
+			// 		console.log("goodbye")
+			// 	  }
+			// 	}
+
+			// createCheckout()
+			// // localStorage.setItem('state', newCheckout.id);
+			// // need to add a new checkout id to this 
+			// localStorage.setItem('state', );
+			// setCheckout(newCheckout);
+
+			 function getCheckout() {
+				// if (checkoutState) return;
+				// const stateVariable = appState.shopifyState.checkout.id
+				// const serializedState = JSON.stringify(stateVariable)
+
+				const existingCheckoutID = localStorage.getItem('state');
+				// const parsedState = JSON.parse(existingCheckoutID);
+				// if (existingCheckoutID && existingCheckoutID !== 'null') {
+				if (existingCheckoutID) {
+				  try {
+					  console.log(existingCheckoutID)
+					// const existingCheckout = await client.checkout.fetch(
+					//   existingCheckoutID,
+					// );
+					// const existingCheckout = existingCheckoutID
+					const parsedState = JSON.parse(existingCheckoutID);
+					fetchedCheckout()
+					// const exisitingCheckout = fetchedCheckout(existingCheckoutID)
+					console.log("fetch")
+					// if this cart was already purchased, clear it and start fresh
+					if (!parsedState.completedAt) {
+						const parsedState = existingCheckoutID
+					  return;
+					}
+				  } catch (error) {
+					// localStorage.removeItem('state');
+					console.log("remove")
+				  }
+				}
+				// if we get here, we need to create a new checkout session
+				// const newCheckout = await client.checkout.create();
+				createCheckout()
+				// localStorage.setItem('state', checkoutState.checkout.id);
+				// const existingCheckout = checkoutState.checkout.id
+				console.log("hello")
+			  }
+				// we should be dispatching the new state to the store 
+			getCheckout();
+
+	// }
+	// , [checkout, setCheckout]);
+
 
 		// try {
 		// 	const serializedState = localStorage.getItem('state')

@@ -67,7 +67,8 @@ export default (props) => {
 
 	// console.log(product.availableForSale)
 
-	// console.log(product.variants)
+	// console.log(product)
+
 
 	return (
 		<div id="individualProduct">
