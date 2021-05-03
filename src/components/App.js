@@ -25,8 +25,6 @@ export default (props) => {
 	// console.log(checkoutState)
 
 	useEffect(() => {
-		createShop()
-		fetchProducts()
 
 		// createCheckout()
 		// fetchedCheckout()
@@ -103,10 +101,13 @@ export default (props) => {
 				createCheckout()
 				// localStorage.setItem('state', checkoutState.checkout.id);
 				// const existingCheckout = checkoutState.checkout.id
-				console.log("hello")
+				console.log("do the create checkout")
 			  }
 				// we should be dispatching the new state to the store 
 			getCheckout();
+
+			createShop()
+			fetchProducts()
 
 	// }
 	// , [checkout, setCheckout]);
