@@ -30,9 +30,8 @@ export default (props) => {
 		e.preventDefault()
 		// window.open(checkoutState.webUrl) // opens checkout in a new window
 		window.location.replace(checkoutState.webUrl) // opens checkout in same window
+		localStorage.setItem('checkout', checkoutState.completedAt)
 	}
-
-
 
 	useEffect(() => {
 		const button = document.querySelector("button.App__view-cart")

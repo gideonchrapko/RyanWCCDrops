@@ -121,6 +121,7 @@ function fetchCheckout() {
 				type: CHECKOUT_FETCHED,
 				payload: checkout,
 			})
+			localStorage.setItem('checkout', checkout.completedAt)
 		})
 	}
 }

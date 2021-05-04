@@ -17,46 +17,53 @@ export default (props) => {
 		createShop,
 		createCheckout,
 		fetchProducts,
-		checkoutState,
+		// checkoutState,
 		fetchedCheckout,
 		// fetchCollection,
 	} = useShopify()
+
+	// useEffect(() => {
+	// 	createShop()
+	// 	fetchProducts()
+	// })
 
 	useEffect(() => {
 		createShop()
 		fetchProducts()
 
-		
-		const existingCheckoutID = localStorage.getItem('state');
-		if (existingCheckoutID && existingCheckoutID !== 'null') {
-			try {
-				fetchedCheckout()
-				// console.log("fetched")
-			  	// if this cart was already purchased, clear it and start fresh
-			  if (!checkoutState.checkout.completedAt) {
-				// console.log("nothing to do here")
-				// console.log(checkoutState.checkout.completedAt)
-				return;
-			  }
-			} catch (error) {
-			  localStorage.removeItem('state');
-				//   console.log("remove state")
+		async function getCheckout() {
+			const existingCheckoutID = localStorage.getItem('state');
+			const checkoutStorage = localStorage.getItem('checkout');
+			if (existingCheckoutID && existingCheckoutID !== 'null') {
+					fetchedCheckout()
+					console.log("fetched")
+					console.log(checkoutStorage)
+					// if this cart was already purchased, clear it and start fresh
+				if (checkoutStorage && checkoutStorage !== "null") {
+					// return console.log(checkoutStorage)
+					// localStorage.removeItem('state');
+					localStorage.removeItem('checkout')
+					console.log("remove checkout storage")
+				} else {
+				// localStorage.removeItem('state');
+				// localStorage.removeItem('checkout')
+					return console.log("past the else statement")
+				}
 			}
-		  }
-		  createCheckout();
-		//   console.log("create")
+			createCheckout();
+			console.log("create")
+			}
 
-
-		// const stringified = JSON.stringify(existingCheckoutID)
-		// 	if (existingCheckoutID && existingCheckoutID !== 'null') {
-		// 			fetchedCheckout()
-		// 			console.log("fetched")
-		// 	} else {
-		// 			createCheckout();
-		// 			console.log("create")
-		// 	}
+		getCheckout()
 
 	},[])
+
+// useEffect(() => {
+// 	console.log(checkoutState.completedAt)
+// },[checkoutState])
+
+	// console.log(checkoutState)
+
 
 		return (
 			<div>
