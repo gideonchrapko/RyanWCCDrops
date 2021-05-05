@@ -3,12 +3,12 @@ import { useShopify } from "../hooks"
 import { a } from '@react-spring/web';
 import { useSpring } from '@react-spring/core';
 
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 import Cart from './Cart'
 import MenuRight from './Menu'
 import Branding from '../images/wccMin.png'
-import SoldOutBannerImage from '../images/SoldOut.svg'
+// import SoldOutBannerImage from '../images/SoldOut.svg'
 import DropDownArrow from '../images/dropDownArrow.svg'
 
 
@@ -40,7 +40,6 @@ export default (props) => {
       transform: dropDownMenu ? `translateY(0) scaleY(1)` : `translateY(-130%) scaleY(0)`
     }); 
 
-	//This runs when you click ADD TO CART
 	function changeSize(sizeId, quantity) {
 		openCart()
 		if (sizeId === "") {
@@ -114,9 +113,10 @@ export default (props) => {
 														setRotate(!rotate);
 														setdropDownMenu(!dropDownMenu);
 													}}
-													className="size__option"
+													// className={item.available ? "size__option" : "size__option2" }
+													className={"size__option"}													
 													key={item.title + i}
-												>{`${item.title}`}</li>	
+												>{`${item.available ? item.title : "" }`}</li>	
 											)
 									})}
 								</a.div>	

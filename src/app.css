@@ -569,6 +569,13 @@ div > .active {
 	color: black;
 }
 
+.size__option2 {
+	z-index: 999;
+	font-size: 2rem;
+	background-color: white;
+	color: red;
+}
+
 .size__option:hover {
 	z-index: 999;
 	font-size: 2rem;

@@ -109,6 +109,7 @@ function checkout() {
 				payload: resp,
 			})
 			localStorage.setItem('state', resp.id)
+			localStorage.setItem('checkout', "null")
 		})
 	}
 }

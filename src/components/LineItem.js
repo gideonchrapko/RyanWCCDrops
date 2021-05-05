@@ -7,7 +7,6 @@ export default (props) => {
 	function decrementQuantity(lineItemId, lineItemQuantity, e) {
 		e.preventDefault()
 		const checkoutId = checkoutState.id
-		console.log(checkoutId)
 		const updatedQuantity = lineItemQuantity - 1
 		updateQuantity(lineItemId, updatedQuantity, checkoutId)
 	}
@@ -48,14 +47,21 @@ export default (props) => {
 								</div>
 								<div className="Line-item__content-row">
 									<div className="Line-item__quantity-container">
-										<button
-											className="Line-item__quantity-update"
-											onClick={(e) =>
-												decrementQuantity(lineItem.id, lineItem.quantity, e)
-											}
-										>
-											-
-										</button>
+									{lineItem.quantity > 1 ?	
+											<button
+												className="Line-item__quantity-update"
+												onClick={(e) =>
+													decrementQuantity(lineItem.id, lineItem.quantity, e)
+												}
+											>
+												-
+											</button>  :
+											<button
+												className="Line-item__quantity-update"
+											>
+												-
+											</button>
+										}
 										<span className="Line-item__quantity">
 											{lineItem.quantity}
 										</span>
