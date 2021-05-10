@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { useShopify } from "../hooks"
-import PurchaseButton from "../images/PurchaseButton.svg"
+// import PurchaseButton from "../images/PurchaseButton.svg"
 
 import { Container } from 'react-bootstrap'
 
@@ -23,9 +23,7 @@ export default (props) => {
 				{products &&
 					// when you map a list of items each item needs to have a key == thats what (product, i) is
 					products.map((product, i) => {
-
 						const image = product.images[0]
-
 						const dynamicImage = () => {
 							const id = product.id
 							if (hover === id) {

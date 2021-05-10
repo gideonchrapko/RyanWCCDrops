@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Link, Element } from "react-scroll"
+// import { Link, Element } from "react-scroll"
 import { Container, Row, Col } from "react-bootstrap"
 
 import Product from "./Product"
@@ -13,17 +13,6 @@ import headerImage from '../images/JBRolls_min.png'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default (props) => {
-
-	const [Class, setClass] = useState()
-
-	const doSomething = () => {
-		setClass(false);
-	  }
-
-	const dontDoSomething = () => {
-		setClass(true);
-	  }
-
   return (
 		<div>
 			<img

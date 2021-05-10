@@ -224,7 +224,7 @@ h3 {
 
 .view__open {
   opacity: 1;
-  transform: translateY(-30px);
+  transform: translateY(0px);
   transition: transform 0.5s, opacity 0.5s ease-in-out;
   background-color: white;
   border-radius: 8px 8px 0px 0px;
@@ -235,6 +235,7 @@ h3 {
 
 .view__closed {
   opacity: 0;
+  transform: translateY(-20px);
 }
 
 hr {

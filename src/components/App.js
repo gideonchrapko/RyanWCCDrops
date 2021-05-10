@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { Route, Switch } from "react-router-dom";
 
 import Products from "./Products"
@@ -7,11 +7,9 @@ import ProductView from "./ProductView"
 import Welcome from './Welcome'
 import Connect from './Connect'
 import pageNotFound from './404'
-
 import Gallery from './Gallery'
 
 import { useShopify } from "../hooks"
-// import { connect } from "react-redux";
 
 export default (props) => {
 	const {
@@ -26,26 +24,22 @@ export default (props) => {
 	useEffect(() => {
 		createShop()
 		fetchProducts()
-
-		function getCheckout() {
+		async function getCheckout() {
 			const existingCheckoutID = localStorage.getItem('state');
-			const checkoutStorage = localStorage.getItem('checkout');
+			const checkoutStorage = await localStorage.getItem('checkout');
 			if (existingCheckoutID && existingCheckoutID !== 'null') {
 				fetchedCheckout()
 				console.log("fetched checkout")
-				if (checkoutStorage && checkoutStorage !== "null") {
-					createCheckout();
-					console.log("create checkout because there isn't a checkout completed time")
-					console.log(checkoutStorage)
+				if (checkoutStorage && existingCheckoutID !== "null") {
+				 	createCheckout();
+					console.log("create checkout because there is a checkout completed time")
 				}
 			} else {
 				createCheckout();
 				console.log("create checkout because there isn't one to fetch")
 			}
 		}
-
 		getCheckout()
-
 	},[])
 
 		return (

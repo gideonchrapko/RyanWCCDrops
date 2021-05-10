@@ -156,6 +156,7 @@ h2 {
 	border-left: 1px solid #e5e5e5;
 	transform: translateX(-100%);
 	transition: transform 0.15s ease-in-out;
+	border-radius: 0px 25px 25px 0px;
 }
 
 .Cart--open {
@@ -573,7 +574,8 @@ div > .active {
 	z-index: 999;
 	font-size: 2rem;
 	background-color: white;
-	color: red;
+	color: #D8D8D8;
+	cursor: not-allowed;
 }
 
 .size__option:hover {

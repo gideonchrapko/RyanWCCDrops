@@ -58,6 +58,17 @@ export default (props) => {
 		}
 	}
 
+	function clickFunction(item, i) {
+		if (item.available) {
+			setSize(item.id.toString());
+			setSizeTitle(item.title);
+			setRotate(!rotate);
+			setdropDownMenu(!dropDownMenu);
+		} else {
+			return
+		}
+	} 
+
 	useEffect(() => {
 		fetchProduct(id)
 	}, [id])
@@ -108,15 +119,11 @@ export default (props) => {
 											return (
 												<li
 													onClick={e => {
-														setSize(item.id.toString());
-														setSizeTitle(item.title);
-														setRotate(!rotate);
-														setdropDownMenu(!dropDownMenu);
+														clickFunction(item, i)
 													}}
-													// className={item.available ? "size__option" : "size__option2" }
-													className={"size__option"}													
+													className={item.available ? "size__option" : "size__option2" }												
 													key={item.title + i}
-												>{`${item.available ? item.title : "" }`}</li>	
+												>{`${item.title}`}</li>	
 											)
 									})}
 								</a.div>	
