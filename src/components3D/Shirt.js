@@ -11,44 +11,37 @@ import { useSpring } from '@react-spring/core';
 import { a } from '@react-spring/three';
 
 export default function Shirt(props) {
-
-  // const [clicked, setClicked] = useState(false);
   const [expand, setExpand] = useState(false);
   const animatedProps = useSpring({
     hovered: expand ? [0.05, 0.05, 0.05] : [0.04, 0.04, 0.04],
   });
-
-  // useEffect(() => {
-  //   if (clicked === false) {
-  //     return 
-  //   } else {
-  //     if (clicked === true) {
-  //       window.appHistory.push("/shop")
-  //     } 
-  //   }
-  //   return () => {setClicked(true)};
-  // },[clicked])
-
   const group = useRef()
   const { nodes, materials } = useGLTF('/Shirt1.glb')
   return (
-    <group ref={group} {...props} dispose={null}>
-      <a.mesh 
-        position={[0, -2, -4.5]}
-        rotation={[Math.PI / 2, 0, 3]}
-        // onPointerDown={() => {setClicked(false)}}
-        // onPointerUp={() => {setClicked(true)}}
+    <a.group 
+      ref={group} 
+      {...props} 
+      dispose={null}
+      onPointerOver={() => setExpand(true)}
+      onPointerOut={() => setExpand(false)}
+      scale={animatedProps.hovered}
+      position={[0, -2, -4.5]}
+      rotation={[Math.PI / 2, 0, 3]}
+    >
+      <mesh 
+        // position={[0, -2, -4.5]}
+        // rotation={[Math.PI / 2, 0, 3]}
         onPointerUp={() => window.appHistory.push("/shop")}
         material={materials.wire_177148027} 
         geometry={nodes.T_Shirt_V2.geometry} 
-        onPointerOver={() => setExpand(true)}
-        onPointerOut={() => setExpand(false)}
-        scale={animatedProps.hovered}
+        // onPointerOver={() => setExpand(true)}
+        // onPointerOut={() => setExpand(false)}
+        // scale={animatedProps.hovered}
       />
-        <Html scaleFactor={5} position={[0, -2.5, -4.5]} >
-          <h1 style={{ color: 'white', opacity: '0.1' }}>Shop</h1>
+        <Html scaleFactor={5} position={[0, -2.5, 5.5]} >
+          <h1 className="threeD__label">Shop</h1>
         </Html>
-    </group>
+    </a.group>
   )
 }
 

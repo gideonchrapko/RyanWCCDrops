@@ -11,51 +11,39 @@ import { a } from '@react-spring/three';
 export default function FrameDraco(props) {
 
   const [expand, setExpand] = useState(false);
-  // const [clicked, setClicked] = useState(false);
-
   const animatedProps = useSpring({
     hovered: expand ? [2, 2, 2] : [1.5, 1.5, 1.5],
   });
-
-  // function RoutePage() {
-  //   window.appHistory.push("/gallery")
-  // }
-
-//creating my own onClick event because normal onClick won't work on mobile
-// useEffect(() => {
-//   if (clicked === false) {
-//     return 
-//   } else {
-//     if (clicked === true) {
-//       return RoutePage()
-//     } 
-//   }
-//   return function cleanup() {
-//     (setClicked(false))
-//   }
-// },[clicked])
 
   const group = useRef();
   const { nodes, materials } = useGLTF('/frame.glb')
 
   return (
-    <group ref={group} {...props}>
-      <a.mesh
+    <a.group 
+      ref={group} 
+      {...props}
+      position={[3.5, -0.5, 1.8]}
+      rotation={[1.67, 0.2, 0.1]}
+      scale={animatedProps.hovered}
+      onPointerOver={() => setExpand(true)}
+      onPointerOut={() => setExpand(false)}
+    >
+      <mesh
         material={materials['initialShadingGroup.001']}
         geometry={nodes.g_PictureFrame001.geometry}
         // onPointerDown={() => {setClicked(false)}}
         // onPointerUp={() => {setClicked(true)}}
         onPointerUp={() => window.appHistory.push("/gallery")}
-        position={[3.5, -0.5, 1.8]}
-        rotation={[1.67, 0.2, 0.1]}
-        scale={animatedProps.hovered}
-        onPointerOver={() => setExpand(true)}
-        onPointerOut={() => setExpand(false)}
+        // position={[3.5, -0.5, 1.8]}
+        // rotation={[1.67, 0.2, 0.1]}
+        // scale={animatedProps.hovered}
+        // onPointerOver={() => setExpand(true)}
+        // onPointerOut={() => setExpand(false)}
       />
-      <Html scaleFactor={5} position={[3.5, -2.3, 1.8]}>
-        <h1 style={{ color: 'white', opacity: '0.1' }}>Gallery</h1>
+      <Html scaleFactor={5} position={[3.5, -1.5, 1.8]}>
+        <h1 className="threeD__label">Gallery</h1>
       </Html>
-    </group>
+    </a.group>
   )
 }
 

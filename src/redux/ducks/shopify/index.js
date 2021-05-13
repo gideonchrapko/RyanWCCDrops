@@ -207,6 +207,7 @@ function handleSetCount(count) {
 	}
 }
 
+
 export function useShopify() {
 	const dispatch = useDispatch()
 	const cartStatus = useSelector((appState) => appState.shopifyState.isCartOpen)

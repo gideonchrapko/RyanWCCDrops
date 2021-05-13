@@ -24,13 +24,14 @@ export default (props) => {
 	useEffect(() => {
 		createShop()
 		fetchProducts()
-		async function getCheckout() {
+
+		 async function getCheckout() {
 			const existingCheckoutID = localStorage.getItem('state');
 			const checkoutStorage = await localStorage.getItem('checkout');
 			if (existingCheckoutID && existingCheckoutID !== 'null') {
 				fetchedCheckout()
 				console.log("fetched checkout")
-				if (checkoutStorage && existingCheckoutID !== "null") {
+				if (checkoutStorage !== "null") {
 				 	createCheckout();
 					console.log("create checkout because there is a checkout completed time")
 				}
@@ -40,6 +41,7 @@ export default (props) => {
 			}
 		}
 		getCheckout()
+
 	},[])
 
 		return (

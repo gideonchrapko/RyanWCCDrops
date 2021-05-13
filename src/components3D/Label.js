@@ -12,25 +12,11 @@ import { a } from '@react-spring/three'
 export default function Model(props) {
   const group = useRef()
   const { nodes, materials } = useGLTF('/Label.glb')
-
-  // const [clicked, setClicked] = useState(false);
   const [expand, setExpand] = useState(false);
-  // React spring expand animation
 
   const animatedProps = useSpring({
     hovered: expand ? [0.5, 0.5, 0.5] : [0.4, 0.4, 0.4],
   });
-
-  // useEffect(() => {
-  //   if (clicked === false) {
-  //     return 
-  //   } else {
-  //     if (clicked === true) {
-  //       window.appHistory.push("/connect")
-  //     } 
-  //   }
-  //   return () => {setClicked(true)};
-  // },[clicked])
 
   return (
     <a.group 
@@ -38,14 +24,11 @@ export default function Model(props) {
       {...props} 
       dispose={null}
       rotation={[Math.PI / -0.8, 1, 0.9]}
-      // onPointerDown={() => {setClicked(false)}}
-      // onPointerUp={() => {setClicked(true)}}
       onPointerUp={() => window.appHistory.push("/connect")}
       position={[-4, -0.5, 2]}
       scale={animatedProps.hovered}
       onPointerOver={() => setExpand(true)}
       onPointerOut={() => setExpand(false)}
-      // rotation={[1.67, 0.2, 0.7]}
       >
       <group position={[0, 0, -0.29]}>
           <group rotation={[-Math.PI / 2, 0, 0]}>
@@ -61,7 +44,7 @@ export default function Model(props) {
           </group>
         </group>
       <Html scaleFactor={5} position={[-0.1, 5.5, 0.3]}>
-        <h1 style={{ color: 'white', opacity: '0.1' }}>Connect</h1>
+        <h1 className="threeD__label">Connect</h1>
       </Html>
     </a.group>
   )
