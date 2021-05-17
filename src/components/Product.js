@@ -16,12 +16,10 @@ export default (props) => {
 			props.history.push(`/Product/${res.id}`)
 		})
 	}
-
 	return (
 		<Container fluid>
 			<div className="Product-wrapper">
 				{products &&
-					// when you map a list of items each item needs to have a key == thats what (product, i) is
 					products.map((product, i) => {
 						const image = product.images[0]
 						const dynamicImage = () => {
@@ -46,7 +44,6 @@ export default (props) => {
 										className="image" 
 						  			/> 
 						  }
-
 						const viewMoreText = () => {
 							const id = product.id
 							if (hover === id) {
@@ -64,7 +61,6 @@ export default (props) => {
 										View
 									</p>
 						}
-
 						const displayPriceOrSoldOut = () => {
 							if (product.availableForSale) {
 							  return <p className="Product__price">${product.variants[0].price}</p>;
@@ -72,7 +68,6 @@ export default (props) => {
 							  return <p className="Product__price">Sold Out</p>;
 							}
 						  }
-
 						return (
 							<div 
 								className="Product" 

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { useShopify } from "../hooks"
 import { a } from '@react-spring/web';
 import { useSpring } from '@react-spring/core';
+import { Row, Col, Container } from 'react-bootstrap'
 
 // import { Link } from 'react-router-dom';
 
@@ -74,7 +75,7 @@ export default (props) => {
 	}, [id])
 
 	return (
-		<div id="individualProduct">
+		<Container fluid id="individualProduct">
 			<img
 				src={Branding}
 				alt="logo"
@@ -83,20 +84,28 @@ export default (props) => {
 			/>
 			<Cart />
 			<MenuRight />
-				<div className="Product-wrapper2">
-					<div className="Images">
+				<Row className="Product-wrapper2">
+					<Col 
+						className="Images"
+						sm={{ span: 12 }}
+						lg={{ span: 6 }}
+						md={{ span: 6 }}
+						>
 						{product.images &&
 							product.images.map((image, i) => {
 								return (
 									<img
+										style={{ width: "90%" }}
 										key={image.id + i}
 										src={image.src}
 										alt={`${product.title} product shot`}
 									/>
 								)
 							})}
-					</div>
-					<div className="Product__info">
+					</Col>
+					<Col 
+						className="Product__info"
+					>
 						<h2 className="Product__title2">{product.title}</h2>
 						<h3 className="Productview__price">
 							${product.variants && product.variants[0].price}
@@ -171,7 +180,6 @@ export default (props) => {
 									>
 										Sold Out
 								</button>
-								
 							}
 							<div className="Product__description">
 							{description &&
@@ -179,8 +187,8 @@ export default (props) => {
 									return <li key={`line-description +${i}`}>{each}</li>
 								})}
 						</div>
-					</div>
-				</div>
-		</div>
+					</Col>
+				</Row>
+		</Container>
 	)
 }

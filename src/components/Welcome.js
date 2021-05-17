@@ -92,7 +92,10 @@ const knobStyle = {
 
     return (
       <animated.div style={props}>
-            <div style={divStyle}>
+            <div 
+              style={divStyle}
+              alt="Upward Arrow"
+            >
                 <div // Background
                    style={backgroundStyle}
                 >
