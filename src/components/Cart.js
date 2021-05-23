@@ -33,8 +33,6 @@ export default (props) => {
 		localStorage.setItem('checkout', checkoutState.completedAt)
 	}
 
-	console.log(checkoutState)
-
 	useEffect(() => {
 		const button = document.querySelector("button.App__view-cart")
 		if (cartStatus === true) {

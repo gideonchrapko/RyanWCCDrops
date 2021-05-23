@@ -28,6 +28,7 @@ const initialState = {
 	featured: [],
 	product: {},
 	shop: {},
+	customer: {},
 }
 
 //reducers

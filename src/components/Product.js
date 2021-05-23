@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { useShopify } from "../hooks"
 // import PurchaseButton from "../images/PurchaseButton.svg"
 
-import { Container } from 'react-bootstrap'
+import { Container, Col, Row } from 'react-bootstrap'
 
 export default (props) => {
 	const { products, fetchProduct } = useShopify()
@@ -18,6 +18,25 @@ export default (props) => {
 	}
 	return (
 		<Container fluid>
+			{/* <Row>
+                <Col 
+                    style={{ 
+						top: "0",
+                        position: "fixed",
+                        mixBlendMode: "exclusion"
+                    }}
+                    xs={{ span: 6, offset: 3 }}
+                    lg={{ span: 3, offset: 4 }}
+                >
+                <img 
+                    alt="Connect Page"
+                    src={NeonLogo}
+                    style={{
+                        width: "100%"
+                    }}
+                />
+                </Col>
+            </Row> */}
 			<div className="Product-wrapper">
 				{products &&
 					products.map((product, i) => {

@@ -95,7 +95,7 @@ export default (props) => {
 							product.images.map((image, i) => {
 								return (
 									<img
-										style={{ width: "90%" }}
+										className='Product_Image'
 										key={image.id + i}
 										src={image.src}
 										alt={`${product.title} product shot`}

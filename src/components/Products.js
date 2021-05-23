@@ -7,8 +7,9 @@ import Cart from './Cart'
 import MenuRight from './Menu'
 
 import Branding from '../images/wccMin.png'
-import arrowDown from '../images/arrowDown.svg'
+import arrowDown from '../images/arrowDown.png'
 import headerImage from '../images/JBRolls_min.png'
+import NeonLogo from '../images/neon_shop-min.png'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -24,6 +25,23 @@ export default (props) => {
 			<MenuRight />
 			<Cart />
 			<Container fluid style={{ width: "100vw" }}>
+			<Row className="headerGradient">
+                <Col 
+                    xs={{ span: 6, offset: 3 }}
+                    lg={{ span: 2, offset: 5 }}
+                >
+                <img 
+                    alt="Connect Page Text"
+                    src={NeonLogo}
+                    style={{
+                        width: "100%",
+                        mixBlendMode: "exclusion",
+                        top: "0"
+                    }}
+
+                />
+                </Col>
+            	</Row>
 				<Row>
 					<Col lg={12}>
 						<img
@@ -50,7 +68,6 @@ export default (props) => {
 						<img 
 							style={{ 
 								position: "relative", 
-								opacity: "0.6", 
 								height: "12vh",
 								display: "inline-block",
 								marginTop: "-10px",
