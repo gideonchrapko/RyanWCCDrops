@@ -63,8 +63,7 @@ const list = [{
             {
                 item: 'https://i.ibb.co/9cZ5yLr/Asset-6-1-300x.png', 
                 link: '2018'
-            }
-        ]
+            }]
 
 const l = list.length
 const calc = (x, y) => [-(y - window.innerHeight / 2) / 90, (x - window.innerWidth / 2) / 90, 1.01]

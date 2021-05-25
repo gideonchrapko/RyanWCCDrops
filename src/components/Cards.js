@@ -39,22 +39,30 @@ function Cards() {
   return props.map(({ x, y, rot, scale }, i) => (
     <div>
       <animated.div key={i} style={{ transform: interpolate([x, y], (x, y) => `translate3d(${x}px,${y}px,0)`) }} className="cardContainer">
-        <Card {...bind(i)} style={{ transform: interpolate([rot, scale], trans), backgroundImage: `url(${cards[i]})` }} className="card"/>
+        <Card {...bind(i)} style={{ transform: interpolate([rot, scale], trans), backgroundImage: `url(${cards[i]})` }} />
       </animated.div>
     </div>
   ))
 }
 
 const Card = styled(animated.div)`
-  background-color: black;
-  background-size: auto 100%;
-  background-repeat: no-repeat;
-  background-position: center center;
-  height: 200px;
+width: 40%;
+height: 40%;
+background-size: 100%;
+background-position: center;
+background-repeat: no-repeat;
   will-change: transform;
-  border-radius: 15px;
+  border-radius: 10px;
+  box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4), 0 10px 10px -10px rgba(50, 50, 73, 0.3);
 `
-// box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4), 0 10px 10px -10px rgba(50, 50, 73, 0.3);
-  // width: 90%;
 
 export default Cards
+
+// background-color: white;
+// background-size: contain;
+// background-repeat: no-repeat;
+// background-position: center center;
+// width: 100%;
+// max-width: 300px;
+// height: 100%;
+// max-height: 300px;
