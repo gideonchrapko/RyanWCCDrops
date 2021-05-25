@@ -40,23 +40,41 @@ function Cards() {
     <div>
       <animated.div key={i} style={{ transform: interpolate([x, y], (x, y) => `translate3d(${x}px,${y}px,0)`) }} className="cardContainer">
         <Card {...bind(i)} style={{ transform: interpolate([rot, scale], trans), backgroundImage: `url(${cards[i]})` }} />
+        {/* <animated.img {...bind(i)} style={{ transform: interpolate([rot, scale], trans)}} src={cards[i]} />  */}
       </animated.div>
     </div>
   ))
 }
 
 const Card = styled(animated.div)`
-width: 40%;
-height: 40%;
-background-size: 100%;
-background-position: center;
+background-color: white;
+background-size: auto 100%;
 background-repeat: no-repeat;
+background-position: center center;
+width: 57vh;
+
+height: 46vh;
+
   will-change: transform;
   border-radius: 10px;
   box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4), 0 10px 10px -10px rgba(50, 50, 73, 0.3);
 `
 
 export default Cards
+// background-color: white;
+// background-size: contain;
+// background-repeat: no-repeat;
+// background-position: center center;
+// width: 100%;
+// max-width: 500px;
+// height: 48%;
+// max-height: 700px;
+
+
+// width: 40%;
+// height: 40%;
+// background-size: 100%;
+// background-position: center;
 
 // background-color: white;
 // background-size: contain;

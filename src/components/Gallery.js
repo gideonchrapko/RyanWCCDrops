@@ -31,7 +31,6 @@ const Gallery = () => {
                         mixBlendMode: "exclusion",
                         top: "0"
                     }}
-
                 />
                 </Col>
             </Row>
