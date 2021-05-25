@@ -212,8 +212,8 @@ h3 {
   height: 65vh;
   top: 12vw;
   font-family: futura-pt, sans-serif;
-	font-weight: 100;
-	font-style: normal;
+  font-weight: 300;
+  font-style: normal;
 	font-size: 6vw;
   line-height: 6vw;
   padding-left: 6vw;
@@ -228,33 +228,19 @@ h3 {
 	font-style: normal;
 	font-size: 6vw;
   line-height: 7vw;
-  /* padding-left: 6vw;
-  padding-top: 4vh; */
   left: 25%
 }
 
-/* .LogoArray{
-  position: relative;
-  height: 65vh;
-  padding-left: 20vw;
-  margin-top: 20vh;
-} */
 
 .logoCircleTransition {
   top: 20vh;
   height: 65vh;
-  /* padding-left: 20vw; */
-  /* margin-top: 20vh; */
-  transition: all 0.6s ease-in-out;
-  background: "red";
+  transition: all 0.4s ease-in-out;
 }
 
 .logoCircleTransition:hover {
-  background: "red";
   top: 20vh;
   height: 65vh;
-  /* padding-left: 20vw; */
-  /* margin-top: 20vh; */
   transform: scale(1.5);
 }
 

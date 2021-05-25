@@ -12,69 +12,56 @@ import arrowDown from '../images/arrowDown.png'
 import NeonLogo from '../images/neon_untitled-min.png'
 import MessageRyan from '../images/RyanMessage.png'
 
-// const items = [
-//     'https://plchldr.co/i/250x250?bg=FF3FFF',
-//     'https://plchldr.co/i/250x250?bg=791F1F',
-//     'https://plchldr.co/i/250x250?bg=791F76',
-//     'https://plchldr.co/i/250x250?bg=34791F',
-//     'https://plchldr.co/i/250x250?bg=79641F',
-//     'https://plchldr.co/i/250x250?bg=C5BF6F',
-//     'https://plchldr.co/i/250x250?bg=8D391E',
-//     'https://plchldr.co/i/250x250?bg=cbb2ca',
-//     'https://plchldr.co/i/250x250?bg=C5BF6F',
-//     'https://plchldr.co/i/250x250?bg=8D391E',
-// ];
-
 const list = [{ 
-                item: 'https://plchldr.co/i/250x250?bg=111111', 
-                link:'1991'
+                item: 'https://i.ibb.co/x5X5z60/Asset-7-1-300x.png', 
+                link: '1991'
 
             }, 
             {
-                item: 'https://plchldr.co/i/250x250?bg=791F1F', 
+                item: 'https://i.ibb.co/KzShq7v/Asset-8-300x.png', 
                 link: '1992'
 
             },
             {
-                item: 'https://plchldr.co/i/250x250?bg=791F76', 
+                item: 'https://i.ibb.co/G7X7WxN/Asset-9-300x.png', 
                 link: '1993'
 
             },
             {
-                item: 'https://plchldr.co/i/250x250?bg=34791F', 
+                item: 'https://i.ibb.co/QCm00nt/Asset-10-300x.png', 
                 link: '1996'
 
             },
             {
-                item: 'https://plchldr.co/i/250x250?bg=34791F', 
+                item: 'https://i.ibb.co/MMJRmsS/Asset-11-300x.png', 
                 link: '1990'
 
             },
             {
-                item: 'https://plchldr.co/i/250x250?bg=34791F',
+                item: 'https://i.ibb.co/Ct8zLwt/Asset-12-300x.png',
                 link: '2001'
 
             },
             {
-                item: 'https://plchldr.co/i/250x250?bg=34791F', 
+                item: 'https://i.ibb.co/1dj9XvP/Asset-13-300x.png', 
                 link: '2003'
   
             },
             {
-                item: 'https://plchldr.co/i/250x250?bg=C5BF6F', 
+                item: 'https://i.ibb.co/WFs0qkV/Asset-14-300x.png', 
                 link: '2004'
 
             },
             {
-                item: 'https://plchldr.co/i/250x250?bg=C5BF6F', 
+                item: 'https://i.ibb.co/Cz0xHRd/Asset4-1-300x.png', 
                 link: '2007'
             },
             {
-                item: 'https://plchldr.co/i/250x250?bg=C5BF6F', 
+                item: 'https://i.ibb.co/YTHn9GY/Asset-5-1-300x.png', 
                 link: '2008'
             },
             {
-                item: 'https://plchldr.co/i/250x250?bg=C5BF6F', 
+                item: 'https://i.ibb.co/9cZ5yLr/Asset-6-1-300x.png', 
                 link: '2018'
             }
         ]
@@ -186,7 +173,10 @@ const Connect = () => {
                                                 marginTop: `${top}px`,
                                                 marginLeft: `${left}px`,
                                                 position: "absolute",
-                                                height: "20%",
+                                                height: "17%",
+                                                maxWidth: "25%",
+                                                width: "auto"
+                                                // maxHeight: "45"
                                             }}
                                             onPointerOver={() => setYearValue(list.link)}
                                             className="logoCircleTransition"
@@ -213,6 +203,17 @@ const Connect = () => {
                         >
                             {yearValue}
                         </div>
+                        <img 
+                            style={{
+                                position: "absolute",
+                                top: "10vh",
+                                height: "30vh",
+
+                            }}
+                            className="logoCircleTransition"
+                            onPointerOver={() => setYearValue("2018")}
+                            src="https://i.ibb.co/MNW4ht3/Asset-15-300x.png"
+                        />
                 </Col>
              </Row>
              <Row className="child">
