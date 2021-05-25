@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 // import { Link, Element } from "react-scroll"
 import { Container, Row, Col } from "react-bootstrap"
 
@@ -38,7 +38,6 @@ export default (props) => {
                         mixBlendMode: "exclusion",
                         top: "0"
                     }}
-
                 />
                 </Col>
             	</Row>

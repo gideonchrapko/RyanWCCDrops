@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSpring } from "@react-spring/core";
-
+import { useSpring, animated } from 'react-spring'
 
 import MenuRight from './Menu';
 import Cart from './Cart'
@@ -13,27 +12,80 @@ import arrowDown from '../images/arrowDown.png'
 import NeonLogo from '../images/neon_untitled-min.png'
 import MessageRyan from '../images/RyanMessage.png'
 
-const items = [
-    "https://plchldr.co/i/500x250?bg=111111",
-    "https://plchldr.co/i/500x250?bg=791F1F",
-    "https://plchldr.co/i/500x250?bg=791F76",
-    "https://plchldr.co/i/500x250?bg=34791F",
-    "https://plchldr.co/i/500x250?bg=79641F",
-    "https://plchldr.co/i/500x250?bg=C5BF6F",
-    "https://plchldr.co/i/500x250?bg=8D391E",
-    "https://plchldr.co/i/500x250?bg=cbb2ca",
-];
+// const items = [
+//     'https://plchldr.co/i/250x250?bg=FF3FFF',
+//     'https://plchldr.co/i/250x250?bg=791F1F',
+//     'https://plchldr.co/i/250x250?bg=791F76',
+//     'https://plchldr.co/i/250x250?bg=34791F',
+//     'https://plchldr.co/i/250x250?bg=79641F',
+//     'https://plchldr.co/i/250x250?bg=C5BF6F',
+//     'https://plchldr.co/i/250x250?bg=8D391E',
+//     'https://plchldr.co/i/250x250?bg=cbb2ca',
+//     'https://plchldr.co/i/250x250?bg=C5BF6F',
+//     'https://plchldr.co/i/250x250?bg=8D391E',
+// ];
 
-// const styleMedia = () {
-//     items[i] = (50 + 35*Math.sin(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%"
-// }
+const list = [{ 
+                item: 'https://plchldr.co/i/250x250?bg=111111', 
+                link:'1991'
+
+            }, 
+            {
+                item: 'https://plchldr.co/i/250x250?bg=791F1F', 
+                link: '1992'
+
+            },
+            {
+                item: 'https://plchldr.co/i/250x250?bg=791F76', 
+                link: '1993'
+
+            },
+            {
+                item: 'https://plchldr.co/i/250x250?bg=34791F', 
+                link: '1996'
+
+            },
+            {
+                item: 'https://plchldr.co/i/250x250?bg=34791F', 
+                link: '1990'
+
+            },
+            {
+                item: 'https://plchldr.co/i/250x250?bg=34791F',
+                link: '2001'
+
+            },
+            {
+                item: 'https://plchldr.co/i/250x250?bg=34791F', 
+                link: '2003'
+  
+            },
+            {
+                item: 'https://plchldr.co/i/250x250?bg=C5BF6F', 
+                link: '2004'
+
+            },
+            {
+                item: 'https://plchldr.co/i/250x250?bg=C5BF6F', 
+                link: '2007'
+            },
+            {
+                item: 'https://plchldr.co/i/250x250?bg=C5BF6F', 
+                link: '2008'
+            },
+            {
+                item: 'https://plchldr.co/i/250x250?bg=C5BF6F', 
+                link: '2018'
+            }
+        ]
+
+const l = list.length
+const calc = (x, y) => [-(y - window.innerHeight / 2) / 90, (x - window.innerWidth / 2) / 90, 1.01]
+const trans = (x, y, s) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
 
 const Connect = () => {
-    const [rightMenuVisible, setRightMenuVisible] = useState(false);
-    const rightMenuAnimation = useSpring({
-      opacity: rightMenuVisible ? 1 : 0,
-      transform: rightMenuVisible ? `translateX(0)` : `translateX(100%)`
-    });
+    const [props, set] = useSpring(() => ({ xys: [0, 0, 1], config: { mass: 5, tension: 350, friction: 40 } }))
+    const [yearValue, setYearValue] = useState("")
 
     const Header_ImageConnect = {
         position: "fixed",
@@ -60,16 +112,16 @@ const Connect = () => {
                 className="branding"
                 onClick={() => window.appHistory.push("/Home")}
             />
-            <MenuRight style={rightMenuAnimation}/>
+            <MenuRight/>
             <Cart />
             <div style={Header_ImageConnect}>
             </div>
             <img 
 				style={{ 
 					position: "fixed", 
-					height: "12vh",
+					height: "15vh",
 					marginTop: "75vh",
-                    marginLeft: "80vw",
+                    marginLeft: "70vw",
 					padding: "5px",
 			}}
 				src={arrowDown}
@@ -98,7 +150,7 @@ const Connect = () => {
                     xs={{ span: 7, offset: 2 }}
                     lg={{ span: 1, offset: 1 }}
                  >
-                     About
+                    About
                  </Col>
                  <Col
                     className="AboutText"
@@ -118,32 +170,49 @@ const Connect = () => {
                     Logo Timeline
                 </Col>
                 <Col
-                    className="AboutText"
-                    sm={{ span: 10, offset: 2 }}
-                    lg={{ span: 8, offset: 0 }}
+                    className="LogoEvolutionDiv"
+                    sm={{ span: 5, offset: 2 }}
+                    lg={{ span: 5, offset: 0 }}
                 >
-                    {items &&
-                        items.map((items, index) => {
-                                const l = items.length
-                                console.log(l)
-                                // const Top = 10 * Math.sin(Math.PI * 2 * (l- 0.125));
-                                // const Left = 10 * Math.cos(Math.PI * 2 * (l - 0.125));
-                                const Top = Math.sin(2 * Math.PI / index * 8) * 100
-                                const Left = Math.cos(2 * Math.PI / index * 8) * 100
+                    {
+                        list.map((list, index) => {
+                                const top = 175 * Math.sin(2 * Math.PI * (index / l))
+                                const left = 175 * Math.cos(2 * Math.PI * (index / l))
+                                // const radius = 
                             return (
-                                <img
-                                    style={{
-                                        top: `${Top}px`,
-                                        left: `${Left}px`,
-                                        position: "absolute",
-                                        height: "10%"
-                                    }}
-                                    index={index}
-                                    key={items+1}
-                                    src={items}
-                                />
+                                    <div>
+                                        <img
+                                            style={{
+                                                marginTop: `${top}px`,
+                                                marginLeft: `${left}px`,
+                                                position: "absolute",
+                                                height: "20%",
+                                            }}
+                                            onPointerOver={() => setYearValue(list.link)}
+                                            className="logoCircleTransition"
+                                            index={index}
+                                            key={list.year}
+                                            src={list.item}
+                                        />
+                                    </div>
                             )
                         })}
+                        <div style={{ 
+                                marginTop: "25%", 
+                                marginLeft: "-78%", 
+                                textAlign: "center" , 
+                                alignItems: "center", 
+                                fontFamily: "neuzon,sans-serif",
+                                fontWeight: "400",
+                                fontStyle: "normal",
+                                fontSize: "18rem",
+                                opacity: "0.5",
+                                position: "relative",
+                                zIndex: "-9"
+                                }}
+                        >
+                            {yearValue}
+                        </div>
                 </Col>
              </Row>
              <Row className="child">
@@ -158,15 +227,13 @@ const Connect = () => {
                     xs={{ span: 10, offset: 1  }}
                     lg={{ span: 6, offset: 1 }}
                 >
-                <img 
-                    src={MessageRyan}
-                    style={{
-                        width: "100%",
-                        top: "9vw",
-                        position: "relative",
-                        rotate: "3deg"
-                    }}
-                />
+                <animated.img 
+                        src={MessageRyan}
+                        className="RyansLetter"
+                        onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
+                        onMouseLeave={() => set({ xys: [0, 0, 1] })}
+                        style={{ transform: props.xys.interpolate(trans) }}
+                    />
                  </Col>
              </Row>
              <Row className="child">
@@ -178,8 +245,6 @@ const Connect = () => {
                     Newsletter SignUp
                 </Col>
                 <Col
-                    // className="AboutText"
-                    // style={{ backgroundColor: "red"}}
                     xs={{ span: 8, offset: 2 }}
                     lg={{ span: 7, offset: 1 }}
                  >

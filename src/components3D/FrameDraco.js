@@ -31,16 +31,9 @@ export default function FrameDraco(props) {
       <mesh
         material={materials['initialShadingGroup.001']}
         geometry={nodes.g_PictureFrame001.geometry}
-        // onPointerDown={() => {setClicked(false)}}
-        // onPointerUp={() => {setClicked(true)}}
         onPointerUp={() => window.appHistory.push("/gallery")}
-        // position={[3.5, -0.5, 1.8]}
-        // rotation={[1.67, 0.2, 0.1]}
-        // scale={animatedProps.hovered}
-        // onPointerOver={() => setExpand(true)}
-        // onPointerOut={() => setExpand(false)}
       />
-      <Html scaleFactor={5} position={[3.5, -1.5, 1.8]}>
+      <Html scaleFactor={5} position={[0, -1, 1.8]}>
         <h1 className="threeD__label">Gallery</h1>
       </Html>
     </a.group>

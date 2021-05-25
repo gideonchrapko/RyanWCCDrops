@@ -4,8 +4,6 @@ import { Canvas } from 'react-three-fiber';
 import { PerspectiveCamera, Html } from 'drei';
 // import { useShopify } from "../hooks"
 
-// import { animated } from 'react-spring/renderprops'
-
 import Controls from '../components3D/Controls'
 import Lights from '../components3D/Lights'
 import Environment from '../components3D/Environment'
@@ -21,16 +19,12 @@ import Left from '../images/arrowLeft.png';
 import Right from '../images/arrowRight.png';
 
 const Home = (props) => {
-
 	// const { shopDetails } = useShopify();
-
 	const [rotation, setRotation] = useState([0, 2, 0])
-
 	const handleClickLeft = () => {
 		rotation[1] += 2.1;
 		setRotation([...rotation]);
 	  };
-
 	  const handleClickRight = () => {
 		rotation[1] -= 2.1;
 		setRotation([...rotation]);

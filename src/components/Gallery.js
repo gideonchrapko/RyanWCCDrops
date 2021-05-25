@@ -1,10 +1,12 @@
 import React from 'react'
+import { Row, Col } from 'react-bootstrap'
 
 import Cards from './Cards'
 import MenuRight from './Menu'
 import Cart from './Cart'
 
 import Branding from '../images/wccMin.png';
+import NeonLogo from '../images/neon_gallery-min.png'
 
 const Gallery = () => {
     return (
@@ -16,13 +18,23 @@ const Gallery = () => {
                     onClick={() => window.appHistory.push("/Home")}
                 />
             </div>
-            <div>
+            <Row className="headerGradient">
+                <Col 
+                    xs={{ span: 6, offset: 3 }}
+                    lg={{ span: 2, offset: 5 }}
+                >
                 <img 
-                    src={'https://i.ibb.co/vZqYvsx/Shopgallery-Image-copy.png'} 
-                    alt="gallery text" 
-                    className="headerImage" 
+                    alt="Connect Page Text"
+                    src={NeonLogo}
+                    style={{
+                        width: "100%",
+                        mixBlendMode: "exclusion",
+                        top: "0"
+                    }}
+
                 />
-            </div>
+                </Col>
+            </Row>
             <MenuRight />
 			<Cart />
             <Cards />
