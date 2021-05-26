@@ -88,10 +88,11 @@ h3 {
 
 .branding {
   position: fixed;
-  padding: 1%;
+  /* padding: 2%; */
   z-index: 11;
-  top: 15px;
-  height: 10vw;
+  top: 3vh;
+  left: 3vh;
+  height: 5vw;
   min-height: 75px;
   cursor: pointer;
 }
