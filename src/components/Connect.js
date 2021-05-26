@@ -159,37 +159,40 @@ const Connect = () => {
                 </Col>
                 <Col
                     className="LogoEvolutionDiv"
-                    xs={{ span: 10, offset: 0 }}
+                    xs={{ span: 12, offset: 0 }}
                     lg={{ span: 8, offset: 0 }}
-                    style={{ background: "blue"}}
+
                 >
-                <div style={{ }}>
+                <div style={{  
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        verticalAlign: "middle",
+                        marginTop: "25vh",
+                    }}
+                >
                     {
                         list.map((list, index) => {
-                                const radius = window.innerHeight / 4
+                                const radius = window.innerWidth / 3.5
                                 const top = radius * Math.sin(2 * Math.PI * (index / l))
                                 const left = radius * Math.cos(2 * Math.PI * (index / l))
                                 // const radius = 
                             return (
-                                    <div style={{ backgroundColor: "red" }}>
                                         <img
                                             style={{
-                                                // left: "50%",
                                                 marginTop: `${top}px`,
                                                 marginLeft: `${left}px`,
-                                                position: "absolute",
-                                                height: "17%",
-                                                maxWidth: "25%",
-                                                width: "auto",
-                                                // maxHeight: "45"
                                             }}
                                             onPointerOver={() => setYearValue(list.link)}
                                             className="logoCircleTransition"
                                             index={index}
                                             key={list.year}
                                             src={list.item}
+                                            onClick={() => {
+                                                console.log(top)
+                                                console.log(left)
+                                            }}
                                         />
-                                    </div>
                             )
                         })}
                     </div>
