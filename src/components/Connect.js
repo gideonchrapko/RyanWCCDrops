@@ -163,21 +163,18 @@ const Connect = () => {
                     lg={{ span: 8, offset: 0 }}
                     style={{ background: "blue"}}
                 >
-                <div style={{ 
-
-                }}
-                >
+                <div style={{ }}>
                     {
                         list.map((list, index) => {
-                                
-                                const top = 175 * Math.sin(2 * Math.PI * (index / l))
-                                const left = 175 * Math.cos(2 * Math.PI * (index / l))
+                                const radius = window.innerHeight / 4
+                                const top = radius * Math.sin(2 * Math.PI * (index / l))
+                                const left = radius * Math.cos(2 * Math.PI * (index / l))
                                 // const radius = 
                             return (
-                                    <div>
+                                    <div style={{ backgroundColor: "red" }}>
                                         <img
                                             style={{
-                                                left: "50%",
+                                                // left: "50%",
                                                 marginTop: `${top}px`,
                                                 marginLeft: `${left}px`,
                                                 position: "absolute",
