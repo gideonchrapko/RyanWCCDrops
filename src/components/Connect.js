@@ -130,7 +130,8 @@ const Connect = () => {
                 />
                 </Col>
             </Row>
-            <Row className="child"> 
+            <Row className="child"
+            > 
                  <Col
                     className="headerText"
                     xs={{ span: 7, offset: 2 }}
@@ -152,16 +153,23 @@ const Connect = () => {
                     className="headerText"
                     sm={{ span: 10, offset: 2 }}
                     lg={{ span: 1, offset: 1 }}
+                    style={{ background: "brown" }}
                 >
                     Logo Timeline
                 </Col>
                 <Col
                     className="LogoEvolutionDiv"
-                    sm={{ span: 5, offset: 2 }}
-                    lg={{ span: 5, offset: 0 }}
+                    xs={{ span: 10, offset: 0 }}
+                    lg={{ span: 8, offset: 0 }}
+                    style={{ background: "blue"}}
+                >
+                <div style={{ 
+
+                }}
                 >
                     {
                         list.map((list, index) => {
+                                
                                 const top = 175 * Math.sin(2 * Math.PI * (index / l))
                                 const left = 175 * Math.cos(2 * Math.PI * (index / l))
                                 // const radius = 
@@ -169,12 +177,13 @@ const Connect = () => {
                                     <div>
                                         <img
                                             style={{
+                                                left: "50%",
                                                 marginTop: `${top}px`,
                                                 marginLeft: `${left}px`,
                                                 position: "absolute",
                                                 height: "17%",
                                                 maxWidth: "25%",
-                                                width: "auto"
+                                                width: "auto",
                                                 // maxHeight: "45"
                                             }}
                                             onPointerOver={() => setYearValue(list.link)}
@@ -186,18 +195,21 @@ const Connect = () => {
                                     </div>
                             )
                         })}
-                        <div style={{ 
+                    </div>
+                        {/* <div style={{ 
                                 marginTop: "25%", 
-                                marginLeft: "-78%", 
+                                marginLeft: "0%", 
                                 textAlign: "center" , 
                                 alignItems: "center", 
                                 fontFamily: "neuzon,sans-serif",
                                 fontWeight: "400",
                                 fontStyle: "normal",
-                                fontSize: "18rem",
+                                fontSize: "18vw",
                                 opacity: "0.5",
                                 position: "relative",
-                                zIndex: "-9"
+                                zIndex: "-9",
+                                background: "green",
+                                width: "67vw",
                                 }}
                         >
                             {yearValue}
@@ -207,15 +219,15 @@ const Connect = () => {
                                 position: "absolute",
                                 top: "10vh",
                                 height: "30vh",
-
                             }}
+                            // alt="`${year}`"
                             className="logoCircleTransition"
                             onPointerOver={() => setYearValue("2018")}
                             src="https://i.ibb.co/MNW4ht3/Asset-15-300x.png"
-                        />
+                        /> */}
                 </Col>
              </Row>
-             <Row className="child">
+             <Row className="child" >
                 <Col
                     className="headerText"
                     xs={{ span: 7, offset: 2 }}

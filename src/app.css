@@ -67,13 +67,14 @@ h2 {
 }
 
 .App__view-cart {
-	height: 3vh;
-    top: 36px;
+	/* height: 2.6vh; */
+    top: 2vh;
+	font-size: 3vh;
     outline: none;
     z-index: 40; 
     border: none; 
     position: fixed;
-    right: 90px; 
+    right: 5%; 
     cursor: pointer; 
 	background: none;
 	color: white;

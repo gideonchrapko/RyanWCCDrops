@@ -59,7 +59,7 @@ export default (props) => {
 		<div>
 			<div className="App__view-cart-wrapper2">
 				<button src={Open} onClick={(e) => { cartStatus ? handleClose(e) : handleOpen(e) }} className="App__view-cart" >
-					<MdShoppingCart style={{ fontSize: "4vh" }}/>
+					<MdShoppingCart />
 				</button> 
 			</div>
 			<div id="cart">

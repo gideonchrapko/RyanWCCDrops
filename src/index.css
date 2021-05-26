@@ -88,10 +88,11 @@ h3 {
 
 .branding {
   position: fixed;
-  padding: 15px;
+  padding: 1%;
   z-index: 11;
   top: 15px;
-  height: 20%;
+  height: 10vw;
+  min-height: 75px;
   cursor: pointer;
 }
 
@@ -221,6 +222,7 @@ h3 {
 }
 
 .LogoEvolutionDiv {
+  background: yellow;
   height: 65vh;
   top: 12vw;
   font-family: futura-pt, sans-serif;
@@ -228,7 +230,7 @@ h3 {
 	font-style: normal;
 	font-size: 6vw;
   line-height: 7vw;
-  left: 25%
+  /* left: 25% */
 }
 
 
