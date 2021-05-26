@@ -136,6 +136,7 @@ const Connect = () => {
                     className="headerText"
                     xs={{ span: 7, offset: 2 }}
                     lg={{ span: 1, offset: 1 }}
+                    style={{ height: "20vh" }}
                  >
                     About
                  </Col>
@@ -153,7 +154,6 @@ const Connect = () => {
                     className="headerText"
                     sm={{ span: 10, offset: 2 }}
                     lg={{ span: 1, offset: 1 }}
-                    style={{ background: "brown" }}
                 >
                     Logo Timeline
                 </Col>
@@ -168,12 +168,12 @@ const Connect = () => {
                         justifyContent: "center",
                         alignItems: "center",
                         verticalAlign: "middle",
-                        marginTop: "25vh",
+                        marginTop: "26vh",
                     }}
                 >
                     {
                         list.map((list, index) => {
-                                const radius = window.innerWidth / 3.5
+                                const radius = window.innerWidth / 3.3
                                 const top = radius * Math.sin(2 * Math.PI * (index / l))
                                 const left = radius * Math.cos(2 * Math.PI * (index / l))
                                 // const radius = 
@@ -183,48 +183,27 @@ const Connect = () => {
                                                 marginTop: `${top}px`,
                                                 marginLeft: `${left}px`,
                                             }}
+                                            alt={`${list.link} Logo`}
                                             onPointerOver={() => setYearValue(list.link)}
                                             className="logoCircleTransition"
                                             index={index}
-                                            key={list.year}
+                                            key={list.link}
                                             src={list.item}
-                                            onClick={() => {
-                                                console.log(top)
-                                                console.log(left)
-                                            }}
                                         />
                             )
                         })}
-                    </div>
-                        {/* <div style={{ 
-                                marginTop: "25%", 
-                                marginLeft: "0%", 
-                                textAlign: "center" , 
-                                alignItems: "center", 
-                                fontFamily: "neuzon,sans-serif",
-                                fontWeight: "400",
-                                fontStyle: "normal",
-                                fontSize: "18vw",
-                                opacity: "0.5",
-                                position: "relative",
-                                zIndex: "-9",
-                                background: "green",
-                                width: "67vw",
-                                }}
-                        >
-                            {yearValue}
-                        </div>
+                        <div className="yearValue">{yearValue}</div>
                         <img 
                             style={{
                                 position: "absolute",
-                                top: "10vh",
-                                height: "30vh",
+                                height: "15rem",
                             }}
-                            // alt="`${year}`"
-                            className="logoCircleTransition"
+                            // className="logoCircleTransition"
                             onPointerOver={() => setYearValue("2018")}
+                            alt="2018 logo"
                             src="https://i.ibb.co/MNW4ht3/Asset-15-300x.png"
-                        /> */}
+                        />
+                    </div>
                 </Col>
              </Row>
              <Row className="child" >

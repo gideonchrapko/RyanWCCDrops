@@ -195,12 +195,10 @@ h3 {
 }
 
 .headerText {
-  /* height: 65vh; */
   top: 17.5vh;
-  /* height: 60vh; */
   padding-left: 6vh;
   padding-top: 2vw;
-
+height: 1vh;
   font-family: neuzon,sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -226,12 +224,10 @@ h3 {
   top: 12vw;
 }
 
-
 .logoCircleTransition {
   margin-top: 50%;
   position: absolute;
-  height: 10%;
-  /* max-width: 25%; */
+  height: 6.5rem;
   width: auto;
   transition: all 0.4s ease-in-out;
 }
@@ -239,10 +235,19 @@ h3 {
 .logoCircleTransition:hover {
   margin-top: 50%;
   position: absolute;
-  height: 10%;
-  /* max-width: 25%; */
+  height: 6.5rem;
   width: auto;
   transform: scale(1.5);
+}
+
+.yearValue {
+  font-family: neuzon,sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 17vh;
+  opacity: 0.5;
+  position: absolute;
+  z-index: -9;
 }
 
 .cardSection {
