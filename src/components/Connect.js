@@ -116,6 +116,8 @@ const Connect = () => {
             <Row className="headerGradient">
                 <Col 
                     xs={{ span: 6, offset: 3 }}
+					sm={{ span: 4, offset: 4 }}
+					md={{ span: 2, offset: 5 }}
                     lg={{ span: 2, offset: 5 }}
                 >
                 <img 

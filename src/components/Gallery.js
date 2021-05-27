@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Col } from 'react-bootstrap'
+import { Row, Col, Container } from 'react-bootstrap'
 
 import Cards from './Cards'
 import MenuRight from './Menu'
@@ -8,9 +8,24 @@ import Cart from './Cart'
 import Branding from '../images/wccMin.png';
 import NeonLogo from '../images/neon_gallery-min.png'
 
+const Header_ImageConnect = {
+    position: "fixed",
+    marginTop: "100px",
+    borderRadius: "25px",
+    height: "65vh",
+    width: "75vw", 
+    marginLeft: "-37.5vw",
+    marginTop: "-32.5vh",
+    top: "50%",
+    left: "50%",
+    backgroundColor: "grey",
+    opacity: "0.15",
+    backgroundSize: "cover",
+}
+
 const Gallery = () => {
     return (
-        <div>
+        <Container Fluid style ={{ position: "fixed"}}>
             <div>
                 <img 
                     src={Branding} alt="logo" 
@@ -18,9 +33,13 @@ const Gallery = () => {
                     onClick={() => window.appHistory.push("/Home")}
                 />
             </div>
+            <div style={Header_ImageConnect}>
+            </div>
             <Row className="headerGradient">
                 <Col 
                     xs={{ span: 6, offset: 3 }}
+					sm={{ span: 4, offset: 4 }}
+					md={{ span: 2, offset: 5 }}
                     lg={{ span: 2, offset: 5 }}
                 >
                 <img 
@@ -37,7 +56,7 @@ const Gallery = () => {
             <MenuRight />
 			<Cart />
             <Cards />
-        </div>
+        </Container>
     )
 }
 

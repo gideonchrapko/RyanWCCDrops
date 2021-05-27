@@ -92,8 +92,8 @@ h3 {
   z-index: 11;
   top: 3vh;
   left: 3vh;
-  height: 5vw;
-  min-height: 75px;
+  height: 7vw;
+  min-height: 60px;
   cursor: pointer;
 }
 
@@ -106,7 +106,7 @@ h3 {
 }
 
 .imageBanner {
-  margin-top: 115px;
+  margin-top: 130px;
   width: 75%;
   margin-left: auto;
   margin-right: auto;
@@ -167,11 +167,9 @@ h3 {
   font-style: normal;
   font-size: 3rem;
   text-align: right;
-  /* position: relative; */
 }
 
 .inputFieldNewsletter {
-  /* position: relative; */
   border: none;
   border-bottom: white solid 1px;
   background: transparent;
