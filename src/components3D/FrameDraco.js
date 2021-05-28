@@ -33,7 +33,7 @@ export default function FrameDraco(props) {
         geometry={nodes.g_PictureFrame001.geometry}
         onPointerUp={() => window.appHistory.push("/gallery")}
       />
-      <Html scaleFactor={5} position={[0, -1, 1.8]}>
+      <Html scaleFactor={5} position={[-0.2, 0.2, 1.2]}>
         <h1 className="threeD__label">Gallery</h1>
       </Html>
     </a.group>

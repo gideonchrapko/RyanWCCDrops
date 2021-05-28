@@ -25,7 +25,7 @@ const Header_ImageConnect = {
 
 const Gallery = () => {
     return (
-        <Container Fluid style ={{ position: "fixed"}}>
+        <Container fluid style ={{ position: "fixed"}}>
             <div>
                 <img 
                     src={Branding} alt="logo" 

@@ -29,14 +29,9 @@ export default function Shirt(props) {
       rotation={[Math.PI / 2, 0, 3]}
     >
       <mesh 
-        // position={[0, -2, -4.5]}
-        // rotation={[Math.PI / 2, 0, 3]}
         onPointerUp={() => window.appHistory.push("/shop")}
         material={materials.wire_177148027} 
         geometry={nodes.T_Shirt_V2.geometry} 
-        // onPointerOver={() => setExpand(true)}
-        // onPointerOut={() => setExpand(false)}
-        // scale={animatedProps.hovered}
       />
         <Html scaleFactor={5} position={[0, -2.5, 5.5]} >
           <h1 className="threeD__label">Shop</h1>
