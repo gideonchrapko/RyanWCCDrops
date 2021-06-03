@@ -1,7 +1,8 @@
 .menu { 
     position: fixed; 
-    background-color: white; 
-    color: #3395dd; 
+    background-color: black; 
+    opacity: 0.8;
+    color: white; 
     z-index: 999990; 
     border-radius: 15px 0px 0px 15px;
   }
@@ -11,10 +12,10 @@
   }
 
   .menu--right { 
-    top: 13px; 
     right: 0; 
-    width: 200px; 
-    /* height: 45vh; */
+    width: 100vw; 
+    height: 100vh;
+    text-align: center;
   }
 
   .menu-list { 
@@ -23,10 +24,10 @@
       
 .menu-list-item { 
 	font-family: futura-pt, sans-serif;
-	font-weight: 800;
-	font-style: normal;  
+	font-weight: 200;
+	font-style: normal; 
   
-  font-size: 13pt;
+  font-size: 12vw;
   list-style: none; 
 }
     
@@ -36,7 +37,7 @@
 
   .menu a { 
     text-decoration: none; 
-    color: #3395dd;
+    color: white;
   }
       
   .menu a:hover, 

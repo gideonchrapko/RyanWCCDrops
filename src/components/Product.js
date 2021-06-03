@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { useShopify } from "../hooks"
 // import PurchaseButton from "../images/PurchaseButton.svg"
 
-import { Container, Col, Row } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 
 export default (props) => {
 	const { products, fetchProduct } = useShopify()

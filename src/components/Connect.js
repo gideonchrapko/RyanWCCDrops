@@ -3,6 +3,7 @@ import { useSpring, animated } from 'react-spring'
 
 import MenuRight from './Menu';
 import Cart from './Cart'
+import Header from './Header'
 
 import { Col, Container, Row } from 'react-bootstrap'
 
@@ -92,14 +93,15 @@ const Connect = () => {
             fluid 
             className="conntainerDiv"
         >
-            <img
+            {/* <img
                 src={Branding}
                 alt="West Coast Customs Logo"
                 className="branding"
                 onClick={() => window.appHistory.push("/Home")}
             />
             <MenuRight/>
-            <Cart />
+            <Cart /> */}
+            <Header />
             <div style={Header_ImageConnect}>
             </div>
             <img 
@@ -113,7 +115,7 @@ const Connect = () => {
 				src={arrowDown}
                 alt="Scroll Down"
 			/>
-            <Row className="headerGradient">
+            {/* <Row className="headerGradient">
                 <Col 
                     xs={{ span: 6, offset: 3 }}
 					sm={{ span: 4, offset: 4 }}
@@ -131,7 +133,7 @@ const Connect = () => {
 
                 />
                 </Col>
-            </Row>
+            </Row> */}
             <Row className="child"
             > 
                  <Col
@@ -147,8 +149,10 @@ const Connect = () => {
                     xs={{ span: 8, offset: 2 }}
                     lg={{ span: 8, offset: 0}}
                  >
-                    West Coast Customs Drops is the destination 
-                    for all new releases and collaborations.
+                    Passion breeds the brightest ideas and creates the strongest products. 
+                    Ryan Sr's passion for cars and Ryan Jr's passion for clothes comes 
+                    together to create WCC Drops. A new place where our fans can experience
+                    everything West Coast Customs has to offer.
                  </Col>
              </Row>
              <Row className="child">

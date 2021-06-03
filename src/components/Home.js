@@ -14,6 +14,7 @@ import Swipe from '../lottie/Swipe'
 
 import MenuRight from './Menu'
 import Cart from './Cart'
+import Header from './Header'
 
 import Branding from '../images/wccMin.png';
 import Left from '../images/arrowLeft.png';
@@ -22,7 +23,7 @@ import Right from '../images/arrowRight.png';
 const Home = (props) => {
 	// const { shopDetails } = useShopify();
 	const [rotation, setRotation] = useState([0, 2, 0])
-	// const [lottieControl, setLottieControl] = useState(false)
+	const [lottieControl, setLottieControl] = useState()
 
 	const handleClickLeft = () => {
 		rotation[1] += 2.1;
@@ -35,9 +36,10 @@ const Home = (props) => {
 
 	return (
 		<div>
-			<div>
+			{/* <div>
 				<img src={Branding} alt="logo" className="branding"/>
-			</div>
+			</div> */}
+			<Header />
 			<div style={{ marginRight: "0px", top: "50vh", position: "fixed", zIndex: "9", }}>
 				<img
 					src={Right}
@@ -52,13 +54,15 @@ const Home = (props) => {
 					className="arrowL"
 				/>
 			</div>
-			<MenuRight />
-			<Cart />
-			<Swipe 
-				// lottieControl={lottieControl}
-			/>
+			{/* <MenuRight /> */}
+			{/* <Cart /> */}
+			{!lottieControl ?
+				<Swipe /> 
+				:
+				<span></span>
+			}
 			<Canvas
-				// onPointerDown={() => setLottieControl(true)}
+				onPointerDown={() => setLottieControl(true)}
 				pixelRatio={window.devicePixelRatio}
 				camera={{ position: [0, 0, 10] }}
 				gl={{ antialias: false }}
@@ -70,7 +74,7 @@ const Home = (props) => {
 			>
 				<Controls/>
 				<Suspense fallback={<Html center><Loading/></Html>}>
-					<fog attach="fog" args={["black", 10, 20]}/>
+					<fog attach="fog" args={["black", 12, 20]}/>
 					<Objects 
 						rotation={rotation}
 					/>

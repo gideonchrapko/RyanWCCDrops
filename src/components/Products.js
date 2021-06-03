@@ -1,5 +1,4 @@
 import React from "react"
-// import { Link, Element } from "react-scroll"
 import { Container, Row, Col } from "react-bootstrap"
 
 import Product from "./Product"
@@ -30,7 +29,7 @@ export default (props) => {
                     xs={{ span: 6, offset: 3 }}
 					sm={{ span: 4, offset: 4 }}
 					md={{ span: 2, offset: 5 }}
-                    lg={{ span: 2, offset: 5 }}
+                    lg={{ span: 3, offset: 5 }}
                 >
                 <img 
                     alt="Connect Page Text"
@@ -70,6 +69,7 @@ export default (props) => {
 							style={{ 
 								position: "relative", 
 								height: "12vh",
+								width: "auto",
 								display: "inline-block",
 								marginTop: "-10px",
 								padding: "5px",
