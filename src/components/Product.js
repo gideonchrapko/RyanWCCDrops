@@ -16,6 +16,7 @@ export default (props) => {
 			props.history.push(`/Product/${res.id}`)
 		})
 	}
+	
 	return (
 		<Container fluid>
 			<div className="Product-wrapper">

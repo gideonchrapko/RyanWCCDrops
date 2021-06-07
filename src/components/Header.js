@@ -1,16 +1,66 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Col, Row, Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 import Cart from './Cart'
 import MenuRight from './Menu'
 
-import NeonShop from '../images/neon_shop-min.png'
-import NeonGallery from '../images/neon_gallery-min.png'
-import NeonConnect from '../images/neon_untitled-min.png'
+// import Hdrshop from '../images/neon_shop-min.png'
+// import Hdrgallery from '../images/neon_gallery-min.png'
+// import Hdrconnect from '../images/neon_untitled-min.png'
+// import Hdrhome from '../images/neon_untitled-min.png'
 import Branding from '../images/wccMin.png';
 
+
 const Header = () => {
+
+    const [Image1, setImage] = useState()
+
+    useEffect((Image1) => {
+
+        const HdrImg = window.appHistory.location.pathname
+        const newString = HdrImg.replace('/', '');
+
+        // const gallery = "https://i.ibb.co/ZfGchC9/neon-gallery-min.png"
+        // const shop = "https://i.ibb.co/gMTVmYF/neon-shop-min.png"
+        // const connect = "https://i.ibb.co/Scvz3cw/neon-untitled-min.png"
+
+        if (newString === "shop") {
+            return setImage("https://i.ibb.co/gMTVmYF/neon-shop-min.png")
+        }
+        if (newString === "gallery") {
+            return setImage("https://i.ibb.co/ZfGchC9/neon-gallery-min.png")
+        }
+        if (newString === "connect") {
+            return setImage("https://i.ibb.co/Scvz3cw/neon-untitled-min.png")
+        }
+
+    })
+
+    // const [Image1, setImage] = useState()
+
+    // const HdrImg = window.appHistory.location.pathname
+    // const newString = HdrImg.replace('/', '');
+
+    // const gallery = "https://i.ibb.co/ZfGchC9/neon-gallery-min.png"
+    // const shop = "https://i.ibb.co/gMTVmYF/neon-shop-min.png"
+    // const connect = "https://i.ibb.co/Scvz3cw/neon-untitled-min.png"
+
+    // if (newString === "shop") {
+    //     return setImage("https://i.ibb.co/gMTVmYF/neon-shop-min.png")
+    // }
+
+    // if (newString === "gallery") {
+    //     return setImage(gallery)
+    // }
+
+    // if (newString === "connect") {
+    //     return setImage(connect)
+    // }
+
+
+    console.log(Image1)
+
     return (
         <Container fluid style={{ position: "fixed", zIndex: "9999"}}>
             <div>
@@ -29,8 +79,8 @@ const Header = () => {
                     lg={{ span: 2, offset: 5 }}
                 >
                 <img 
-                    alt="Connect Page Text"
-                    src={NeonShop}
+                    alt={`${window.appHistory.location.pathname} text`}
+                    src={Image1}
                     style={{
                         width: "100%",
                         top: "0",
