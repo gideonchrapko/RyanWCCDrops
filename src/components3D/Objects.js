@@ -19,7 +19,10 @@ const Objects = ({rotation}) => {
 
     return (
         <>
-            <a.group {...spring}>
+            <a.group 
+              {...spring}
+              // rotation={[Math.PI / 0.01, -0.6, 0]}
+            >
                 <Label />
                 <Shirt />
                 <FrameDraco />

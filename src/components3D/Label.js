@@ -13,15 +13,15 @@ export default function Model(props) {
   const group = useRef()
   const { nodes, materials } = useGLTF('/Label.glb')
   const [expand, setExpand] = useState(false);
-  const radius = window.innerHeight / 160
+  const radius = window.innerHeight / 150
   const y = radius * Math.sin(2 * Math.PI * (3 / 3))
   const x = radius * Math.cos(2 * Math.PI * (3 / 3))
   const s = 0.5
   const scaleUp = s * window.innerHeight / 640
-  const scaleDown = s * window.innerHeight / 640
+  const scaleDown = s * window.innerHeight / 610
 
   const animatedProps = useSpring({
-    hovered: expand ? [scaleUp, scaleUp, scaleUp] : [scaleUp, scaleUp, scaleUp],
+    hovered: expand ? [scaleDown, scaleDown, scaleDown] : [scaleUp, scaleUp, scaleUp],
   });
 
   return (
@@ -29,7 +29,7 @@ export default function Model(props) {
       ref={group} 
       {...props} 
       dispose={null}
-      rotation={[Math.PI / -0.8, 1, 0.5]}
+      rotation={[Math.PI / -0.01, -1.5, 3]}
       onPointerUp={() => window.appHistory.push("/connect")}
       // position={[-4, -0.5, 2]}
       position={[`${x}`, -0.5, `${y}`]}

@@ -12,9 +12,14 @@ import Branding from '../images/wccMin.png';
 
 const Header = () => {
     return (
-        <Container fluid style={{ position: "absoulte", zIndex: "9999"}}>
+        <Container fluid style={{ position: "fixed", zIndex: "9999"}}>
             <div>
-                <img src={Branding} alt="logo" className="branding"/>
+                <img 
+                    src={Branding} 
+                    alt="logo" 
+                    className="branding"
+                    onClick={() => window.appHistory.push("/home")}
+                    />
             </div>
             <Row className="headerGradient">
             <Col 
@@ -42,7 +47,7 @@ const Header = () => {
                 </Col>
                 <Col
                     className='d-xs-none d-none d-lg-block parentHeader'
-                    lg={5}
+                    lg={{ span: 3, offset: 1}}
                 >
                     <Link to="/shop" className='headerLink'>
                         Shop

@@ -11,15 +11,15 @@ import { a } from '@react-spring/three';
 export default function FrameDraco(props, index) {
 
   const [expand, setExpand] = useState(false);
-  const radius = window.innerHeight / 160
+  const radius = window.innerHeight / 150
   const y = radius * Math.sin(2 * Math.PI * (1 / 3))
   const x = radius * Math.cos(2 * Math.PI * (1 / 3))
   const s = 2
   const scaleUp = s * window.innerHeight / 640
-  const scaleDown = s * window.innerHeight / 640
+  const scaleDown = s * window.innerHeight / 610
 
   const animatedProps = useSpring({
-    hovered: expand ? [scaleUp, scaleUp, scaleUp] : [scaleUp, scaleUp, scaleUp],
+    hovered: expand ? [scaleDown, scaleDown, scaleDown] : [scaleUp, scaleUp, scaleUp],
   });
 
   const group = useRef();
@@ -30,7 +30,7 @@ export default function FrameDraco(props, index) {
       ref={group} 
       {...props}
       position={[`${x}`, -0.5, `${y}`]}
-      rotation={[1.67, 0.2, 0.1]}
+      rotation={[1.67, 0.2, 2]}
       scale={animatedProps.hovered}
       onPointerOver={() => setExpand(true)}
       onPointerOut={() => setExpand(false)}

@@ -12,18 +12,20 @@ import Objects from '../components3D/Objects'
 import Loading from '../lottie/Loading'
 import Swipe from '../lottie/Swipe'
 
-import MenuRight from './Menu'
-import Cart from './Cart'
+// import MenuRight from './Menu'
+// import Cart from './Cart'
 import Header from './Header'
 
-import Branding from '../images/wccMin.png';
+// import Branding from '../images/wccMin.png';
 import Left from '../images/arrowLeft.png';
 import Right from '../images/arrowRight.png';
 
 const Home = (props) => {
 	// const { shopDetails } = useShopify();
-	const [rotation, setRotation] = useState([0, 2, 0])
+	const [rotation, setRotation] = useState([0, -0.55, 0])
 	const [lottieControl, setLottieControl] = useState()
+
+	console.log(rotation)
 
 	const handleClickLeft = () => {
 		rotation[1] += 2.1;
@@ -36,26 +38,23 @@ const Home = (props) => {
 
 	return (
 		<div>
-			{/* <div>
-				<img src={Branding} alt="logo" className="branding"/>
-			</div> */}
 			<Header />
 			<div style={{ marginRight: "0px", top: "50vh", position: "fixed", zIndex: "9", }}>
 				<img
 					src={Right}
 					alt="right"
 					onClick={handleClickRight}
+					onPointerDown={() => setLottieControl(true)}
 					className="arrowR"
 				/>
 				<img
 					src={Left}
 					alt="left"
 					onClick={handleClickLeft}
+					onPointerDown={() => setLottieControl(true)}
 					className="arrowL"
 				/>
 			</div>
-			{/* <MenuRight /> */}
-			{/* <Cart /> */}
 			{!lottieControl ?
 				<Swipe /> 
 				:
@@ -79,7 +78,7 @@ const Home = (props) => {
 						rotation={rotation}
 					/>
 					<Environment/> 
-					<PerspectiveCamera makeDefault position={[1, 1, -15]}>
+					<PerspectiveCamera makeDefault position={[0, 0, -15]}>
 						<Lights/>
 						<Shadow/>
 					</PerspectiveCamera>

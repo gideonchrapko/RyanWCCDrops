@@ -15,55 +15,55 @@ import MessageRyan from '../images/RyanMessage.png'
 
 const list = [{ 
                 item: 'https://i.ibb.co/x5X5z60/Asset-7-1-300x.png', 
-                link: '1991'
+                link: '2003'
 
             }, 
             {
                 item: 'https://i.ibb.co/KzShq7v/Asset-8-300x.png', 
-                link: '1992'
-
-            },
-            {
-                item: 'https://i.ibb.co/G7X7WxN/Asset-9-300x.png', 
-                link: '1993'
-
-            },
-            {
-                item: 'https://i.ibb.co/QCm00nt/Asset-10-300x.png', 
-                link: '1996'
-
-            },
-            {
-                item: 'https://i.ibb.co/MMJRmsS/Asset-11-300x.png', 
-                link: '1990'
-
-            },
-            {
-                item: 'https://i.ibb.co/Ct8zLwt/Asset-12-300x.png',
-                link: '2001'
-
-            },
-            {
-                item: 'https://i.ibb.co/1dj9XvP/Asset-13-300x.png', 
-                link: '2003'
-  
-            },
-            {
-                item: 'https://i.ibb.co/WFs0qkV/Asset-14-300x.png', 
                 link: '2004'
 
             },
             {
-                item: 'https://i.ibb.co/Cz0xHRd/Asset4-1-300x.png', 
+                item: 'https://i.ibb.co/G7X7WxN/Asset-9-300x.png', 
+                link: '2005'
+
+            },
+            {
+                item: 'https://i.ibb.co/QCm00nt/Asset-10-300x.png', 
                 link: '2007'
+
+            },
+            {
+                item: 'https://i.ibb.co/1dj9XvP/Asset-13-300x.png',
+                link: '2008–2010'
+
+            },
+            {
+                item: 'https://i.ibb.co/Ct8zLwt/Asset-12-300x.png',
+                link: '2009'
+
+            },
+            {
+                item: 'https://i.ibb.co/MMJRmsS/Asset-11-300x.png', 
+                link: '2010'
+  
+            },
+            {
+                item: 'https://i.ibb.co/WFs0qkV/Asset-14-300x.png', 
+                link: '2011'
+
+            },
+            {
+                item: 'https://i.ibb.co/Cz0xHRd/Asset4-1-300x.png', 
+                link: '1993–1995'
             },
             {
                 item: 'https://i.ibb.co/YTHn9GY/Asset-5-1-300x.png', 
-                link: '2008'
+                link: '1995-2000'
             },
             {
                 item: 'https://i.ibb.co/9cZ5yLr/Asset-6-1-300x.png', 
-                link: '2018'
+                link: '2000'
             }]
 
 const l = list.length
@@ -93,14 +93,6 @@ const Connect = () => {
             fluid 
             className="conntainerDiv"
         >
-            {/* <img
-                src={Branding}
-                alt="West Coast Customs Logo"
-                className="branding"
-                onClick={() => window.appHistory.push("/Home")}
-            />
-            <MenuRight/>
-            <Cart /> */}
             <Header />
             <div style={Header_ImageConnect}>
             </div>
@@ -115,27 +107,7 @@ const Connect = () => {
 				src={arrowDown}
                 alt="Scroll Down"
 			/>
-            {/* <Row className="headerGradient">
-                <Col 
-                    xs={{ span: 6, offset: 3 }}
-					sm={{ span: 4, offset: 4 }}
-					md={{ span: 2, offset: 5 }}
-                    lg={{ span: 2, offset: 5 }}
-                >
-                <img 
-                    alt="Connect Page Text"
-                    src={NeonLogo}
-                    style={{
-                        width: "100%",
-                        mixBlendMode: "exclusion",
-                        top: "0"
-                    }}
-
-                />
-                </Col>
-            </Row> */}
-            <Row className="child"
-            > 
+            <Row className="child" > 
                  <Col
                     className="headerText"
                     xs={{ span: 7, offset: 2 }}

@@ -12,15 +12,15 @@ import { a } from '@react-spring/three';
 
 export default function Shirt(props) {
   const [expand, setExpand] = useState(false);
-  const radius = window.innerHeight / 160
+  const radius = window.innerHeight / 150
   const y = radius * Math.sin(2 * Math.PI * (2 / 3))
   const x = radius * Math.cos(2 * Math.PI * (2 / 3))
   const s = 0.06
   const scaleUp = s * window.innerHeight / 640
-  const scaleDown = s * window.innerHeight / 640
+  const scaleDown = s * window.innerHeight / 610
 
   const animatedProps = useSpring({
-    hovered: expand ? [scaleUp, scaleUp, scaleUp] : [scaleUp, scaleUp, scaleUp],
+    hovered: expand ? [scaleDown, scaleDown, scaleDown] : [scaleUp, scaleUp, scaleUp],
   });
 
   // const animatedProps = useSpring({
@@ -39,8 +39,8 @@ export default function Shirt(props) {
       onPointerOut={() => setExpand(false)}
       scale={animatedProps.hovered}
       // position={[0, -2, -4.5]}
-      position={[`${x}`, -2, `${y}`]}
-      rotation={[Math.PI / 2, 0, 3]}
+      position={[`${x}`, -2.3, `${y}`]}
+      rotation={[Math.PI / 2, 0, 2.5]}
     >
       <mesh 
         onPointerUp={() => window.appHistory.push("/shop")}

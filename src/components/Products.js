@@ -2,46 +2,21 @@ import React from "react"
 import { Container, Row, Col } from "react-bootstrap"
 
 import Product from "./Product"
-import Cart from './Cart'
-import MenuRight from './Menu'
+// import Cart from './Cart'
+// import MenuRight from './Menu'
+import Header from './Header'
 
-import Branding from '../images/wccMin.png'
+// import Branding from '../images/wccMin.png'
 import arrowDown from '../images/arrowDown.png'
 import headerImage from '../images/JBRolls_min.png'
-import NeonLogo from '../images/neon_shop-min.png'
+// import NeonLogo from '../images/neon_shop-min.png'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default (props) => {
   return (
-		<div>
-			<img
-				src={Branding}
-				alt="logo"
-				className="branding"
-				onClick={() => window.appHistory.push("/Home")}
-			/>
-			<MenuRight />
-			<Cart />
 			<Container fluid >
-			<Row className="headerGradient">
-                <Col 
-                    xs={{ span: 6, offset: 3 }}
-					sm={{ span: 4, offset: 4 }}
-					md={{ span: 2, offset: 5 }}
-                    lg={{ span: 3, offset: 5 }}
-                >
-                <img 
-                    alt="Connect Page Text"
-                    src={NeonLogo}
-                    style={{
-                        width: "100%",
-                        mixBlendMode: "exclusion",
-                        top: "0"
-                    }}
-                />
-                </Col>
-            	</Row>
+				<Header />
 				<Row>
 					<Col lg={12}>
 						<img
@@ -83,6 +58,6 @@ export default (props) => {
 							<Product history={props.history} />
 						</div>
 			</Container>
-		</div>
+		// </div>
 	)
 }

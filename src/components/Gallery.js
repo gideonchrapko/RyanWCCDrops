@@ -2,11 +2,12 @@ import React from 'react'
 import { Row, Col, Container } from 'react-bootstrap'
 
 import Cards from './Cards'
-import MenuRight from './Menu'
-import Cart from './Cart'
+// import MenuRight from './Menu'
+// import Cart from './Cart'
+import Header from './Header'
 
-import Branding from '../images/wccMin.png';
-import NeonLogo from '../images/neon_gallery-min.png'
+// import Branding from '../images/wccMin.png';
+// import NeonLogo from '../images/neon_gallery-min.png'
 
 const Header_ImageConnect = {
     position: "fixed",
@@ -26,16 +27,16 @@ const Header_ImageConnect = {
 const Gallery = () => {
     return (
         <Container fluid style ={{ position: "fixed"}}>
-            <div>
+            {/* <div>
                 <img 
                     src={Branding} alt="logo" 
                     className="branding"
                     onClick={() => window.appHistory.push("/Home")}
                 />
-            </div>
+            </div> */}
             <div style={Header_ImageConnect}>
             </div>
-            <Row className="headerGradient">
+            {/* <Row className="headerGradient">
                 <Col 
                     xs={{ span: 6, offset: 3 }}
 					sm={{ span: 4, offset: 4 }}
@@ -54,7 +55,8 @@ const Gallery = () => {
                 </Col>
             </Row>
             <MenuRight />
-			<Cart />
+			<Cart /> */}
+            <Header />
             <Cards />
         </Container>
     )
