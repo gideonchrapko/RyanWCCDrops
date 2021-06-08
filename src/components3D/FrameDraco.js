@@ -15,11 +15,11 @@ export default function FrameDraco(props, index) {
   const y = radius * Math.sin(2 * Math.PI * (1 / 3))
   const x = radius * Math.cos(2 * Math.PI * (1 / 3))
   const s = 2
-  const scaleUp = s * window.innerHeight / 640
-  const scaleDown = s * window.innerHeight / 610
+  const scaleUp = s * window.innerWidth / 2000
+  const scaleDown = s * window.innerWidth / 2000
 
   const animatedProps = useSpring({
-    hovered: expand ? [scaleDown, scaleDown, scaleDown] : [scaleUp, scaleUp, scaleUp],
+    hovered: expand ? [1.9, 1.9, 1.9] : [1.8, 1.8, 1.8],
   });
 
   const group = useRef();

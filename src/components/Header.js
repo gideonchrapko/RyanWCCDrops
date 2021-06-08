@@ -4,26 +4,34 @@ import { Link } from 'react-router-dom'
 
 import Cart from './Cart'
 import MenuRight from './Menu'
+import { useShopify } from "../hooks"
 
-// import Hdrshop from '../images/neon_shop-min.png'
-// import Hdrgallery from '../images/neon_gallery-min.png'
-// import Hdrconnect from '../images/neon_untitled-min.png'
-// import Hdrhome from '../images/neon_untitled-min.png'
 import Branding from '../images/wccMin.png';
+import { MdShoppingCart, MdRemoveShoppingCart } from "react-icons/md"
+import Open from "../images/Open.svg";
 
-
-const Header = () => {
+const Header = (props) => {
+    const {
+        cartStatus,
+		closeCart,
+		openCart,
+	} = useShopify()
 
     const [Image1, setImage] = useState()
 
-    useEffect((Image1) => {
+    function handleOpen(e) {
+		e.preventDefault()
+		openCart()
+	}
 
+	function handleClose(e) {
+		e.preventDefault()
+		closeCart()
+	}
+
+    useEffect(() => {
         const HdrImg = window.appHistory.location.pathname
         const newString = HdrImg.replace('/', '');
-
-        // const gallery = "https://i.ibb.co/ZfGchC9/neon-gallery-min.png"
-        // const shop = "https://i.ibb.co/gMTVmYF/neon-shop-min.png"
-        // const connect = "https://i.ibb.co/Scvz3cw/neon-untitled-min.png"
 
         if (newString === "shop") {
             return setImage("https://i.ibb.co/gMTVmYF/neon-shop-min.png")
@@ -34,35 +42,15 @@ const Header = () => {
         if (newString === "connect") {
             return setImage("https://i.ibb.co/Scvz3cw/neon-untitled-min.png")
         }
+        if (newString === "home") {
+            return setImage("https://i.ibb.co/tpY6df0/neon-home-min.png")
+        }
 
     })
 
-    // const [Image1, setImage] = useState()
-
-    // const HdrImg = window.appHistory.location.pathname
-    // const newString = HdrImg.replace('/', '');
-
-    // const gallery = "https://i.ibb.co/ZfGchC9/neon-gallery-min.png"
-    // const shop = "https://i.ibb.co/gMTVmYF/neon-shop-min.png"
-    // const connect = "https://i.ibb.co/Scvz3cw/neon-untitled-min.png"
-
-    // if (newString === "shop") {
-    //     return setImage("https://i.ibb.co/gMTVmYF/neon-shop-min.png")
-    // }
-
-    // if (newString === "gallery") {
-    //     return setImage(gallery)
-    // }
-
-    // if (newString === "connect") {
-    //     return setImage(connect)
-    // }
-
-
-    console.log(Image1)
-
     return (
         <Container fluid style={{ position: "fixed", zIndex: "9999"}}>
+            <Cart />
             <div>
                 <img 
                     src={Branding} 
@@ -84,6 +72,7 @@ const Header = () => {
                     style={{
                         width: "100%",
                         top: "0",
+                        background: "black"
                     }}
                 />
                 </Col>
@@ -93,22 +82,30 @@ const Header = () => {
                     xs={3}
                 >
                     <MenuRight />
-                    <Cart />
+                    <div className="App__view-cart-wrapper2">
+				        <button src={Open} onClick={(e) => { cartStatus ? handleClose(e) : handleOpen(e) }} className="App__view-cart" >
+					        <MdShoppingCart />
+				        </button> 
+			        </div>
                 </Col>
                 <Col
                     className='d-xs-none d-none d-lg-block parentHeader'
-                    lg={{ span: 3, offset: 1}}
+                    lg={{ span: 4, offset: 1}}
                 >
                     <Link to="/shop" className='headerLink'>
                         Shop
                     </Link>
-                    <Link to="/gallery" className='headerLink'>
+                    <Link to="/gallery" className='headerLink' >
                         Gallery
                     </Link>
-                    <Link to="/connect" className='headerLink'>
+                    <Link to="/connect" className='headerLink' >
                         Connect
                     </Link>
-                    <Cart />
+                    <Link to="" className='headerLink' onClick={(e) => { cartStatus ? handleClose(e) : handleOpen(e) }} >
+                        Cart
+                    </Link>
+                    <span></span>
+                    <hr className="headerLine" />
                 </Col>
             </Row>
         </Container>

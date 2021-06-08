@@ -45,11 +45,6 @@ import './menu.css';
                     Connect 
                   </Link>
                 </li>
-                {/* <li className="menu-list-item menu-list-item--right">
-                  <Link to="/about">
-                    Contact 
-                  </Link>
-                </li> */}
           </nav> 
       </a.div >
     </div>

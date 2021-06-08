@@ -103,9 +103,12 @@ const Connect = () => {
 					marginTop: "75vh",
                     marginLeft: "70vw",
 					padding: "5px",
+                    zInde: "99999999999999999",
+                    cursor: "pointer"
 			}}
 				src={arrowDown}
                 alt="Scroll Down"
+                onClick={() => window.scrollTo(0, 100)}
 			/>
             <Row className="child" > 
                  <Col
