@@ -35,7 +35,8 @@ const list = [{
             },
             {
                 item: 'https://i.ibb.co/1dj9XvP/Asset-13-300x.png',
-                link: '2008–2010'
+                // link: '2008–2010'
+                link: '2008'
 
             },
             {
@@ -55,11 +56,13 @@ const list = [{
             },
             {
                 item: 'https://i.ibb.co/Cz0xHRd/Asset4-1-300x.png', 
-                link: '1993–1995'
+                // link: '1993–1995'
+                link: '1993'
             },
             {
                 item: 'https://i.ibb.co/YTHn9GY/Asset-5-1-300x.png', 
                 link: '1995-2000'
+                // link: '1995'
             },
             {
                 item: 'https://i.ibb.co/9cZ5yLr/Asset-6-1-300x.png', 
@@ -72,7 +75,7 @@ const trans = (x, y, s) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg)
 
 const Connect = () => {
     const [props, set] = useSpring(() => ({ xys: [0, 0, 1], config: { mass: 5, tension: 350, friction: 40 } }))
-    const [yearValue, setYearValue] = useState("")
+    const [yearValue, setYearValue] = useState("Hover Me")
 
     const Header_ImageConnect = {
         position: "fixed",
@@ -178,6 +181,7 @@ const Connect = () => {
                             style={{
                                 position: "absolute",
                                 height: "15rem",
+                                minHeight: "15vw"
                             }}
                             // className="logoCircleTransition"
                             onPointerOver={() => setYearValue("2018")}

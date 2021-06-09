@@ -20,12 +20,8 @@ export default function Shirt(props) {
   const scaleDown = s * window.innerWidth / 2000
 
   const animatedProps = useSpring({
-    hovered: expand ? [0.08, 0.08, 0.08] : [0.07, 0.07, 0.07],
+    hovered: expand ? [0.06, 0.06, 0.06] : [0.05, 0.05, 0.05],
   });
-
-  // const animatedProps = useSpring({
-  //   hovered: expand ? [0.05, 0.05, 0.05] : [0.04, 0.04, 0.04],
-  // });
 
   const group = useRef()
   const { nodes, materials } = useGLTF('/Shirt1.glb')
@@ -33,7 +29,7 @@ export default function Shirt(props) {
   return (
     <a.group 
       ref={group} 
-      {...props} 
+      {...props}
       dispose={null}
       onPointerOver={() => setExpand(true)}
       onPointerOut={() => setExpand(false)}

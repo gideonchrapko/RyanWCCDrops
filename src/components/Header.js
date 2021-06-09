@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Col, Row, Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { useSpring, animated } from "react-spring";
+
 
 import Cart from './Cart'
 import MenuRight from './Menu'
 import { useShopify } from "../hooks"
 
 import Branding from '../images/wccMin.png';
-import { MdShoppingCart, MdRemoveShoppingCart } from "react-icons/md"
+import { MdShoppingCart } from "react-icons/md"
 import Open from "../images/Open.svg";
 
 const Header = (props) => {
@@ -18,6 +20,7 @@ const Header = (props) => {
 	} = useShopify()
 
     const [Image1, setImage] = useState()
+    // const [selected, setSelected] = useState()
 
     function handleOpen(e) {
 		e.preventDefault()
@@ -43,41 +46,69 @@ const Header = (props) => {
             return setImage("https://i.ibb.co/Scvz3cw/neon-untitled-min.png")
         }
         if (newString === "home") {
-            return setImage("https://i.ibb.co/tpY6df0/neon-home-min.png")
+            return setImage("https://i.ibb.co/kMKxzNL/neon-home-min.png")
         }
-
     })
 
     return (
-        <Container fluid style={{ position: "fixed", zIndex: "9999"}}>
+        <Container fluid style={{ position: "fixed", zIndex: "9999", left: "0" }}>
             <Cart />
             <div>
                 <img 
                     src={Branding} 
-                    alt="logo" 
+                    alt="Click to go the Home Page"
                     className="branding"
                     onClick={() => window.appHistory.push("/home")}
                     />
             </div>
             <Row className="headerGradient">
-            <Col 
+                {/* Nav left side */}
+                <Col 
+                    className='d-xs-none d-none d-lg-block d-md-block parentHeader'
+                    lg={{ span: 3, offset: 1 }}
+                    md={{ span: 3, offset: 1 }}
+                    // style={{ background: "green", opacity: "0.3"}}
+                >
+                    <Link 
+                        to="/shop" 
+                        className="headerLink"
+                    >
+                        shop
+                    </Link>
+                    <Link 
+                        to="/gallery" 
+                        className="headerLink"
+                    >
+                        Gallery
+                    </Link>
+                </Col>
+                {/* Image */}
+                <Col 
                     xs={{ span: 6, offset: 3 }}
 					sm={{ span: 4, offset: 4 }}
-					md={{ span: 2, offset: 5 }}
-                    lg={{ span: 2, offset: 5 }}
+					md={{ span: 4, offset: 0 }}
+                    lg={{ span: 4, offset: 0 }}
+                    // style={{ background: "red", opacity: "0.3"}}
                 >
                 <img 
                     alt={`${window.appHistory.location.pathname} text`}
                     src={Image1}
                     style={{
-                        width: "100%",
+                        width: "80%",
                         top: "0",
-                        background: "black"
+                        background: "none",
+                        display: "block",
+                        marginLeft: "auto",
+                        marginRight: "auto",
+                        minWidth: "200px",
+                        maxWidth: "250px",
+                        width: "50%",
                     }}
                 />
                 </Col>
+                {/* shopping cart thing icon */}
                 <Col
-                    className='d-block d-sm-none'
+                    className='d-block d-md-none'
                     lg={3}
                     xs={3}
                 >
@@ -88,24 +119,28 @@ const Header = (props) => {
 				        </button> 
 			        </div>
                 </Col>
+                {/* Nav right side  */}
                 <Col
-                    className='d-xs-none d-none d-lg-block parentHeader'
-                    lg={{ span: 4, offset: 1}}
+                    className='d-xs-none d-none d-lg-block d-md-block parentHeader'
+                    lg={{ span: 3, offset: 0}}
+                    md={{ span: 3, offset: 0 }}
+                    // style={{ background: "green", opacity: "0.3"}}
                 >
-                    <Link to="/shop" className='headerLink'>
-                        Shop
-                    </Link>
-                    <Link to="/gallery" className='headerLink' >
-                        Gallery
-                    </Link>
-                    <Link to="/connect" className='headerLink' >
+                    <Link 
+                        to="/connect" 
+                        className="headerLink"
+                    >
                         Connect
                     </Link>
-                    <Link to="" className='headerLink' onClick={(e) => { cartStatus ? handleClose(e) : handleOpen(e) }} >
+                    <Link 
+                        to="" 
+                        className="headerLink"
+                        onClick={(e) => { cartStatus ? handleClose(e) : handleOpen(e) }} 
+                    >
                         Cart
                     </Link>
-                    <span></span>
-                    <hr className="headerLine" />
+                    {/* <span style={spanUnderline}> head</span> */}
+                    {/* <hr className="headerLine" /> */}
                 </Col>
             </Row>
         </Container>

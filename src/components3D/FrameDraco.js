@@ -19,7 +19,7 @@ export default function FrameDraco(props, index) {
   const scaleDown = s * window.innerWidth / 2000
 
   const animatedProps = useSpring({
-    hovered: expand ? [1.9, 1.9, 1.9] : [1.8, 1.8, 1.8],
+    hovered: expand ? [2, 2, 2] : [1.8, 1.8, 1.8]
   });
 
   const group = useRef();

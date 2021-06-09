@@ -115,12 +115,13 @@ h3 {
 
 .headerGradient {
   background: rgb(0,0,0);
-  background: linear-gradient(180deg, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
-  /* background: black; */
+  /* background: linear-gradient(180deg, rgba(0,0,0,1) 95%, rgba(0,0,0,0) 100%); */
+  background: black;
   position: fixed;
   z-index: 10;
   width: 100vw;
-  height: 18vh;
+  height: 15vh;
+  filter: drop-shadow(0px 10px 4px black);
 }
 
 .RyansLetter {
@@ -225,6 +226,7 @@ height: 1vh;
   margin-top: 50%;
   position: absolute;
   height: 6.5rem;
+  min-height: 4.7vw;
   width: auto;
   transition: all 0.4s ease-in-out;
 }
@@ -233,23 +235,47 @@ height: 1vh;
   margin-top: 50%;
   position: absolute;
   height: 6.5rem;
+  min-height: 4.7vw;
   width: auto;
   transform: scale(1.5);
 }
 
 .yearValue {
+  /* width: 90vw; */
+  text-align: center;
+  line-height: 90%;
   font-family: neuzon,sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 17vh;
+  font-size: max(15vw, 110px);
   opacity: 0.5;
   position: absolute;
   z-index: -9;
 }
 
-.headerLink:hover {
-  width: 25%;
+/* .is-active {
+  width: 20%;
   display: inline-block;
+  font-family: futura-pt, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+	font-size: 2vh;
+  color: grey;
+  text-decoration: none;
+} */
+
+.parentHeader {
+  top: 6vh;
+  text-align: justify;
+  width: 100%;
+  justify-content: center;
+}
+
+.headerLink:hover {
+  width: 50%;
+  display: inline-block;
+  text-align: center;
   font-family: futura-pt, sans-serif;
   font-weight: 300;
   font-style: normal;
@@ -259,8 +285,9 @@ height: 1vh;
 }
 
 .headerLink {
-  width: 25%;
+  width: 50%;
   display: inline-block;
+  text-align: center;
   font-family: futura-pt, sans-serif;
   font-weight: 300;
   font-style: normal;
@@ -269,16 +296,12 @@ height: 1vh;
 }
 
 .headerLine {
-  width: 85%;
+  width: 100%;
   margin-left: -10px;
   margin-right: auto;
   background-color: white;
   border: 1 none;
-}
-
-.parentHeader {
-  top: 6vh;
-  text-align: justify;
+  position: absolute;
 }
 
 .cardSection {

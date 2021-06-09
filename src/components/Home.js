@@ -4,19 +4,15 @@ import { Canvas } from 'react-three-fiber';
 import { PerspectiveCamera, Html } from 'drei';
 // import { useShopify } from "../hooks"
 
-import Controls from '../components3D/Controls'
-import Lights from '../components3D/Lights'
-import Environment from '../components3D/Environment'
-import Shadow from '../components3D/Shadow'
-import Objects from '../components3D/Objects'
-import Loading from '../lottie/Loading'
-import Swipe from '../lottie/Swipe'
+import Controls from '../components3D/Controls';
+import Lights from '../components3D/Lights';
+import Environment from '../components3D/Environment';
+import Shadow from '../components3D/Shadow';
+import Objects from '../components3D/Objects';
+import Loading from '../lottie/Loading';
+import Swipe from '../lottie/Swipe';
+import Header from './Header';
 
-// import MenuRight from './Menu'
-// import Cart from './Cart'
-import Header from './Header'
-
-// import Branding from '../images/wccMin.png';
 import Left from '../images/arrowLeft.png';
 import Right from '../images/arrowRight.png';
 
