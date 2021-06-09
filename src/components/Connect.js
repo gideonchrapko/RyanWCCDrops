@@ -61,8 +61,8 @@ const list = [{
             },
             {
                 item: 'https://i.ibb.co/YTHn9GY/Asset-5-1-300x.png', 
-                link: '1995-2000'
-                // link: '1995'
+                // link: '1995-2000'
+                link: '1995'
             },
             {
                 item: 'https://i.ibb.co/9cZ5yLr/Asset-6-1-300x.png', 
@@ -72,6 +72,10 @@ const list = [{
 const l = list.length
 const calc = (x, y) => [-(y - window.innerHeight / 2) / 90, (x - window.innerWidth / 2) / 90, 1.01]
 const trans = (x, y, s) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
+
+function scrollWin() {
+    window.scrollTo(0, 500);
+  }
 
 const Connect = () => {
     const [props, set] = useSpring(() => ({ xys: [0, 0, 1], config: { mass: 5, tension: 350, friction: 40 } }))
@@ -106,12 +110,12 @@ const Connect = () => {
 					marginTop: "75vh",
                     marginLeft: "70vw",
 					padding: "5px",
-                    zInde: "99999999999999999",
+                    zIndex: "99999",
                     cursor: "pointer"
 			}}
 				src={arrowDown}
                 alt="Scroll Down"
-                onClick={() => window.scrollTo(0, 100)}
+                onClick={scrollWin()}
 			/>
             <Row className="child" > 
                  <Col

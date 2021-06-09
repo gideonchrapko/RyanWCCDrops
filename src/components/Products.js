@@ -54,7 +54,7 @@ export default (props) => {
 					</Col>
 				</Row>
 						<div>
-							<hr style={{ marginTop: "50px" }} className="productLine" />
+							<hr className="productLine" />
 							<Product history={props.history} />
 						</div>
 			</Container>

@@ -8,6 +8,7 @@ import Welcome from './Welcome'
 import Connect from './Connect'
 import pageNotFound from './404'
 import Gallery from './Gallery'
+import Footer from './Footer'
 
 import { useShopify } from "../hooks"
 
@@ -55,9 +56,10 @@ export default (props) => {
 					<Route path="/connect" component={Connect} />
 					<Route component={pageNotFound} />
 				</Switch>
-				<div style={{ bottom: "0", position: "fixed", textAlign: "center", width: "100vw" }}>
+				<Footer />
+				{/* <div style={{ bottom: "0", position: "fixed", textAlign: "center", width: "100vw" }}>
 					<h6 alt="copywrite">© 2021 West Coast Customs. | All Rights Reserved | Made With ♥ In SoCal</h6>
-				</div>
+				</div> */}
 			</div>
 		)
 }

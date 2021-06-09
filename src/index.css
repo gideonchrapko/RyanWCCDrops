@@ -304,6 +304,36 @@ height: 1vh;
   position: absolute;
 }
 
+.parentFooter {
+  text-align: justify;
+  width: 100%;
+  justify-content: left;
+  position: relative;
+  text-align: center;
+}
+
+.FooterText {
+  display: inline-block;
+  text-align: right;
+  font-family: futura-pt, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+	font-size: 2vh;
+  color: white;
+  text-decoration: none;
+}
+
+.FooterText:hover {
+  display: inline-block;
+  text-align: right;
+  font-family: futura-pt, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+	font-size: 2vh;
+  color: white;
+  text-decoration: none;
+}
+
 .cardSection {
   position: absolute;
   width: 100vw;
@@ -422,6 +452,7 @@ height: 1vh;
   margin-right: auto;
   background-color: white;
   border: 1 none;
+  margin-top: 45px;
 }
 
 .threeD__label {

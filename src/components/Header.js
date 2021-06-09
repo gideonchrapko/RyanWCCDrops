@@ -81,6 +81,12 @@ const Header = (props) => {
                     >
                         Gallery
                     </Link>
+                    {/* <Link 
+                        to="/gallery" 
+                        className="headerLink"
+                    >
+                        Home
+                    </Link> */}
                 </Col>
                 {/* Image */}
                 <Col 
