@@ -357,7 +357,8 @@ height: 1vh;
 .arrowR {
   right: 2vw;
   position: fixed;
-  height: 12vh;
+  width: 8vw;
+  min-width: 80px;
   opacity: 0.7;
   cursor: pointer;
 }
@@ -365,7 +366,8 @@ height: 1vh;
 .arrowL {
   left: 2vw;
   position: fixed;
-  height: 12vh;
+  width: 8vw;
+  min-width: 80px;
   opacity: 0.7;
   cursor: pointer;
 }
