@@ -50,7 +50,7 @@ export default function Model(props) {
             </group>
           </group>
         </group>
-      <Html scaleFactor={5} position={[-0.1, 5.5, 0.3]}>
+      <Html scaleFactor={5} position={[0.1, 5.2, -0.2]}>
         <h1 className="threeD__label">Connect</h1>
       </Html>
     </a.group>

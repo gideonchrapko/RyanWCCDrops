@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSpring, animated } from 'react-spring'
 
-import MenuRight from './Menu';
-import Cart from './Cart'
+// import MenuRight from './Menu';
+// import Cart from './Cart'
 import Header from './Header'
 
 import { Col, Container, Row } from 'react-bootstrap'
 
-import Branding from '../images/wccMin.png'
+// import Branding from '../images/wccMin.png'
 import ScratchBG from '../images/Scratch.jpeg'
 import arrowDown from '../images/arrowDown.png'
-import NeonLogo from '../images/neon_untitled-min.png'
+// import NeonLogo from '../images/neon_untitled-min.png'
 import MessageRyan from '../images/RyanMessage.png'
 
 const list = [{ 
@@ -110,7 +110,7 @@ const Connect = () => {
 					marginTop: "75vh",
                     marginLeft: "70vw",
 					padding: "5px",
-                    zIndex: "99999",
+                    zIndex: "999",
                     cursor: "pointer"
 			}}
 				src={arrowDown}

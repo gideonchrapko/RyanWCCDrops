@@ -6,9 +6,11 @@ import { Row, Col, Container } from 'react-bootstrap'
 
 // import { Link } from 'react-router-dom';
 
-import Cart from './Cart'
-import MenuRight from './Menu'
+// import Cart from './Cart'
+// import MenuRight from './Menu'
 import Branding from '../images/wccMin.png'
+import Header from './Header'
+
 // import SoldOutBannerImage from '../images/SoldOut.svg'
 import DropDownArrow from '../images/dropDownArrow.svg'
 
@@ -82,8 +84,9 @@ export default (props) => {
 				className="branding"
 				onClick={() => window.appHistory.push("/Home")}
 			/>
-			<Cart />
-			<MenuRight />
+			{/* <Cart />
+			<MenuRight /> */}
+			<Header />
 				<Row className="Product-wrapper2">
 					<Col 
 						className="Images"

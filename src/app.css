@@ -570,7 +570,7 @@ div > .active {
 	box-sizing: content-box;
 	position: -webkit-sticky;
 	position: sticky;
-	top: 0;
+	top: 5%;
 	padding-top: 100px;
 }
 

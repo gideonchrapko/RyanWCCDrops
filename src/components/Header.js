@@ -20,7 +20,6 @@ const Header = (props) => {
 	} = useShopify()
 
     const [Image1, setImage] = useState()
-    // const [selected, setSelected] = useState()
 
     function handleOpen(e) {
 		e.preventDefault()
@@ -35,8 +34,12 @@ const Header = (props) => {
     useEffect(() => {
         const HdrImg = window.appHistory.location.pathname
         const newString = HdrImg.replace('/', '');
+        const productString = newString.substring(0,7)
 
         if (newString === "shop") {
+            return setImage("https://i.ibb.co/gMTVmYF/neon-shop-min.png")
+        }
+        if (productString == "Product") {
             return setImage("https://i.ibb.co/gMTVmYF/neon-shop-min.png")
         }
         if (newString === "gallery") {
@@ -67,13 +70,12 @@ const Header = (props) => {
                     className='d-xs-none d-none d-lg-block d-md-block parentHeader'
                     lg={{ span: 3, offset: 1 }}
                     md={{ span: 3, offset: 1 }}
-                    // style={{ background: "green", opacity: "0.3"}}
                 >
                     <Link 
                         to="/shop" 
                         className="headerLink"
                     >
-                        shop
+                        Shop
                     </Link>
                     <Link 
                         to="/gallery" 
@@ -81,12 +83,6 @@ const Header = (props) => {
                     >
                         Gallery
                     </Link>
-                    {/* <Link 
-                        to="/gallery" 
-                        className="headerLink"
-                    >
-                        Home
-                    </Link> */}
                 </Col>
                 {/* Image */}
                 <Col 
@@ -97,10 +93,10 @@ const Header = (props) => {
                     // style={{ background: "red", opacity: "0.3"}}
                 >
                 <img 
-                    alt={`${window.appHistory.location.pathname} text`}
+                    alt={`${window.appHistory.location.pathname} Page`}
                     src={Image1}
                     style={{
-                        width: "80%",
+                        width: "50%",
                         top: "0",
                         background: "none",
                         display: "block",
@@ -108,7 +104,6 @@ const Header = (props) => {
                         marginRight: "auto",
                         minWidth: "200px",
                         maxWidth: "250px",
-                        width: "50%",
                     }}
                 />
                 </Col>
