@@ -43,7 +43,11 @@ export default (props) => {
 		}
 		getCheckout()
 
+
+
 	},[])
+
+
 
 		return (
 			<div>
@@ -56,10 +60,7 @@ export default (props) => {
 					<Route path="/connect" component={Connect} />
 					<Route component={pageNotFound} />
 				</Switch>
-				<Footer />
-				{/* <div style={{ bottom: "0", position: "fixed", textAlign: "center", width: "100vw" }}>
-					<h6 alt="copywrite">© 2021 West Coast Customs. | All Rights Reserved | Made With ♥ In SoCal</h6>
-				</div> */}
+				{/* <Footer /> */}
 			</div>
 		)
 }

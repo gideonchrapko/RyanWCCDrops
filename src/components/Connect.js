@@ -4,6 +4,7 @@ import { useSpring, animated } from 'react-spring'
 // import MenuRight from './Menu';
 // import Cart from './Cart'
 import Header from './Header'
+import Footer from './Footer'
 
 import { Col, Container, Row } from 'react-bootstrap'
 
@@ -241,6 +242,7 @@ const Connect = () => {
                     </form>
                 </Col>
              </Row>
+             <Footer />
         </Container>
     )
 }

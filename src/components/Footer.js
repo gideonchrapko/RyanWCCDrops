@@ -8,7 +8,7 @@ import Instagram from '../images/icon_instagram.svg'
 
 const Footer = () => {
     return (
-        <Container fluid style={{ position: 'fixed', bottom: "0", width: "100vw" }}>
+        <Container fluid style={{ position: 'fixed', bottom: "0", width: "100vw", left: "0" }}>
             <Row >
                 <Col 
                     lg={6}
@@ -51,7 +51,7 @@ const Footer = () => {
                     style={{ padding: "5%"}}
                 >
                 <Link 
-                        style={{ width: "20%", textAlign: "left", color: "white" }}
+                        style={{ width: "20%", textAlign: "left", color: "white", fontSize: "max(0.6em, 10px)" }}
                     >
                         © 2021 West Coast Customs.
                     </Link>
@@ -64,7 +64,7 @@ const Footer = () => {
                 >
                     <Link 
                         to=""
-                        style={{ width: "20%", textAlign: "left", color: "white" }}
+                        style={{ width: "20%", textAlign: "left", color: "white", fontSize: "max(0.6em, 10px)"  }}
                     >
                         Refund Policy
                     </Link>
@@ -72,13 +72,13 @@ const Footer = () => {
                         src={Instagram}
                         className="FooterText"
                         href="https://www.instagram.com/westcoastcustoms/"
-                        style={{ height: "16px", paddingLeft: "25px" }}
+                        style={{ height: "12px", paddingLeft: "20px" }}
                     />
                     <img
                         src={Twitter}
                         className="FooterText"
                         href="https://twitter.com/officialwcc"
-                        style={{ height: "16px", paddingLeft: "25px" }}
+                        style={{ height: "12px", paddingLeft: "20px" }}
                     />
                 </Col>
             </Row>

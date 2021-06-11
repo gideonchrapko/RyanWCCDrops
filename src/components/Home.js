@@ -12,6 +12,7 @@ import Objects from '../components3D/Objects';
 import Loading from '../lottie/Loading';
 import Swipe from '../lottie/Swipe';
 import Header from './Header';
+import Footer from './Footer'
 
 import Left from '../images/arrowLeft.png';
 import Right from '../images/arrowRight.png';
@@ -78,6 +79,7 @@ const Home = (props) => {
 					</PerspectiveCamera>
 				</Suspense>
 			</Canvas>
+			<Footer />
 		</div>
 	)
 }

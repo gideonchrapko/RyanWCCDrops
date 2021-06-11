@@ -5,6 +5,7 @@ import Product from "./Product"
 // import Cart from './Cart'
 // import MenuRight from './Menu'
 import Header from './Header'
+import Footer from './Footer'
 
 // import Branding from '../images/wccMin.png'
 import arrowDown from '../images/arrowDown.png'
@@ -57,7 +58,7 @@ export default (props) => {
 							<hr className="productLine" />
 							<Product history={props.history} />
 						</div>
+				<Footer />
 			</Container>
-		// </div>
 	)
 }

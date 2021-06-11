@@ -10,6 +10,7 @@ import { Row, Col, Container } from 'react-bootstrap'
 // import MenuRight from './Menu'
 import Branding from '../images/wccMin.png'
 import Header from './Header'
+import Footer from './Footer'
 
 // import SoldOutBannerImage from '../images/SoldOut.svg'
 import DropDownArrow from '../images/dropDownArrow.svg'
@@ -192,6 +193,7 @@ export default (props) => {
 						</div>
 					</Col>
 				</Row>
+				<Footer />
 		</Container>
 	)
 }
