@@ -463,4 +463,6 @@ height: 1vh;
   font-family: futura-pt, sans-serif;
 	font-weight: 300;
 	font-style: normal;
+  /* position: relative;
+  z-index: 9999; */
 }

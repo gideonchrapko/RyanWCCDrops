@@ -65,8 +65,8 @@ export default function Model(props) {
             </group>
           </group>
         </group>
-      <Html scaleFactor={5} position={[0.1, 5.2, -0.2]}>
-        <h1 className="threeD__label">Connect</h1>
+      <Html scaleFactor={5} position={[0.1, 5.2, -0.2]} zIndexRange={[1, 0]}>
+        <h1 className="threeD__label" style={{ position: "fixed", zIndex: "9" }}>Connect</h1>
       </Html>
     </a.group>
   )

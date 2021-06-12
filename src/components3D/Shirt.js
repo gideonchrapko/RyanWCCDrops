@@ -58,7 +58,7 @@ export default function Shirt(props) {
         material={materials.wire_177148027} 
         geometry={nodes.T_Shirt_V2.geometry} 
       />
-        <Html scaleFactor={5} position={[0, -2.5, 5.5]} >
+        <Html scaleFactor={5} position={[0, -2.5, 5.5]} zIndexRange={[1, 0]}>
           <h1 className="threeD__label">Shop</h1>
         </Html>
     </a.group>

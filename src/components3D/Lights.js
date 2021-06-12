@@ -48,8 +48,8 @@ export default function Lights() {
   return (
     <>
       <pointLight position={[0, 10, -10]} intensity={3} color={'#1024b5'} />
-      <pointLight intensity={0.5} position={[0, 4, -10]} />
-      <MyVolSpotlight penumbra={0.5}  />
+      <pointLight intensity={0.2} position={[0, 4, -10]} />
+      <MyVolSpotlight penumbra={1}  />
       <Shadow renderOrder={10} color="#1024b5" stop={0.1} scale={[10, 10, 10]} position={[0, -2, -3]} rotation={[-Math.PI / 2, 0, 0]} />
     </>
   );

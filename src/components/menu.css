@@ -2,7 +2,7 @@
     position: fixed; 
     background-color: black; 
     opacity: 0.8;
-    z-index: 999990; 
+    z-index: 999999990; 
     padding-top: 20vh;
   }
 
@@ -48,7 +48,7 @@
     height: 2.6vh;
     top: 3.3vh;
     outline: none;
-    z-index: 999991; 
+    z-index: 99999999999999; 
     border: none; 
     position: fixed;
     right: 2%; 
