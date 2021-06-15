@@ -37,7 +37,7 @@ const Header = (props) => {
         const productString = newString.substring(0,7)
 
         if (newString === "shop") {
-            return setImage("https://i.ibb.co/gMTVmYF/neon-shop-min.png")
+            return setImage("https://i.ibb.co/K5rb395/neon-shop-min-min.png")
         }
         if (productString == "Product") {
             return setImage("https://i.ibb.co/gMTVmYF/neon-shop-min.png")
@@ -46,12 +46,16 @@ const Header = (props) => {
             return setImage("https://i.ibb.co/ZfGchC9/neon-gallery-min.png")
         }
         if (newString === "connect") {
-            return setImage("https://i.ibb.co/Scvz3cw/neon-untitled-min.png")
+            return setImage("https://i.ibb.co/WW9Ln2r/neon-connect-min.png")
         }
         if (newString === "home") {
             return setImage("https://i.ibb.co/kMKxzNL/neon-home-min.png")
         }
     })
+
+
+
+    // https://i.ibb.co/Scvz3cw/neon-untitled-min.png
 
     return (
         <Container fluid style={{ position: "fixed", zIndex: "9999", left: "0" }}>

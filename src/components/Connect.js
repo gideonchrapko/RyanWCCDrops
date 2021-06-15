@@ -94,18 +94,19 @@ const Connect = () => {
         backgroundSize: "cover",
     }
 
-    const arrowImage = {
-        position: "fixed", 
-        height: "15vh",
-        width: "100px",
-        marginTop: "75vh",
-        marginLeft: "70vw",
-        padding: "5px",
-        zIndex: "999",
-        cursor: "pointer",
-        backgroundImage: `url(${arrowDown})`,
-        backgroundSize: "cover",
-    }
+    // const arrowImage = {
+    //     background: "red",
+    //     position: "fixed", 
+    //     height: "15vh",
+    //     width: "100px",
+    //     marginTop: "75vh",
+    //     marginLeft: "70vw",
+    //     padding: "5px",
+    //     zIndex: "999",
+    //     cursor: "pointer",
+    //     backgroundImage: `url(${arrowDown})`,
+    //     backgroundSize: "cover",
+    // }
 
     // const containerRef = useRef(null)
     // const [ isVisible, setIsVisible ] = useState(false)
@@ -144,7 +145,6 @@ const Connect = () => {
 
 
 const [ sectionNumber, setSectionNumber ] = useState(1)
-console.log(sectionNumber + 1)
 
         window.addEventListener("load", (event) => {
             ["1", "2", "3", "4"].forEach(name => {
@@ -168,7 +168,7 @@ console.log(sectionNumber + 1)
               observer.observe(target)
             }
           
-            function handleIntersect(entries, observer) {
+            function handleIntersect(entries) {
               entries.forEach(entry => {
                 if (entry.intersectionRatio === 1)
                   setAsVisible();
@@ -186,12 +186,27 @@ console.log(sectionNumber + 1)
     return (
         <Container 
             fluid 
-            className="conntainerDiv"
+            // className="conntainerDiv"
+            style={{ overflow: "auto"}}
         >
             <Header />
             <div style={Header_ImageConnect}>
             </div>
-            <Link style={arrowImage} to={`${sectionNumber + 1}`} duration={500} smooth={true}></Link>
+            <Link to={`${sectionNumber + 1}`} duration={500} smooth={true}>
+                <img 
+                    src={arrowDown}
+                    style={{
+                        position: "fixed", 
+                        height: "15vh",
+                        width: "auto",
+                        marginTop: "75vh",
+                        marginLeft: "70vw",
+                        padding: "5px",
+                        zIndex: "999",
+                        cursor: "pointer",                        
+                    }}
+                />
+            </Link>
             <Row className="child"> 
                  <Col
                     id="1"

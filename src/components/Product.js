@@ -27,7 +27,7 @@ export default (props) => {
 							const id = product.id
 							if (hover === id) {
 							  return <img 
-										src={product.images[1].src}
+										src={product.images[1] ? product.images[1].src : product.images[0].src}
 										alt={`${product.title} product shot`} 
 										className="image" 
 							  		/>
