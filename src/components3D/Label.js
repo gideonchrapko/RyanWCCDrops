@@ -12,7 +12,7 @@ import { a } from '@react-spring/three'
 export default function Model(props) {
 
   useEffect(() => {
-    const radius = window.innerWidth / 150
+    const radius = document.documentElement.clientWidth / 150
   
     if (radius <= 6 ) {
       return setMaxRadius(radius)
@@ -21,10 +21,10 @@ export default function Model(props) {
     if (radius >= 6 ) {
       return setMaxRadius(6)
     }
-  })
+  },[])
 
   const group = useRef()
-  const { nodes, materials } = useGLTF('/Label.glb')
+  const { nodes, materials } = useGLTF('/untitledOne.glb')
   const [expand, setExpand] = useState(false);
   const [maxRadius, setMaxRadius] = useState()
 

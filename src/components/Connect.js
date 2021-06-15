@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useSpring, animated } from 'react-spring'
 
 // import MenuRight from './Menu';
@@ -7,6 +7,7 @@ import Header from './Header'
 import Footer from './Footer'
 
 import { Col, Container, Row } from 'react-bootstrap'
+import { Link } from 'react-scroll'
 
 // import Branding from '../images/wccMin.png'
 import ScratchBG from '../images/Scratch.jpeg'
@@ -74,11 +75,8 @@ const l = list.length
 const calc = (x, y) => [-(y - window.innerHeight / 2) / 90, (x - window.innerWidth / 2) / 90, 1.01]
 const trans = (x, y, s) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
 
-function scrollWin() {
-    window.scrollTo(0, 500);
-  }
-
 const Connect = () => {
+
     const [props, set] = useSpring(() => ({ xys: [0, 0, 1], config: { mass: 5, tension: 350, friction: 40 } }))
     const [yearValue, setYearValue] = useState("Hover Me")
 
@@ -96,6 +94,95 @@ const Connect = () => {
         backgroundSize: "cover",
     }
 
+    const arrowImage = {
+        position: "fixed", 
+        height: "15vh",
+        width: "100px",
+        marginTop: "75vh",
+        marginLeft: "70vw",
+        padding: "5px",
+        zIndex: "999",
+        cursor: "pointer",
+        backgroundImage: `url(${arrowDown})`,
+        backgroundSize: "cover",
+    }
+
+    // const containerRef = useRef(null)
+    // const [ isVisible, setIsVisible ] = useState(false)
+  
+    // // const callbackFunction = (entries) => {
+    // //   const [ entry ] = entries
+    // //   setIsVisible(entry.isIntersecting)
+    // // }
+
+    // function callbackFunction(entries) {
+    //     entries.forEach(entry => {
+    //       if (entry.intersectionRatio === 1)
+    //         setAsVisible();
+    //     });
+    //   }
+
+    // const options = {
+    //   root: null,
+    //   rootMargin: "0px",
+    //   threshold:1.0
+    // }
+  
+    // useEffect(() => {
+
+    //   const observer = new IntersectionObserver(callbackFunction, options)
+    //   if (containerRef.current) observer.observe(containerRef.current)
+      
+    //   return () => {
+    //     if(containerRef.current) observer.unobserve(containerRef.current)
+    //   }
+
+
+    // }, [containerRef, options])
+
+    // console.log(isVisible ? "IN VIEWPORT" : "NOT IN VIEWPORT")
+
+
+const [ sectionNumber, setSectionNumber ] = useState(1)
+console.log(sectionNumber + 1)
+
+        window.addEventListener("load", (event) => {
+            ["1", "2", "3", "4"].forEach(name => {
+              handleEachCategory(name);
+            });
+          }, false);
+
+        function handleEachCategory(category) {
+            let target = document.getElementById(category);
+            let observer;
+            let isVis;
+            createObserver();
+          
+            function createObserver() {
+              let options = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 1.0
+              }
+              observer = new IntersectionObserver(handleIntersect, options);
+              observer.observe(target)
+            }
+          
+            function handleIntersect(entries, observer) {
+              entries.forEach(entry => {
+                if (entry.intersectionRatio === 1)
+                  setAsVisible();
+              });
+            }
+          
+            function setAsVisible() {
+              isVis = true;
+            //   console.log(`${category} is${(!isVis ? " not" : "")} visible`)
+              setSectionNumber(category)
+            }
+          }
+
+
     return (
         <Container 
             fluid 
@@ -104,22 +191,10 @@ const Connect = () => {
             <Header />
             <div style={Header_ImageConnect}>
             </div>
-            <img 
-				style={{ 
-					position: "fixed", 
-					height: "15vh",
-					marginTop: "75vh",
-                    marginLeft: "70vw",
-					padding: "5px",
-                    zIndex: "999",
-                    cursor: "pointer"
-			}}
-				src={arrowDown}
-                alt="Scroll Down"
-                onClick={scrollWin()}
-			/>
-            <Row className="child" > 
+            <Link style={arrowImage} to={`${sectionNumber + 1}`} duration={500} smooth={true}></Link>
+            <Row className="child"> 
                  <Col
+                    id="1"
                     className="headerText"
                     xs={{ span: 7, offset: 2 }}
                     lg={{ span: 1, offset: 1 }}
@@ -138,8 +213,9 @@ const Connect = () => {
                     everything West Coast Customs has to offer.
                  </Col>
              </Row>
-             <Row className="child">
+             <Row className="child" id="11">
                 <Col
+                    id="2"
                     className="headerText"
                     sm={{ span: 10, offset: 2 }}
                     lg={{ span: 1, offset: 1 }}
@@ -158,14 +234,15 @@ const Connect = () => {
                         alignItems: "center",
                         verticalAlign: "middle",
                         marginTop: "26vh",
+                        bacgkround: "red",
                     }}
                 >
                     {
                         list.map((list, index) => {
-                                const radius = window.innerWidth / 3.3
+                                const radius = document.documentElement.clientWidth / 3.3
                                 const top = radius * Math.sin(2 * Math.PI * (index / l))
                                 const left = radius * Math.cos(2 * Math.PI * (index / l))
-                                // const radius = 
+
                             return (
                                         <img
                                             style={{
@@ -196,8 +273,9 @@ const Connect = () => {
                     </div>
                 </Col>
              </Row>
-             <Row className="child" >
+             <Row className="child" id="21">
                 <Col
+                    id="3"
                     className="headerText"
                     xs={{ span: 7, offset: 2 }}
                     lg={{ span: 1, offset: 1 }}
@@ -217,8 +295,9 @@ const Connect = () => {
                     />
                  </Col>
              </Row>
-             <Row className="child">
+             <Row className="child" id="31">
                 <Col
+                    id="4"
                     className="headerText"
                     xs={{ span: 7, offset: 2 }}
                     lg={{ span: 1, offset: 1 }}

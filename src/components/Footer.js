@@ -22,13 +22,12 @@ const Footer = () => {
                     md={6}
                     className="parentFooter d-xs-none d-none d-lg-block d-md-block"
                 >
-                    <Link 
-                        to="" 
+                    <a 
                         className="FooterText"
                         style={{ width: "20%" }}
                     >
                         Refund Policy
-                    </Link>
+                    </a>
                     <a 
                         className="FooterText" 
                         href="https://www.instagram.com/westcoastcustoms/"
@@ -50,11 +49,11 @@ const Footer = () => {
                     className="parentFooter d-block d-md-none"
                     style={{ padding: "5%"}}
                 >
-                <Link 
+                <a 
                         style={{ width: "20%", textAlign: "left", color: "white", fontSize: "max(0.6em, 10px)" }}
                     >
                         © 2021 West Coast Customs.
-                    </Link>
+                </a>
                 </Col>
                 <Col
                     xs={6}
@@ -62,12 +61,12 @@ const Footer = () => {
                     className="parentFooter d-block d-md-none"
                     style={{ padding: "5%"}}
                 >
-                    <Link 
+                    <a 
                         to=""
                         style={{ width: "20%", textAlign: "left", color: "white", fontSize: "max(0.6em, 10px)"  }}
                     >
                         Refund Policy
-                    </Link>
+                    </a>
                     <img 
                         src={Instagram}
                         className="FooterText"

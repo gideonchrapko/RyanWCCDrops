@@ -13,7 +13,7 @@ import { a } from '@react-spring/three';
 export default function Shirt(props) {
 
   useEffect(() => {
-    const radius = window.innerWidth / 150
+    const radius = document.documentElement.clientWidth / 150
   
     if (radius <= 6 ) {
       return setMaxRadius(radius)
@@ -22,7 +22,7 @@ export default function Shirt(props) {
     if (radius >= 6 ) {
       return setMaxRadius(6)
     }
-  })
+  },[])
 
   const [expand, setExpand] = useState(false);
   const [maxRadius, setMaxRadius] = useState()

@@ -180,7 +180,8 @@ h3 {
 }
 
 .conntainerDiv {
-  overflow: scroll;
+  /* overflow: scroll; */
+  /* overflow-y: auto; */
   height: 100vh;
   scroll-snap-type: mandatory;
   scroll-snap-points-y: repeat(100vh);
@@ -225,7 +226,7 @@ height: 1vh;
 .logoCircleTransition {
   margin-top: 50%;
   position: absolute;
-  height: 6.5rem;
+  height: 6.5em;
   min-height: 4.7vw;
   width: auto;
   transition: all 0.4s ease-in-out;
