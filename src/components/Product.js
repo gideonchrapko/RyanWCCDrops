@@ -26,24 +26,23 @@ export default (props) => {
 						const dynamicImage = () => {
 							const id = product.id
 							if (hover === id) {
-							  return <img 
+							return	<img
 										src={product.images[1] ? product.images[1].src : product.images[0].src}
 										alt={`${product.title} product shot`} 
 										className="image" 
 							  		/>
 							} else {
 							  if (hover === "out") { 
-							  		return <img 
-										src={product.images[0].src}
-										alt={`${product.title} product shot`} 
-										className="image" 
-						  			/> }
-							} 
-							return <img 
-										src={product.images[0].src}
-										alt={`${product.title} product shot`} 
-										className="image" 
-						  			/> 
+							  		return <img
+									  src={product.images[0].src}
+									  alt={`${product.title} product shot`} 
+									  className="image" 
+									/>
+							}} return <img
+											src={product.images[0].src}
+											alt={`${product.title} product shot`} 
+											className="image" 
+						  			/>
 						  }
 						const viewMoreText = () => {
 							const id = product.id

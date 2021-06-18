@@ -37,8 +37,6 @@ export default function Model(props) {
     hovered: expand ? [0.6, 0.6, 0.6] : [0.5, 0.5, 0.5],
   });
 
-  console.log(maxRadius)
-
   return (
     <a.group 
       ref={group} 

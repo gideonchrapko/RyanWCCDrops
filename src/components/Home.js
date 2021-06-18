@@ -23,11 +23,12 @@ const Home = (props) => {
 	const [lottieControl, setLottieControl] = useState()
 
 	const handleClickLeft = () => {
-		rotation[1] += 2.1;
+		// rotation[1] += 2.86;
+		rotation[1] += 2.094395;
 		setRotation([...rotation]);
 	  };
 	  const handleClickRight = () => {
-		rotation[1] -= 2.1;
+		rotation[1] -= 2.094395;
 		setRotation([...rotation]);
 	  };
 

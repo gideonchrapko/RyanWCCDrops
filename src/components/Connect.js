@@ -94,62 +94,14 @@ const Connect = () => {
         backgroundSize: "cover",
     }
 
-    // const arrowImage = {
-    //     background: "red",
-    //     position: "fixed", 
-    //     height: "15vh",
-    //     width: "100px",
-    //     marginTop: "75vh",
-    //     marginLeft: "70vw",
-    //     padding: "5px",
-    //     zIndex: "999",
-    //     cursor: "pointer",
-    //     backgroundImage: `url(${arrowDown})`,
-    //     backgroundSize: "cover",
-    // }
-
-    // const containerRef = useRef(null)
-    // const [ isVisible, setIsVisible ] = useState(false)
-  
-    // // const callbackFunction = (entries) => {
-    // //   const [ entry ] = entries
-    // //   setIsVisible(entry.isIntersecting)
-    // // }
-
-    // function callbackFunction(entries) {
-    //     entries.forEach(entry => {
-    //       if (entry.intersectionRatio === 1)
-    //         setAsVisible();
-    //     });
-    //   }
-
-    // const options = {
-    //   root: null,
-    //   rootMargin: "0px",
-    //   threshold:1.0
-    // }
-  
-    // useEffect(() => {
-
-    //   const observer = new IntersectionObserver(callbackFunction, options)
-    //   if (containerRef.current) observer.observe(containerRef.current)
-      
-    //   return () => {
-    //     if(containerRef.current) observer.unobserve(containerRef.current)
-    //   }
-
-
-    // }, [containerRef, options])
-
-    // console.log(isVisible ? "IN VIEWPORT" : "NOT IN VIEWPORT")
-
-
 const [ sectionNumber, setSectionNumber ] = useState(1)
 
         window.addEventListener("load", (event) => {
             ["1", "2", "3", "4"].forEach(name => {
               handleEachCategory(name);
             });
+
+            console.log(sectionNumber)
           }, false);
 
         function handleEachCategory(category) {
@@ -177,7 +129,6 @@ const [ sectionNumber, setSectionNumber ] = useState(1)
           
             function setAsVisible() {
               isVis = true;
-            //   console.log(`${category} is${(!isVis ? " not" : "")} visible`)
               setSectionNumber(category)
             }
           }
@@ -207,7 +158,7 @@ const [ sectionNumber, setSectionNumber ] = useState(1)
                     }}
                 />
             </Link>
-            <Row className="child"> 
+            <Row className="child" id="01"> 
                  <Col
                     id="1"
                     className="headerText"
@@ -329,7 +280,7 @@ const [ sectionNumber, setSectionNumber ] = useState(1)
                             <input type="text" name="email" className="inputFieldNewsletter" />
                         </label>
                         <label className="inputNewsletter">
-                            <span>name:</span>
+                            <span className="inputTextStyling" >name:</span>
                             <input type="text" name="name" className="inputFieldNewsletter" />
                         </label>
                         <input type="submit" value="Submit" className="submitButtonNews"/>
