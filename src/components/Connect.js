@@ -101,7 +101,6 @@ const [ sectionNumber, setSectionNumber ] = useState(1)
               handleEachCategory(name);
             });
 
-            console.log(sectionNumber)
           }, false);
 
         function handleEachCategory(category) {
@@ -130,6 +129,7 @@ const [ sectionNumber, setSectionNumber ] = useState(1)
             function setAsVisible() {
               isVis = true;
               setSectionNumber(category)
+              console.log(`${category} is${(!isVis ? " not" : "")} visible`)
             }
           }
 
