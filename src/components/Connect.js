@@ -133,6 +133,7 @@ const [ sectionNumber, setSectionNumber ] = useState(1)
             }
           }
 
+          console.log(sectionNumber + 1)
 
     return (
         <Container 
@@ -164,7 +165,7 @@ const [ sectionNumber, setSectionNumber ] = useState(1)
                     className="headerText"
                     xs={{ span: 7, offset: 2 }}
                     lg={{ span: 1, offset: 1 }}
-                    style={{ height: "20vh" }}
+                    style={{ height: "20vh", background: "red" }}
                  >
                     About
                  </Col>
@@ -185,6 +186,7 @@ const [ sectionNumber, setSectionNumber ] = useState(1)
                     className="headerText"
                     sm={{ span: 10, offset: 2 }}
                     lg={{ span: 1, offset: 1 }}
+                    style={{ background: "red" }}
                 >
                     Logo Timeline
                 </Col>
@@ -245,6 +247,7 @@ const [ sectionNumber, setSectionNumber ] = useState(1)
                     className="headerText"
                     xs={{ span: 7, offset: 2 }}
                     lg={{ span: 1, offset: 1 }}
+                    style={{ background: "red" }}
                 >
                     Ryan's Letter
                 </Col>
@@ -267,6 +270,7 @@ const [ sectionNumber, setSectionNumber ] = useState(1)
                     className="headerText"
                     xs={{ span: 7, offset: 2 }}
                     lg={{ span: 1, offset: 1 }}
+                    style={{ background: "red" }}
                 >
                     Newsletter SignUp
                 </Col>
