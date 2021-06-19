@@ -94,46 +94,135 @@ const Connect = () => {
         backgroundSize: "cover",
     }
 
-const [ sectionNumber, setSectionNumber ] = useState(1)
+    const [ sectionNumber, setSectionNumber ] = useState(1)
 
-        window.addEventListener("load", (event) => {
-            ["1", "2", "3", "4"].forEach(name => {
-              handleEachCategory(name);
-            });
 
-          }, false);
+    //    window.addEventListener("load", (event) => {
+    //         ["1", "2", "3", "4"].forEach(name => {
+    //           handleEachCategory(name);
+    //         });
+
+    //       }, false);
+
+    useEffect(() => {
+        ["1", "2", "3", "4"].forEach(name => {
+            handleEachCategory(name);
+          });
 
         function handleEachCategory(category) {
             let target = document.getElementById(category);
             let observer;
             let isVis;
             createObserver();
-          
+            
             function createObserver() {
-              let options = {
+                let options = {
                 root: null,
                 rootMargin: '0px',
                 threshold: 1.0
-              }
-              observer = new IntersectionObserver(handleIntersect, options);
-              observer.observe(target)
+                }
+                observer = new IntersectionObserver(handleIntersect, options);
+                observer.observe(target)
             }
-          
-            function handleIntersect(entries) {
-              entries.forEach(entry => {
+            
+            function handleIntersect(entries, observer) {
+                entries.forEach(entry => {
                 if (entry.intersectionRatio === 1)
-                  setAsVisible();
-              });
+                    setAsVisible();
+                });
             }
-          
-            function setAsVisible() {
-              isVis = true;
-              setSectionNumber(category)
-              console.log(`${category} is${(!isVis ? " not" : "")} visible`)
-            }
-          }
 
-          console.log(sectionNumber + 1)
+            function setAsVisible() {
+                isVis = true;
+                setSectionNumber(category)
+                console.log(`${category} is${(!isVis ? " not" : "")} visible`)
+                }
+            }
+    },[])
+           
+
+
+            //   window.addEventListener("load", (event) => {
+            //     ["1", "2", "3"].forEach(name => {
+            //       handleEachCategory(name);
+            //     });
+            //   }, false);
+              
+            //   function handleEachCategory(category) {
+            //     let target = document.getElementById(category);
+            //     let observer;
+            //     let isVis;
+            //     createObserver();
+              
+            //     function createObserver() {
+            //       let options = {
+            //         root: null,
+            //         rootMargin: '0px',
+            //         threshold: 1.0
+            //       }
+            //       observer = new IntersectionObserver(handleIntersect, options);
+            //       observer.observe(target)
+            //     }
+              
+            //     function handleIntersect(entries, observer) {
+            //       entries.forEach(entry => {
+            //         if (entry.intersectionRatio === 1)
+            //           setAsVisible();
+            //       });
+            //     }
+              
+            //     function setAsVisible() {
+            //       isVis = true;
+            //       console.log(`${category} is${(!isVis ? " not" : "")} visible`)
+            //     }
+            //   }
+
+
+
+
+
+        // const category = 
+
+        //   useEffect(() => {
+
+        //     const array1 = ["1", "2", "3", "4"];
+        //     array1.forEach(name => handleEachCategory(name));
+
+        //     console.log
+
+        //     function handleEachCategory(category) {
+        //             let target = document.getElementById(category);
+        //             let observer;
+        //             let isVis;
+        //             createObserver();
+                  
+        //             function createObserver() {
+        //               let options = {
+        //                 root: null,
+        //                 rootMargin: '0px',
+        //                 threshold: 1.0
+        //               }
+        //               observer = new IntersectionObserver(handleIntersect, options);
+        //               observer.observe(target)
+        //             }
+                  
+        //             function handleIntersect(entries) {
+        //               entries.forEach(entry => {
+        //                 if (entry.intersectionRatio === 1)
+        //                   setAsVisible();
+        //               });
+        //             }
+        //           }
+     
+        //         function setAsVisible() {
+        //         const isVis = true;
+        //         setSectionNumber(category)
+        //         console.log(`${category} is${(!isVis ? " not" : "")} visible`)
+        //       }
+
+        //   },[])
+
+        //   console.log(sectionNumber + 1)
 
     return (
         <Container 
