@@ -1,24 +1,19 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSpring, animated } from 'react-spring'
 
-// import MenuRight from './Menu';
-// import Cart from './Cart'
 import Header from './Header'
 import Footer from './Footer'
 
 import { Col, Container, Row } from 'react-bootstrap'
 import { Link } from 'react-scroll'
 
-// import Branding from '../images/wccMin.png'
 import ScratchBG from '../images/Scratch.jpeg'
 import arrowDown from '../images/arrowDown.png'
-// import NeonLogo from '../images/neon_untitled-min.png'
 import MessageRyan from '../images/RyanMessage.png'
 
 const list = [{ 
                 item: 'https://i.ibb.co/x5X5z60/Asset-7-1-300x.png', 
                 link: '2003'
-
             }, 
             {
                 item: 'https://i.ibb.co/KzShq7v/Asset-8-300x.png', 
@@ -39,22 +34,18 @@ const list = [{
                 item: 'https://i.ibb.co/1dj9XvP/Asset-13-300x.png',
                 // link: '2008–2010'
                 link: '2008'
-
             },
             {
                 item: 'https://i.ibb.co/Ct8zLwt/Asset-12-300x.png',
                 link: '2009'
-
             },
             {
                 item: 'https://i.ibb.co/MMJRmsS/Asset-11-300x.png', 
                 link: '2010'
-  
             },
             {
                 item: 'https://i.ibb.co/WFs0qkV/Asset-14-300x.png', 
                 link: '2011'
-
             },
             {
                 item: 'https://i.ibb.co/Cz0xHRd/Asset4-1-300x.png', 
@@ -96,14 +87,6 @@ const Connect = () => {
 
     const [ sectionNumber, setSectionNumber ] = useState(1)
 
-
-    //    window.addEventListener("load", (event) => {
-    //         ["1", "2", "3", "4"].forEach(name => {
-    //           handleEachCategory(name);
-    //         });
-
-    //       }, false);
-
     useEffect(() => {
         ["1", "2", "3", "4"].forEach(name => {
             handleEachCategory(name);
@@ -139,91 +122,7 @@ const Connect = () => {
                 }
             }
     },[])
-           
-
-
-            //   window.addEventListener("load", (event) => {
-            //     ["1", "2", "3"].forEach(name => {
-            //       handleEachCategory(name);
-            //     });
-            //   }, false);
-              
-            //   function handleEachCategory(category) {
-            //     let target = document.getElementById(category);
-            //     let observer;
-            //     let isVis;
-            //     createObserver();
-              
-            //     function createObserver() {
-            //       let options = {
-            //         root: null,
-            //         rootMargin: '0px',
-            //         threshold: 1.0
-            //       }
-            //       observer = new IntersectionObserver(handleIntersect, options);
-            //       observer.observe(target)
-            //     }
-              
-            //     function handleIntersect(entries, observer) {
-            //       entries.forEach(entry => {
-            //         if (entry.intersectionRatio === 1)
-            //           setAsVisible();
-            //       });
-            //     }
-              
-            //     function setAsVisible() {
-            //       isVis = true;
-            //       console.log(`${category} is${(!isVis ? " not" : "")} visible`)
-            //     }
-            //   }
-
-
-
-
-
-        // const category = 
-
-        //   useEffect(() => {
-
-        //     const array1 = ["1", "2", "3", "4"];
-        //     array1.forEach(name => handleEachCategory(name));
-
-        //     console.log
-
-        //     function handleEachCategory(category) {
-        //             let target = document.getElementById(category);
-        //             let observer;
-        //             let isVis;
-        //             createObserver();
-                  
-        //             function createObserver() {
-        //               let options = {
-        //                 root: null,
-        //                 rootMargin: '0px',
-        //                 threshold: 1.0
-        //               }
-        //               observer = new IntersectionObserver(handleIntersect, options);
-        //               observer.observe(target)
-        //             }
-                  
-        //             function handleIntersect(entries) {
-        //               entries.forEach(entry => {
-        //                 if (entry.intersectionRatio === 1)
-        //                   setAsVisible();
-        //               });
-        //             }
-        //           }
-     
-        //         function setAsVisible() {
-        //         const isVis = true;
-        //         setSectionNumber(category)
-        //         console.log(`${category} is${(!isVis ? " not" : "")} visible`)
-        //       }
-
-        //   },[])
-
-        //   console.log(sectionNumber + 1)
-
+        
     return (
         <Container 
             fluid 
@@ -254,7 +153,7 @@ const Connect = () => {
                     className="headerText"
                     xs={{ span: 7, offset: 2 }}
                     lg={{ span: 1, offset: 1 }}
-                    style={{ height: "20vh", background: "red" }}
+                    style={{ height: "20vh" }}
                  >
                     About
                  </Col>
@@ -275,7 +174,6 @@ const Connect = () => {
                     className="headerText"
                     sm={{ span: 10, offset: 2 }}
                     lg={{ span: 1, offset: 1 }}
-                    style={{ background: "red" }}
                 >
                     Logo Timeline
                 </Col>
@@ -290,8 +188,7 @@ const Connect = () => {
                         justifyContent: "center",
                         alignItems: "center",
                         verticalAlign: "middle",
-                        marginTop: "26vh",
-                        bacgkround: "red",
+                        marginTop: "26vh"
                     }}
                 >
                     {
@@ -336,7 +233,6 @@ const Connect = () => {
                     className="headerText"
                     xs={{ span: 7, offset: 2 }}
                     lg={{ span: 1, offset: 1 }}
-                    style={{ background: "red" }}
                 >
                     Ryan's Letter
                 </Col>
@@ -359,7 +255,6 @@ const Connect = () => {
                     className="headerText"
                     xs={{ span: 7, offset: 2 }}
                     lg={{ span: 1, offset: 1 }}
-                    style={{ background: "red" }}
                 >
                     Newsletter SignUp
                 </Col>

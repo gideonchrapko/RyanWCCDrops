@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Container, Row, Col } from "react-bootstrap"
 import { Link } from 'react-scroll'
 
@@ -18,43 +18,43 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Products = (props) => {
 
-	// const [ sectionNumber, setSectionNumber ] = useState(1)
+	const [ sectionNumber, setSectionNumber ] = useState(1)
 
-	// window.addEventListener("load", (event) => {
-	// 	["1", "2", "3", "4"].forEach(name => {
-	// 	  handleEachCategory(name);
-	// 	});
-	//   }, false);
+	useEffect(() => {
+        ["1", "2"].forEach(name => {
+            handleEachCategory(name);
+          });
 
-	// function handleEachCategory(category) {
-	// 	let target = document.getElementById(category);
-	// 	let observer;
-	// 	let isVis;
-	// 	createObserver();
-	  
-	// 	function createObserver() {
-	// 	  let options = {
-	// 		root: null,
-	// 		rootMargin: '0px',
-	// 		threshold: 1.0
-	// 	  }
-	// 	  observer = new IntersectionObserver(handleIntersect, options);
-	// 	  observer.observe(target)
-	// 	}
-	  
-	// 	function handleIntersect(entries) {
-	// 	  entries.forEach(entry => {
-	// 		if (entry.intersectionRatio === 1)
-	// 		  setAsVisible();
-	// 	  });
-	// 	}
-	  
-	// 	function setAsVisible() {
-	// 	  isVis = true;
-	// 	//   console.log(`${category} is${(!isVis ? " not" : "")} visible`)
-	// 	  setSectionNumber(category)
-	// 	}
-	//   }
+        function handleEachCategory(category) {
+            let target = document.getElementById(category);
+            let observer;
+            let isVis;
+            createObserver();
+            
+            function createObserver() {
+                let options = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 1.0
+                }
+                observer = new IntersectionObserver(handleIntersect, options);
+                observer.observe(target)
+            }
+            
+            function handleIntersect(entries, observer) {
+                entries.forEach(entry => {
+                if (entry.intersectionRatio === 1)
+                    setAsVisible();
+                });
+            }
+
+            function setAsVisible() {
+                isVis = true;
+                setSectionNumber(category)
+                console.log(`${category} is${(!isVis ? " not" : "")} visible`)
+                }
+            }
+    },[])
 
   return (
 			<Container 
@@ -85,7 +85,7 @@ const Products = (props) => {
 						 }} 
 					>
 						<h2 style={{ textAlign: "right" }}>Shop Capsule</h2>
-					{/* <Link to={`${sectionNumber + 1}`} duration={500} smooth={true}>
+					<Link to={`${sectionNumber + 1}`} duration={500} smooth={true}>
 						<img 
 							src={arrowDown}
 							style={{
@@ -99,7 +99,7 @@ const Products = (props) => {
 								cursor: "pointer",                        
 							}}
 						/>
-            		</Link> */}
+            		</Link>
 					</Col>
 				</Row>
 						<div id="11" >
