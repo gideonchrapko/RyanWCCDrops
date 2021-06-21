@@ -70,16 +70,16 @@ const Products = (props) => {
 				</Row>
 				<Row>
 					<Col
-						md={{ span: 5, offset: 7 }} 
-						sm={{ span: 7, offset: 5 }} 
-						xs={{ span: 9, offset: 3 }} 
-						lg={{ span: 2, offset: 7 }} 
+						md={{ span: 2, offset: 9 }} 
+						sm={{ span: 2, offset: 9 }} 
+						xs={{ span: 4, offset: 6 }} 
+						lg={{ span: 2, offset: 8 }} 
 						style={{ 
 							fontFamily: "neuzon,sans-serif",
 							fontWeight: "400",
 							fontStyle: "normal",
 							display:"flex",
-							marginTop: "-30px",
+							marginTop: "-30px"
 						 }} 
 					>
 						{/* <h2 style={{ textAlign: "right" }}>Shop Capsule</h2> */}
@@ -88,14 +88,12 @@ const Products = (props) => {
 							src={arrowDown}
 							style={{
 								position: "relative", 
-								height: "20vh",
+								height: "15vh",
+								marginLeft: "20px",
+								marginTop: "-16px",
 								width: "auto",
-								// marginTop: "20vh",
-								// marginLeft: "70vw",
-								// padding: "5px",
 								zIndex: "999",
-								cursor: "pointer",     
-								background: "red"                   
+								cursor: "pointer"        
 							}}
                 		/>
             		</Link>
