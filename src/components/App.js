@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 import { Route, Switch } from "react-router-dom";
 
 import Products from "./Products"
@@ -8,7 +8,6 @@ import Welcome from './Welcome'
 import Connect from './Connect'
 import pageNotFound from './404'
 import Gallery from './Gallery'
-import Footer from './Footer'
 
 import { useShopify } from "../hooks"
 
@@ -60,7 +59,6 @@ export default (props) => {
 					<Route path="/connect" component={Connect} />
 					<Route component={pageNotFound} />
 				</Switch>
-				{/* <Footer /> */}
 			</div>
 		)
 }

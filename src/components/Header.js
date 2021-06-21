@@ -43,7 +43,7 @@ const Header = (props) => {
             return setImage("https://i.ibb.co/K5rb395/neon-shop-min-min.png")
         }
         if (newString === "gallery") {
-            return setImage("https://i.ibb.co/ZfGchC9/neon-gallery-min.png")
+            return setImage("https://i.ibb.co/Pr0PYpp/neon-gallery-min.png")
         }
         if (newString === "connect") {
             return setImage("https://i.ibb.co/WW9Ln2r/neon-connect-min.png")

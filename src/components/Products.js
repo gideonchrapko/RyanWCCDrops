@@ -3,58 +3,56 @@ import { Container, Row, Col } from "react-bootstrap"
 import { Link } from 'react-scroll'
 
 import Product from "./Product"
-// import Cart from './Cart'
-// import MenuRight from './Menu'
 import Header from './Header'
 import Footer from './Footer'
 
-// import Branding from '../images/wccMin.png'
 import arrowDown from '../images/arrowDown.png'
 import headerImage from '../images/JBRolls_min.png'
-// import NeonLogo from '../images/neon_shop-min.png'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 const Products = (props) => {
 
 	const [ sectionNumber, setSectionNumber ] = useState(1)
 
-	useEffect(() => {
-        ["1", "2"].forEach(name => {
-            handleEachCategory(name);
-          });
-
-        function handleEachCategory(category) {
-            let target = document.getElementById(category);
-            let observer;
-            let isVis;
-            createObserver();
-            
-            function createObserver() {
-                let options = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 1.0
-                }
-                observer = new IntersectionObserver(handleIntersect, options);
-                observer.observe(target)
-            }
-            
-            function handleIntersect(entries, observer) {
-                entries.forEach(entry => {
-                if (entry.intersectionRatio === 1)
-                    setAsVisible();
-                });
-            }
-
-            function setAsVisible() {
-                isVis = true;
-                setSectionNumber(category)
-                console.log(`${category} is${(!isVis ? " not" : "")} visible`)
-                }
-            }
-    },[])
+	window.addEventListener("load", (event) => {
+		["1", "2"].forEach(name => {
+		  handleEachCategory(name);
+		});
+	  }, false);
+	  
+	  
+	  
+	  function handleEachCategory(category) {
+		let target = document.getElementById(category);
+		let observer;
+		let isVis;
+		createObserver();
+	  
+		function createObserver() {
+		  let options = {
+			root: null,
+			rootMargin: '0px',
+			threshold: 1.0
+		  }
+		  observer = new IntersectionObserver(handleIntersect, options);
+		  observer.observe(target)
+		}
+	  
+		function handleIntersect(entries, observer) {
+		  entries.forEach(entry => {
+			if (entry.intersectionRatio === 1)
+			  setAsVisible();
+		  });
+		}
+	  
+		function setAsVisible() {
+		  isVis = true;
+		  console.log(`${category} is${(!isVis ? " not" : "")} visible`)
+		}
+	  }
 
   return (
 			<Container 
@@ -62,7 +60,7 @@ const Products = (props) => {
 				style={{ overflow: "auto"}}
 			>
 				<Header />
-				<Row>
+				<Row id="01" >
 					<Col lg={12} id="1">
 						<img
 							src={headerImage}
@@ -84,25 +82,26 @@ const Products = (props) => {
 							marginTop: "-30px",
 						 }} 
 					>
-						<h2 style={{ textAlign: "right" }}>Shop Capsule</h2>
+						{/* <h2 style={{ textAlign: "right" }}>Shop Capsule</h2> */}
 					<Link to={`${sectionNumber + 1}`} duration={500} smooth={true}>
 						<img 
 							src={arrowDown}
 							style={{
-								position: "fixed", 
-								height: "15vh",
+								position: "relative", 
+								height: "20vh",
 								width: "auto",
-								marginTop: "75vh",
-								marginLeft: "70vw",
-								padding: "5px",
+								// marginTop: "20vh",
+								// marginLeft: "70vw",
+								// padding: "5px",
 								zIndex: "999",
-								cursor: "pointer",                        
+								cursor: "pointer",     
+								background: "red"                   
 							}}
-						/>
+                		/>
             		</Link>
 					</Col>
-				</Row>
-						<div id="11" >
+				</Row >
+						<div id="11">
 							<hr className="productLine" id="2"/>
 							<Product history={props.history} />
 						</div>
