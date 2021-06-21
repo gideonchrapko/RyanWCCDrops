@@ -89,8 +89,8 @@ const Products = (props) => {
 							style={{
 								position: "relative", 
 								height: "15vh",
-								marginLeft: "20px",
-								marginTop: "-16px",
+								marginLeft: "40px",
+								marginTop: "-14px",
 								width: "auto",
 								zIndex: "999",
 								cursor: "pointer"        
