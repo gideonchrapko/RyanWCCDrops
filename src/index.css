@@ -58,9 +58,10 @@ h1 > span {
 h1.top-left {
   padding-top: 10px;
   padding-left: 10px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: futura-pt, sans-serif;
+  font-weight: 300;
+  font-style: normal;
   text-align: left;
-  font-weight: 600;
   font-size: 12pt;
   color: #787878;
 }
@@ -75,11 +76,37 @@ a.top-left2 {
   color: #48BC2A;
 }
 
+.return__infohead {
+  font-family: futura-pt, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 13px;
+  color: white;
+}
+
+.return__infosub {
+  font-family: futura-pt, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 13px;
+  color: white;
+}
+
+.ReturnBody {
+  font-family: futura-pt, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 13pt;
+  color: white;
+}
+
 h3 {
-    font-weight: normal;
+    font-family: futura-pt, sans-serif;
+    font-weight: 300;
     font-style: normal;
     font-size: 13pt;
-    color: #48BC2A;
+    color: white;
+
 }
 
 .row {

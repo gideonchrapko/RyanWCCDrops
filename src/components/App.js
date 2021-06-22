@@ -8,6 +8,7 @@ import Welcome from './Welcome'
 import Connect from './Connect'
 import pageNotFound from './404'
 import Gallery from './Gallery'
+import Refund from './Refund'
 
 import { useShopify } from "../hooks"
 
@@ -57,6 +58,7 @@ export default (props) => {
 					<Route path="/gallery" component={Gallery} />
 					<Route path="/Product/:productId" component={ProductView} />
 					<Route path="/connect" component={Connect} />
+					<Route path="/refund-policy"component={Refund} />
 					<Route component={pageNotFound} />
 				</Switch>
 			</div>

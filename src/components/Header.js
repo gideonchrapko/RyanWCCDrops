@@ -51,6 +51,9 @@ const Header = (props) => {
         if (newString === "home") {
             return setImage("https://i.ibb.co/kMKxzNL/neon-home-min.png")
         }
+        if (newString === "refund-policy") {
+            return setImage("https://i.ibb.co/kMKxzNL/neon-home-min.png")
+        }
     })
 
 

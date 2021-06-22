@@ -8,7 +8,7 @@ import Instagram from '../images/icon_instagram.svg'
 
 const Footer = () => {
     return (
-        <Container fluid style={{ position: 'fixed', bottom: "0", width: "100vw", left: "0" }}>
+        <Container fluid style={{ position: 'fixed', bottom: "0", width: "100vw", left: "0", zIndex: "9999" }}>
             <Row >
                 <Col 
                     lg={6}
@@ -22,12 +22,13 @@ const Footer = () => {
                     md={6}
                     className="parentFooter d-xs-none d-none d-lg-block d-md-block"
                 >
-                    <a 
+                    <Link 
                         className="FooterText"
                         style={{ width: "20%" }}
+                        to="/refund-policy"
                     >
                         Refund Policy
-                    </a>
+                    </Link>
                     <a 
                         className="FooterText" 
                         href="https://www.instagram.com/westcoastcustoms/"
@@ -61,24 +62,26 @@ const Footer = () => {
                     className="parentFooter d-block d-md-none"
                     style={{ padding: "5%"}}
                 >
-                    <a 
-                        to=""
+                    <Link
+                        to="/refund-policy"
                         style={{ width: "20%", textAlign: "left", color: "white", fontSize: "max(0.6em, 10px)"  }}
                     >
                         Refund Policy
+                    </Link>
+                    <a href="https://www.instagram.com/westcoastcustoms/">
+                        <img 
+                            src={Instagram}
+                            className="FooterText"
+                            style={{ height: "12px", paddingLeft: "20px" }}
+                        />
                     </a>
-                    <img 
-                        src={Instagram}
-                        className="FooterText"
-                        href="https://www.instagram.com/westcoastcustoms/"
-                        style={{ height: "12px", paddingLeft: "20px" }}
-                    />
-                    <img
-                        src={Twitter}
-                        className="FooterText"
-                        href="https://twitter.com/officialwcc"
-                        style={{ height: "12px", paddingLeft: "20px" }}
-                    />
+                    <a href="https://twitter.com/officialwcc">
+                        <img
+                            src={Twitter}
+                            className="FooterText"
+                            style={{ height: "12px", paddingLeft: "20px" }}
+                        />
+                    </a>
                 </Col>
             </Row>
         </Container>
