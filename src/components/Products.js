@@ -7,7 +7,8 @@ import Header from './Header'
 import Footer from './Footer'
 
 import arrowDown from '../images/arrowDown.png'
-import headerImage from '../images/JBRolls_min.png'
+import Car from '../images/carMin.png'
+// import headerImage from '../images/JBRolls_min.png'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -22,8 +23,6 @@ const Products = (props) => {
 		  handleEachCategory(name);
 		});
 	  }, false);
-	  
-	  
 	  
 	  function handleEachCategory(category) {
 		let target = document.getElementById(category);
@@ -50,9 +49,21 @@ const Products = (props) => {
 	  
 		function setAsVisible() {
 		  isVis = true;
-		  console.log(`${category} is${(!isVis ? " not" : "")} visible`)
 		}
 	  }
+
+	  const Header_ImageConnect = {
+        position: "relative",
+        marginTop: "100px",
+        borderRadius: "25px",
+        height: "65vh",
+        width: "75vw", 
+        marginLeft: "-37.5vw",
+        marginTop: "17.5vh",
+        top: "50%",
+        left: "50%",
+		backgroundColor: "#161616"
+    }
 
   return (
 			<Container 
@@ -60,12 +71,11 @@ const Products = (props) => {
 				style={{ overflow: "auto"}}
 			>
 				<Header />
+				<div style={Header_ImageConnect}>
+           		</div>
 				<Row id="01" >
 					<Col lg={12} id="1">
-						<img
-							src={headerImage}
-							className="imageBanner"
-						/>
+						<img src={Car} style={{ position: "absolute", zIndex: "99", marginTop: "15vh", marginLeft: "10vw" }}/>
 					</Col>
 				</Row>
 				<Row>
@@ -79,10 +89,9 @@ const Products = (props) => {
 							fontWeight: "400",
 							fontStyle: "normal",
 							display:"flex",
-							marginTop: "-30px"
+							marginTop: "-30px",
 						 }} 
 					>
-						{/* <h2 style={{ textAlign: "right" }}>Shop Capsule</h2> */}
 					<Link to={`${sectionNumber + 1}`} duration={500} smooth={true}>
 						<img 
 							src={arrowDown}
@@ -90,16 +99,16 @@ const Products = (props) => {
 								position: "relative", 
 								height: "15vh",
 								marginLeft: "40px",
-								marginTop: "-14px",
+								marginTop: "0vh",
 								width: "auto",
 								zIndex: "999",
-								cursor: "pointer"        
+								cursor: "pointer"
 							}}
                 		/>
             		</Link>
 					</Col>
 				</Row >
-						<div id="11">
+						<div id="11" style={{ marginTop: "25vh"}}>
 							<hr className="productLine" id="2"/>
 							<Product history={props.history} />
 						</div>

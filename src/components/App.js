@@ -26,16 +26,29 @@ export default (props) => {
 		createShop()
 		fetchProducts()
 
-		 async function getCheckout() {
+		// async function getCheckout() {
+		// 	const existingCheckoutID = localStorage.getItem('state');
+		// 	const checkoutStorage = await localStorage.getItem('checkout');
+		// 	if (existingCheckoutID && existingCheckoutID !== 'null') {
+		// 		fetchedCheckout()
+		// 		console.log("fetched checkout")
+		// 		if (checkoutStorage !== "null") {
+		// 		 	createCheckout();
+		// 			console.log("create checkout because there is a checkout completed time")
+		// 		}
+		// 	} else {
+		// 		createCheckout();
+		// 		console.log("create checkout because there isn't one to fetch")
+		// 	}
+		// }
+		// getCheckout()
+
+		async function getCheckout() {
 			const existingCheckoutID = localStorage.getItem('state');
 			const checkoutStorage = await localStorage.getItem('checkout');
 			if (existingCheckoutID && existingCheckoutID !== 'null') {
 				fetchedCheckout()
 				console.log("fetched checkout")
-				if (checkoutStorage !== "null") {
-				 	createCheckout();
-					console.log("create checkout because there is a checkout completed time")
-				}
 			} else {
 				createCheckout();
 				console.log("create checkout because there isn't one to fetch")

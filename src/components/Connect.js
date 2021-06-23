@@ -32,7 +32,6 @@ const list = [{
             },
             {
                 item: 'https://i.ibb.co/1dj9XvP/Asset-13-300x.png',
-                // link: '2008–2010'
                 link: '2008'
             },
             {
@@ -49,12 +48,10 @@ const list = [{
             },
             {
                 item: 'https://i.ibb.co/Cz0xHRd/Asset4-1-300x.png', 
-                // link: '1993–1995'
                 link: '1993'
             },
             {
                 item: 'https://i.ibb.co/YTHn9GY/Asset-5-1-300x.png', 
-                // link: '1995-2000'
                 link: '1995'
             },
             {
@@ -118,7 +115,6 @@ const Connect = () => {
             function setAsVisible() {
                 isVis = true;
                 setSectionNumber(category)
-                console.log(`${category} is${(!isVis ? " not" : "")} visible`)
                 }
             }
     },[])

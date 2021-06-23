@@ -6,14 +6,15 @@ import Footer from './Footer'
 
 const Refund = () => {
     return (
-        <Container>
+        <Container style={{ overflow: "scroll"}}>
             <Header />
                 <Col 
                     style={{ 
                         position: "relative", 
                         zIndex: "999", 
                         paddingTop: "20%", 
-                        textAlign: "center"
+                        textAlign: "center",
+                        paddingTop: "20vh"
                         }}
                         sm={{ offset: 2, span: 8}}
                         lg={{ offset: 2, span: 8}}
@@ -38,10 +39,8 @@ const Refund = () => {
                         <h4 classname="return__infohead">
                             Return Email:
                         </h4>
-                        <h5 classname="return__infosub"
-
-                        >
-                            <a href = "mailto: help@wccdrops.com" style={{ fontWeight: "300", color: "white"}}>
+                        <h5 classname="return__infosub">
+                        <a href = "mailto: help@wccdrops.com" style={{ fontWeight: "300", color: "white"}}>
                             help@wccdrops.com
                         </a></h5><br/>
                         <h4 classname="return__infohead">

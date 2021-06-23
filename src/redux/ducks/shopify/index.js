@@ -110,7 +110,7 @@ function checkout() {
 				payload: resp,
 			})
 			localStorage.setItem('state', resp.id)
-			localStorage.setItem('checkout', "null")
+			// localStorage.setItem('checkout', "null")
 		})
 	}
 }
@@ -123,7 +123,8 @@ function fetchCheckout() {
 				type: CHECKOUT_FETCHED,
 				payload: checkout,
 			})
-			localStorage.setItem('checkout', checkout.completedAt)
+			// localStorage.setItem('checkout', checkout.completedAt)
+			// console.log(checkout.completedAt)
 		})
 	}
 }
