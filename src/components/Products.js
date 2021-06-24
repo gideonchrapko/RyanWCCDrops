@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { Container, Row, Col } from "react-bootstrap"
 import { Link } from 'react-scroll'
 
@@ -7,12 +7,10 @@ import Header from './Header'
 import Footer from './Footer'
 
 import arrowDown from '../images/arrowDown.png'
-import Car from '../images/carMin.png'
-// import headerImage from '../images/JBRolls_min.png'
+// import Car from '../images/carMin.png'
+import Background from '../images/BackgroundShop.png'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-
 
 const Products = (props) => {
 
@@ -62,7 +60,8 @@ const Products = (props) => {
         marginTop: "17.5vh",
         top: "50%",
         left: "50%",
-		backgroundColor: "#161616"
+		backgroundColor: "#161616",
+		opacity: "0.8"
     }
 
   return (
@@ -73,9 +72,14 @@ const Products = (props) => {
 				<Header />
 				<div style={Header_ImageConnect}>
            		</div>
-				<Row id="01" >
-					<Col lg={12} id="1">
-						<img src={Car} style={{ position: "absolute", zIndex: "99", marginTop: "15vh", marginLeft: "10vw" }}/>
+				<Row id="01" style={{ height: "100vh", position: "relative", marginTop: "-80vh" }}>
+					<Col 
+						lg={{ span: 12, offset: 0}} 
+						xs={{ span: 12, offset: 0}}
+						className="d-flex align-items-center justify-content-center"
+						id="1"
+					>
+						<img src={Background} style={{ zIndex: "99", width: "85%", minWidth: "400px" }}/> 
 					</Col>
 				</Row>
 				<Row>
@@ -89,17 +93,18 @@ const Products = (props) => {
 							fontWeight: "400",
 							fontStyle: "normal",
 							display:"flex",
-							marginTop: "-30px",
+							marginTop: "-180px",
 						 }} 
 					>
 					<Link to={`${sectionNumber + 1}`} duration={500} smooth={true}>
 						<img 
 							src={arrowDown}
+							className="arrowDown"
 							style={{
 								position: "relative", 
 								height: "15vh",
-								marginLeft: "40px",
-								marginTop: "0vh",
+								marginLeft: "46px",
+								marginTop: "-2.1vh",
 								width: "auto",
 								zIndex: "999",
 								cursor: "pointer"
@@ -108,10 +113,10 @@ const Products = (props) => {
             		</Link>
 					</Col>
 				</Row >
-						<div id="11" style={{ marginTop: "25vh"}}>
-							<hr className="productLine" id="2"/>
-							<Product history={props.history} />
-						</div>
+					<div id="11" style={{ marginTop: "25vh"}}>
+						<hr className="productLine" id="2"/>
+						<Product history={props.history} />
+					</div>
 				<Footer />
 			</Container>
 	)

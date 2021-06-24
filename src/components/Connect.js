@@ -121,8 +121,7 @@ const Connect = () => {
         
     return (
         <Container 
-            fluid 
-            // className="conntainerDiv"
+            fluid
             style={{ overflow: "auto"}}
         >
             <Header />
@@ -131,6 +130,7 @@ const Connect = () => {
             <Link to={`${sectionNumber + 1}`} duration={500} smooth={true}>
                 <img 
                     src={arrowDown}
+                    className="arrowDown"
                     style={{
                         position: "fixed", 
                         height: "15vh",

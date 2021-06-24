@@ -410,13 +410,13 @@ height: 1vh;
 }
 
 .arrowL:hover {
-  transform: scale(1.2);
-  transition: transform 0.5s ease-in-out;
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out;
   cursor: pointer;
 }
 
 .arrowR:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
   transition: transform 0.5s ease-in-out;
   cursor: pointer;
 }
@@ -502,4 +502,10 @@ height: 1vh;
 	font-style: normal;
   /* position: relative;
   z-index: 9999; */
+}
+
+.arrowDown:hover {
+  transform: scale(1.1);
+  transition: transform 0.5s ease-in-out;
+  cursor: pointer;
 }
