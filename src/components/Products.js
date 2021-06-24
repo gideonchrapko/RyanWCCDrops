@@ -9,6 +9,7 @@ import Footer from './Footer'
 import arrowDown from '../images/arrowDown.png'
 // import Car from '../images/carMin.png'
 import Background from '../images/BackgroundShop.png'
+import BackgroundS from '../images/BackgroundShopSmall.png'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -76,10 +77,18 @@ const Products = (props) => {
 					<Col 
 						lg={{ span: 12, offset: 0}} 
 						xs={{ span: 12, offset: 0}}
-						className="d-flex align-items-center justify-content-center"
+						className="align-items-center justify-content-center d-xs-none d-none d-lg-flex d-md-flex"
 						id="1"
 					>
 						<img src={Background} style={{ zIndex: "99", width: "85%", minWidth: "400px" }}/> 
+					</Col>
+					<Col 
+						lg={{ span: 12, offset: 0}} 
+						xs={{ span: 12, offset: 0}}
+						className=" align-items-center justify-content-center d-flex d-md-none"
+						id="1"
+					>
+						<img src={BackgroundS} style={{ zIndex: "99", width: "85%", minWidth: "400px" }}/> 
 					</Col>
 				</Row>
 				<Row>
