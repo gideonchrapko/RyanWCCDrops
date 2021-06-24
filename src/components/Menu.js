@@ -26,7 +26,7 @@ import './menu.css';
         <a.div style={rightMenuAnimation} className="menu menu--right">
           <nav style={{ paddingTop: "20px", paddingBottom: "20px" }}> 
                 <li className="menu-list-item menu-list-item--right">
-                  <Link to="/Home">
+                  <Link to="/home">
                     Home
                   </Link>
                 </li>
