@@ -5,6 +5,12 @@ import Header from './Header'
 import Footer from './Footer'
 
 const Refund = () => {
+
+    useEffect(() => {
+		ReactGa.initialize('UA-135117574-2')
+		ReactGa.pageview('/refund-policy')
+	})
+
     return (
         <Container style={{ overflow: "scroll"}}>
             <Header />

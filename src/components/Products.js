@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Container, Row, Col } from "react-bootstrap"
 import { Link } from 'react-scroll'
 
@@ -14,6 +14,11 @@ import BackgroundS from '../images/BackgroundShopSmall.png'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Products = (props) => {
+
+	useEffect(() => {
+		ReactGa.initialize('UA-135117574-2')
+		ReactGa.pageview('/shop')
+	})
 
 	const [ sectionNumber, setSectionNumber ] = useState(1)
 

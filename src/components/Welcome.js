@@ -12,6 +12,11 @@ import ArrowBack from '../images/ArrowBack.svg'
 
 const Welcome = () => {
 
+  useEffect(() => {
+		ReactGa.initialize('UA-135117574-2')
+		ReactGa.pageview('/welcome')
+	})
+
     const [toggled, setToggled] = useState(false);
 
     const props = useSpring({

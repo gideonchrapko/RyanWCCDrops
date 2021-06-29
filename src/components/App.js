@@ -1,5 +1,6 @@
 import React, { useEffect } from "react"
 import { Route, Switch } from "react-router-dom";
+import ReactGa from 'react-ga'
 
 import Products from "./Products"
 import Home from "./Home"
@@ -26,6 +27,9 @@ export default (props) => {
 		createShop()
 		fetchProducts()
 
+		ReactGa.initialize('UA-135117574-2')
+		ReactGa.pageview('/')
+		
 		// async function getCheckout() {
 		// 	const existingCheckoutID = localStorage.getItem('state');
 		// 	const checkoutStorage = await localStorage.getItem('checkout');

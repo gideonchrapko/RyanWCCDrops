@@ -24,8 +24,7 @@ export default (props) => {
 		checkoutState,
 		addVariant,
 	} = useShopify()
-
-
+	
 	const id = props.match.params.productId
 	const defaultSize = product.variants && product.variants[0].id.toString()
 	const [size, setSize] = useState("")
@@ -34,6 +33,11 @@ export default (props) => {
 	const description = product.description && product.description.split(".")
 	const [rotate, setRotate] = useState()
 	const [dropDownMenu, setdropDownMenu] = useState(false);
+
+	useEffect(() => {
+		ReactGa.initialize('UA-135117574-2')
+		ReactGa.pageview(`/Product/${id}`)
+	})
 
 	const rotationAnimation = useSpring({
 		transform: !rotate ? `rotate(0deg)` : `rotate(180deg)`,

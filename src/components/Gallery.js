@@ -26,6 +26,12 @@ const Header_ImageConnect = {
 }
 
 const Gallery = () => {
+
+    useEffect(() => {
+		ReactGa.initialize('UA-135117574-2')
+		ReactGa.pageview('/gallery')
+	})
+
     return (
         <Container fluid style ={{ position: "fixed"}}>
             <div style={Header_ImageConnect}>
