@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSpring, animated } from 'react-spring'
+import ReactGa from 'react-ga'
+
 
 import Header from './Header'
 import Footer from './Footer'

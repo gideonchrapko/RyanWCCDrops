@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react"
 import { Container, Row, Col } from "react-bootstrap"
 import { Link } from 'react-scroll'
+import ReactGa from 'react-ga'
+
 
 import Product from "./Product"
 import Header from './Header'

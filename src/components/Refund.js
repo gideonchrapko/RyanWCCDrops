@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Col, Row, Container } from 'react-bootstrap'
+import ReactGa from 'react-ga'
 
 import Header from './Header'
 import Footer from './Footer'

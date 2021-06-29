@@ -3,6 +3,7 @@ import { useShopify } from "../hooks"
 import { a } from '@react-spring/web';
 import { useSpring } from '@react-spring/core';
 import { Row, Col, Container } from 'react-bootstrap'
+import ReactGa from 'react-ga'
 
 // import { Link } from 'react-router-dom';
 
@@ -24,7 +25,7 @@ export default (props) => {
 		checkoutState,
 		addVariant,
 	} = useShopify()
-	
+
 	const id = props.match.params.productId
 	const defaultSize = product.variants && product.variants[0].id.toString()
 	const [size, setSize] = useState("")

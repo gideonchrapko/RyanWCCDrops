@@ -1,5 +1,7 @@
-import React from 'react'
-import { Row, Col, Container } from 'react-bootstrap'
+import React, { useEffect } from 'react'
+import { Container } from 'react-bootstrap'
+import ReactGa from 'react-ga'
+
 
 import Cards from './Cards'
 // import MenuRight from './Menu'
