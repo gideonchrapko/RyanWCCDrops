@@ -2,7 +2,6 @@ import * as THREE from 'three';
 import React, { Suspense, useState } from 'react';
 import { Canvas } from 'react-three-fiber';
 import { PerspectiveCamera, Html } from 'drei';
-// import { useShopify } from "../hooks"
 
 import Controls from '../components3D/Controls';
 import Lights from '../components3D/Lights';
@@ -18,7 +17,6 @@ import Left from '../images/arrowLeft.png';
 import Right from '../images/arrowRight.png';
 
 const Home = (props) => {
-	// const { shopDetails } = useShopify();
 	const [rotation, setRotation] = useState([0, -0.55, 0])
 	const [lottieControl, setLottieControl] = useState()
 

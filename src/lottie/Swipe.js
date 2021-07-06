@@ -1,8 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Lottie from 'react-lottie'
 import animationData from './swipe.json'
-import { useSpring } from '@react-spring/core';
-import { a } from '@react-spring/three';
 
 const Swipe = () => {
 

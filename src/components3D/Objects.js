@@ -5,7 +5,6 @@ import { a } from '@react-spring/three'
 import Shirt from './Shirt'
 import FrameDraco from './FrameDraco'
 import Label from './Label'
-import Model from './Lightsource'
 
 const Objects = ({rotation}) => {
 

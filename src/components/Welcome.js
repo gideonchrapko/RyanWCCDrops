@@ -3,8 +3,6 @@ import { useSpring, animated } from '@react-spring/web'
 import { useDrag } from 'react-use-gesture'
 import ReactGa from 'react-ga'
 
-import { useShopify } from "../hooks"
-
 import Background from '../images/BackgroundWelcome.png'
 import Arrow from '../images/Arrow.svg'
 import ArrowBack from '../images/ArrowBack.svg'

@@ -99,7 +99,7 @@ const Connect = () => {
         function handleEachCategory(category) {
             let target = document.getElementById(category);
             let observer;
-            let isVis;
+            // let isVis;
             createObserver();
             
             function createObserver() {
@@ -120,7 +120,7 @@ const Connect = () => {
             }
 
             function setAsVisible() {
-                isVis = true;
+                // isVis = true;
                 setSectionNumber(category)
                 }
             }
