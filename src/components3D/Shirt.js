@@ -49,7 +49,6 @@ export default function Shirt(props) {
       onPointerOver={() => setExpand(true)}
       onPointerOut={() => setExpand(false)}
       scale={animatedProps.hovered}
-      // position={[0, -2, -4.5]}
       position={[`${x}`, -2.3, `${y}`]}
       rotation={[Math.PI / 2, 0, 2.5]}
     >

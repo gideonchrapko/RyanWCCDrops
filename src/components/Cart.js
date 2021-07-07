@@ -54,8 +54,6 @@ export default (props) => {
 		getCount()
 	}, [cartStatus, checkoutState])
 
-	console.log(checkoutState.subtotalPrice)
-
 	return (
 		<div style={{ position: "fixed", zIndex: "999999999999" }}>
 			<div className="App__view-cart-wrapper2">
