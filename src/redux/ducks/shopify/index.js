@@ -1,5 +1,4 @@
 import { useSelector, useDispatch } from "react-redux"
-import React, { useEffect, useState } from "react"
 import Client from "shopify-buy/index.unoptimized.umd"
 
 const client = Client.buildClient({
@@ -19,6 +18,7 @@ const REMOVE_LINE_ITEM_IN_CART = "shopify/REMOVE_LINE_ITEM_IN_CART"
 const OPEN_CART = "shopify/OPEN_CART"
 const CLOSE_CART = "shopify/CLOSE_CART"
 const CART_COUNT = "shopify/CART_COUNT"
+const OBJECT_HOVERED = "shopify/OBJECT_HOVERED"
 
 const initialState = {
 	isCartOpen: false,
@@ -58,6 +58,8 @@ export default (state = initialState, action) => {
 			return { ...state, isCartOpen: false }
 		case CART_COUNT:
 			return { ...state, cartCount: action.payload }
+		case OBJECT_HOVERED:
+			return { ...state, isHovered: false }
 		default:
 			return state
 	}
@@ -209,6 +211,12 @@ function handleSetCount(count) {
 	}
 }
 
+function setHoveredState() {
+	return {
+		type: OBJECT_HOVERED,
+	}
+}
+
 
 export function useShopify() {
 	const dispatch = useDispatch()
@@ -228,6 +236,7 @@ export function useShopify() {
 	const closeCart = () => dispatch(handleCartClose())
 	const openCart = () => dispatch(handleCartOpen())
 	const setCount = (count) => dispatch(handleSetCount(count))
+	const hoveredState = () => dispatch(setHoveredState())
 
 	const addVariant = (checkoutId, lineItemsToAdd) =>
 		dispatch(addVariantToCart(checkoutId, lineItemsToAdd))
@@ -256,5 +265,6 @@ export function useShopify() {
 		removeLineItem,
 		setCount,
 		fetchedCheckout,
+		hoveredState,
 	}
 }

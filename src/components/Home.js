@@ -4,6 +4,7 @@ import { Canvas } from 'react-three-fiber';
 import { PerspectiveCamera, Html } from 'drei';
 import { useDrag } from 'react-use-gesture'
 
+import { useShopify } from "../hooks"
 import Controls from '../components3D/Controls';
 import Lights from '../components3D/Lights';
 import Environment from '../components3D/Environment';
@@ -17,7 +18,10 @@ import Footer from './Footer'
 import Left from '../images/arrowLeft.png';
 import Right from '../images/arrowRight.png';
 
-const Home = (props) => {
+const Home = () => {
+	const {
+		hoveredState
+	} = useShopify()
 
 	const [rotation, setRotation] = useState([0, 0, 0])
 	const [dragRot, setDragRot] = useState({ x: 0})
@@ -45,7 +49,7 @@ const Home = (props) => {
 		const intRot = Math.floor(RotDistance)
 		rotation[1] = intRot * 2.094395
 		setRotation([...rotation])
-	  },[dragRot])
+	},[dragRot])
 
 	return (
 		<div>
