@@ -10,7 +10,7 @@ import { Html } from 'drei';
 import { useSpring } from '@react-spring/core';
 import { a } from '@react-spring/three';
 
-export default function Shirt(props) {
+export default function Shirt({props, triggerParentUpdate}) {
 
   useEffect(() => {
     const radius = document.documentElement.clientWidth / 150
@@ -26,13 +26,9 @@ export default function Shirt(props) {
 
   const [expand, setExpand] = useState(false);
   const [maxRadius, setMaxRadius] = useState()
-
   const radius = window.innerWidth / 150
   const y = maxRadius * Math.sin(2 * Math.PI * (2 / 3))
   const x = maxRadius * Math.cos(2 * Math.PI * (2 / 3))
-  // const s = 0.06
-  // const scaleUp = s * window.innerWidth / 2000
-  // const scaleDown = s * window.innerWidth / 2000
 
   const animatedProps = useSpring({
     hovered: expand ? [0.06, 0.06, 0.06] : [0.05, 0.05, 0.05],
@@ -46,8 +42,14 @@ export default function Shirt(props) {
       ref={group} 
       {...props}
       dispose={null}
-      onPointerOver={() => setExpand(true)}
-      onPointerOut={() => setExpand(false)}
+      onPointerOver={e => {
+        setExpand(true)
+        // triggerParentUpdate(true)
+      }}
+      onPointerOut={e => {
+        setExpand(false)
+        // triggerParentUpdate(false)
+      }}
       scale={animatedProps.hovered}
       position={[`${x}`, -2.3, `${y}`]}
       rotation={[Math.PI / 2, 0, 2.5]}

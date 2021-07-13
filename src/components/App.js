@@ -59,12 +59,7 @@ export default (props) => {
 			}
 		}
 		getCheckout()
-
-
-
 	},[])
-
-
 
 		return (
 			<div>

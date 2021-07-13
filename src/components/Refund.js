@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Col, Row, Container } from 'react-bootstrap'
+import { Col, Container } from 'react-bootstrap'
 import ReactGa from 'react-ga'
 
 import Header from './Header'
@@ -19,7 +19,6 @@ const Refund = () => {
                     style={{ 
                         position: "relative", 
                         zIndex: "999", 
-                        paddingTop: "20%", 
                         textAlign: "center",
                         paddingTop: "20vh"
                         }}
@@ -43,18 +42,18 @@ const Refund = () => {
                             exchanges on items that have been washed, worn, or appear to have been 
                             damaged by the customer. Any defective or damaged merchandise must
                         </h3><br/>
-                        <h4 classname="return__infohead">
+                        <h4 className="return__infohead">
                             Return Email:
                         </h4>
-                        <h5 classname="return__infosub">
+                        <h5 className="return__infosub">
                         <a href = "mailto: help@wccdrops.com" style={{ fontWeight: "300", color: "white"}}>
                             help@wccdrops.com
                         </a></h5><br/>
-                        <h4 classname="return__infohead">
+                        <h4 className="return__infohead">
                             Returns and exchange address:
                         </h4>
                         <h5 
-                            classname="return__infosub"
+                            className="return__infosub"
                             style={{ fontWeight: "300"}}
                         >
                             2101 West Empire AveBurbank, CA 91504

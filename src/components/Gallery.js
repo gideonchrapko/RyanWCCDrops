@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { Container } from 'react-bootstrap'
 import ReactGa from 'react-ga'
 
-
 import Cards from './Cards'
 // import MenuRight from './Menu'
 // import Cart from './Cart'

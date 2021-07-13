@@ -3,7 +3,6 @@ import { Col, Row, Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { useSpring, animated } from "react-spring";
 
-
 import Cart from './Cart'
 import MenuRight from './Menu'
 import { useShopify } from "../hooks"
