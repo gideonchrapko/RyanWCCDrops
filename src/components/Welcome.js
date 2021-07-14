@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useSpring, animated } from '@react-spring/web'
+import { useSpring, animated } from 'react-spring'
 import { useDrag } from 'react-use-gesture'
 import ReactGa from 'react-ga'
 
