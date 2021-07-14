@@ -19,17 +19,23 @@ import Right from '../images/arrowRight.png';
 
 const Home = (props) => {
 
-	const [rotation, setRotation] = useState([0, 0, 0])
-	const [dragRot, setDragRot] = useState({ x: 0})
 	const [lottieControl, setLottieControl] = useState()
+	const [rotation, setRotation] = useState([0, 0, 0])
+    const [dragRot, setDragRot] = useState({ x: 0})
 
-	// const [ hovered, setHovered ] = useState(false)
+	const bind = useDrag((params) => {
+        setDragRot({ x: params.offset[0] })
+      })
 
-	// console.log(hovered)
+      useEffect(() => {
+        const rotationSpeed = dragRot.x / 120
+        const RotDistance = rotationSpeed / 2.094395
+        const intRot = Math.floor(RotDistance)
 
-    // const updateParentState = (state) => {
-	// 	setHovered(state);
-	//   } 
+        rotation[1] = intRot * 2.094395
+        setRotation([...rotation])
+    
+      },[dragRot])
 
 	const handleClickLeft = () => {
 		rotation[1] += 2 * Math.PI / 3
@@ -40,19 +46,6 @@ const Home = (props) => {
 		rotation[1] -= 2 * Math.PI / 3
 		setRotation([...rotation]);
 	};
-
-	const bindRot = useDrag((params) => {
-		setDragRot({ x: params.offset[0] })
-	})
-
-	useEffect(() => {
-		const rotationSpeed = dragRot.x / 120
-		const RotDistance = rotationSpeed / 2.094395
-		const intRot = Math.floor(RotDistance)
-		rotation[1] = intRot * 2.094395
-		setRotation([...rotation])
-
-	},[dragRot])
 
 	return (
 		<div>
@@ -99,9 +92,15 @@ const Home = (props) => {
 				>
 					<Controls />
 					<Suspense fallback={<Html center><Loading/></Html>}>
-						{/* <fog attach="fog" args={["black", 12, 20]}/> */}
+						<fog attach="fog" args={["black", 12, 20]}/>
 						<group rotation={[0, -0.55, 0]} >
-							<Objects rotation={rotation} />
+							<Objects rotation={rotation}/>
+						</group>
+						<group rotation-x={Math.PI * -1} position={[0, 0, 10]} {...bind()}>
+							<mesh>
+								<planeBufferGeometry attach="geometry" args={[10000, 10000]} scale={100000} />
+								<meshBasicMaterial attach="material" color={"red"} />
+							</mesh>
 						</group>
 						<Environment/> 
 						<PerspectiveCamera makeDefault position={[0, 0, -15]}>

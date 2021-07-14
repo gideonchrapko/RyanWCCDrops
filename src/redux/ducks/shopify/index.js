@@ -18,8 +18,6 @@ const REMOVE_LINE_ITEM_IN_CART = "shopify/REMOVE_LINE_ITEM_IN_CART"
 const OPEN_CART = "shopify/OPEN_CART"
 const CLOSE_CART = "shopify/CLOSE_CART"
 const CART_COUNT = "shopify/CART_COUNT"
-// const HOVERED_OVER = "shopify/HOVERED_OVER"
-// const HOVERED_OUT = "shopify/HOVERED_OUT"
 
 const initialState = {
 	isCartOpen: false,
@@ -30,7 +28,6 @@ const initialState = {
 	product: {},
 	shop: {},
 	customer: {},
-	// isHovered: false,
 }
 
 //reducers
@@ -60,10 +57,6 @@ export default (state = initialState, action) => {
 			return { ...state, isCartOpen: false }
 		case CART_COUNT:
 			return { ...state, cartCount: action.payload }
-		// case HOVERED_OVER:
-		// 	return { ...state, isHovered: true }
-		// case HOVERED_OUT:
-		// 	return { ...state, isHovered: false }
 		default:
 			return state
 	}
@@ -214,18 +207,6 @@ function handleSetCount(count) {
 	}
 }
 
-// function setHoveredOver() {
-// 	return {
-// 		type: HOVERED_OVER,
-// 	}
-// }
-
-// function setHoveredOut() {
-// 	return {
-// 		type: HOVERED_OUT,
-// 	}
-// }
-
 export function useShopify() {
 	const dispatch = useDispatch()
 	const cartStatus = useSelector((appState) => appState.shopifyState.isCartOpen)
@@ -235,7 +216,6 @@ export function useShopify() {
 	const featured = useSelector((appState) => appState.shopifyState.featured)
 	const checkoutState = useSelector((appState) => appState.shopifyState.checkout)
 	const shopDetails = useSelector((appState) => appState.shopifyState.shop)
-	// const HoveredStatus = useSelector((appState) => appState.shopifyState.isHovered)
 	const fetchProducts = () => dispatch(getProducts())
 	const fetchProduct = (id) => dispatch(getProduct(id))
 	// const fetchCollection = () => dispatch(getCollection())
@@ -245,8 +225,6 @@ export function useShopify() {
 	const closeCart = () => dispatch(handleCartClose())
 	const openCart = () => dispatch(handleCartOpen())
 	const setCount = (count) => dispatch(handleSetCount(count))
-	// const hoveredOver = () => dispatch(setHoveredOver())
-	// const hoveredOut = () => dispatch(setHoveredOut())
 
 	const addVariant = (checkoutId, lineItemsToAdd) =>
 		dispatch(addVariantToCart(checkoutId, lineItemsToAdd))
@@ -263,7 +241,6 @@ export function useShopify() {
 		checkoutState,
 		cartCount,
 		shopDetails,
-		// HoveredStatus,
 		addVariant,
 		fetchProducts,
 		fetchProduct,
@@ -276,7 +253,5 @@ export function useShopify() {
 		removeLineItem,
 		setCount,
 		fetchedCheckout,
-		// hoveredOver,
-		// hoveredOut,
 	}
 }

@@ -42,14 +42,8 @@ export default function Shirt({props, triggerParentUpdate}) {
       ref={group} 
       {...props}
       dispose={null}
-      onPointerOver={e => {
-        setExpand(true)
-        // triggerParentUpdate(true)
-      }}
-      onPointerOut={e => {
-        setExpand(false)
-        // triggerParentUpdate(false)
-      }}
+      onPointerOver={e => { setExpand(true)  }}
+      onPointerOut={e => {setExpand(false)  }}
       scale={animatedProps.hovered}
       position={[`${x}`, -2.3, `${y}`]}
       rotation={[Math.PI / 2, 0, 2.5]}
