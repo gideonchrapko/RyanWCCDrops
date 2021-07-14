@@ -86,7 +86,7 @@ const Home = (props) => {
 				<span></span>
 			}
 				<Canvas
-					onPointerDown={() => setLottieControl(true)}
+					// onPointerDown={() => setLottieControl(true)}
 					pixelRatio={window.devicePixelRatio}
 					camera={{ position: [0, 0, 10] }}
 					gl={{ antialias: false }}
@@ -97,23 +97,18 @@ const Home = (props) => {
 					scene.background = new THREE.Color('black')
 					}}
 				>
-						<Controls />
-						<Suspense fallback={<Html center><Loading/></Html>}>
-							{/* <fog attach="fog" args={["black", 12, 20]}/> */}
-							<group
-								rotation={[0, -0.55, 0]}
-							>
-								<Objects 
-									rotation={rotation}
-									// setParentState = {updateParentState}
-								/>
-							</group>
-							<Environment/> 
-							<PerspectiveCamera makeDefault position={[0, 0, -15]}>
-								<Lights />
-								<Shadow />
-								</PerspectiveCamera>
-							</Suspense>
+					<Controls />
+					<Suspense fallback={<Html center><Loading/></Html>}>
+						{/* <fog attach="fog" args={["black", 12, 20]}/> */}
+						<group rotation={[0, -0.55, 0]} >
+							<Objects rotation={rotation} />
+						</group>
+						<Environment/> 
+						<PerspectiveCamera makeDefault position={[0, 0, -15]}>
+							<Lights />
+							<Shadow />
+							</PerspectiveCamera>
+						</Suspense>
 					</Canvas>
 			<Footer />
 		</div>
