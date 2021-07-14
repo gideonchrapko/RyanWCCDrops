@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import { useEffect } from 'react'
-import { useThree, useLoader } from 'react-three-fiber'
+import { useThree, useLoader } from '@react-three/fiber'
 import { HDRCubeTextureLoader } from 'three/examples/jsm/loaders/HDRCubeTextureLoader'
 
 export default function Environment({ background = false }) {

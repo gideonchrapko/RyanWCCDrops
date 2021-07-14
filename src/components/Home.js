@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import React, { Suspense, useEffect, useState } from 'react';
-import { Canvas } from 'react-three-fiber';
-import { PerspectiveCamera, Html } from 'drei';
+import { Canvas } from '@react-three/fiber';
+import { PerspectiveCamera, Html } from '@react-three/drei';
 import { useDrag } from 'react-use-gesture'
 
 import Controls from '../components3D/Controls';
@@ -79,7 +79,7 @@ const Home = (props) => {
 				<span></span>
 			}
 				<Canvas
-					// onPointerDown={() => setLottieControl(true)}
+					onPointerDown={() => setLottieControl(true)}
 					pixelRatio={window.devicePixelRatio}
 					camera={{ position: [0, 0, 10] }}
 					gl={{ antialias: false }}
