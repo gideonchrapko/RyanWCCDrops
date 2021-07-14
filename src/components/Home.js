@@ -1,7 +1,8 @@
-import * as THREE from 'three';
-import React, { Suspense, useEffect, useState } from 'react';
-import { Canvas } from '@react-three/fiber';
-import { PerspectiveCamera, Html } from '@react-three/drei';
+// import * as THREE from 'three';
+import { Vector3 } from 'three'
+import React, { Suspense, useEffect, useState, useRef } from 'react';
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import { SpotLight, DepthBuffer, PerspectiveCamera, Html  } from '@react-three/drei'
 import { useDrag } from 'react-use-gesture'
 
 import Controls from '../components3D/Controls';
@@ -17,9 +18,28 @@ import Footer from './Footer';
 import Left from '../images/arrowLeft.png';
 import Right from '../images/arrowRight.png';
 
+const vec = new Vector3()
+function MovingSpot(props) {
+  const group = useRef()
+  const [light, set] = useState()
+  const viewport = useThree((state) => state.viewport)
+
+  useFrame((state) => {
+    group.current.position.lerp(vec.set(state.mouse.x, state.mouse.y, 0), 0.1)
+    light.target.position.lerp(vec.set(-9, -8, 0), 1)
+  })
+
+  return (
+    <group ref={group}>
+      <SpotLight ref={set} castShadow penumbra={1} distance={6} angle={0.3} attenuation={5} anglePower={5} intensity={10} {...props} />
+      {light && <primitive object={light.target} />}
+    </group>
+  )
+}
+
 const Home = (props) => {
 
-	const [lottieControl, setLottieControl] = useState()
+	// const [lottieControl, setLottieControl] = useState()
 	const [rotation, setRotation] = useState([0, 0, 0])
     const [dragRot, setDragRot] = useState({ x: 0})
 
@@ -62,53 +82,44 @@ const Home = (props) => {
 					src={Right}
 					alt="right"
 					onClick={handleClickRight}
-					onPointerDown={() => setLottieControl(true)}
+					// onPointerDown={() => setLottieControl(true)}
 					className="arrowR"
 				/>
 				<img
 					src={Left}
 					alt="left"
 					onClick={handleClickLeft}
-					onPointerDown={() => setLottieControl(true)}
+					// onPointerDown={() => setLottieControl(true)}
 					className="arrowL"
 				/>
 			</div>
-			{!lottieControl ?
+			{/* {!lottieControl ?
 				<Swipe /> 
 				:
 				<span></span>
-			}
-				<Canvas
-					onPointerDown={() => setLottieControl(true)}
-					pixelRatio={window.devicePixelRatio}
-					camera={{ position: [0, 0, 10] }}
-					gl={{ antialias: false }}
-					shadows
-					onCreated={({ gl, scene }) => {
-					gl.toneMapping = THREE.ACESFilmicToneMapping
-					gl.outputEncoding = THREE.sRGBEncoding
-					scene.background = new THREE.Color('black')
-					}}
-				>
+			} */}
+				<Canvas shadows dpr={[1, 2]} camera={{ position: [0, 0, -7], fov: 50, near: 1, far: 20 }}>
+					<color attach="background" args={['#000000']} />
+					<fog attach="fog" args={['#000000', 12, 20]} />
+					<ambientLight intensity={0.1} />
+					{/* blue */}
+					<MovingSpot  color="#0c8cbf" position={[1, 2.7, 2]} />
+					{/* red */}
+      				<MovingSpot  color="#b00c3f" position={[2, 2.8, 0]} />
+					{/* <pointLight position={[0, 10, -10]} intensity={0.2} color={'#1024b5'} />
+     				<pointLight intensity={0.2} position={[0, 4, -10]} /> */}
 					<Controls />
-					<Suspense fallback={<Html center><Loading/></Html>}>
-						<fog attach="fog" args={["black", 12, 20]}/>
-						<group rotation={[0, -0.55, 0]} >
-							<Objects rotation={rotation}/>
+					<Suspense fallback={null}>
+						<group rotation={[0, -0.55, 0]} position={[0, 0, -5]} scale={0.5}>
+							<Objects rotation={rotation} />
 						</group>
-						<group rotation-x={Math.PI * -1} position={[0, 0, 10]} {...bind()}>
-							<mesh>
-								<planeBufferGeometry attach="geometry" args={[10000, 10000]} scale={100000} />
-								<meshBasicMaterial attach="material" color={"red"} />
-							</mesh>
-						</group>
-						<Environment/> 
-						<PerspectiveCamera makeDefault position={[0, 0, -15]}>
-							<Lights />
-							<Shadow />
-							</PerspectiveCamera>
-						</Suspense>
-					</Canvas>
+					</Suspense>
+					<mesh receiveShadow position={[0, -1, 0]} rotation-x={-Math.PI / 2} >
+						<planeGeometry args={[50, 50]} />
+						<meshPhongMaterial color="#000000"/>
+						{/* <meshPhongMaterial/> */}
+					</mesh>
+				</Canvas>
 			<Footer />
 		</div>
 	)
