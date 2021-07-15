@@ -26,12 +26,12 @@ function MovingSpot(props) {
 
   useFrame((state) => {
     group.current.position.lerp(vec.set(state.mouse.x, state.mouse.y, 0), 0.1)
-    light.target.position.lerp(vec.set(-9, -8, 0), 1)
+    light.target.position.lerp(vec.set(-1, -15, 10), 1)
   })
 
   return (
     <group ref={group}>
-      <SpotLight ref={set} castShadow penumbra={1} distance={6} angle={0.3} attenuation={5} anglePower={5} intensity={10} {...props} />
+      <SpotLight ref={set} castShadow penumbra={1} distance={6} angle={0.3} attenuation={6} anglePower={5} intensity={10} {...props} />
       {light && <primitive object={light.target} />}
     </group>
   )
@@ -98,26 +98,23 @@ const Home = (props) => {
 				:
 				<span></span>
 			} */}
-				<Canvas shadows dpr={[1, 2]} camera={{ position: [0, 0, -7], fov: 50, near: 1, far: 20 }}>
+				<Canvas shadows dpr={[1, 2]} camera={{ position: [0, 0, -3], fov: 50, near: 1, far: 20 }}>
 					<color attach="background" args={['#000000']} />
-					<fog attach="fog" args={['#000000', 12, 20]} />
-					<ambientLight intensity={0.1} />
+					<fog attach="fog" args={['#000000', 5, 20]} />
+					<ambientLight intensity={0.08} />
 					{/* blue */}
-					<MovingSpot  color="#0c8cbf" position={[1, 2.7, 2]} />
+					<MovingSpot  color="#0083ff" position={[-0.1, 2.7, 2]} />
 					{/* red */}
       				<MovingSpot  color="#b00c3f" position={[2, 2.8, 0]} />
-					{/* <pointLight position={[0, 10, -10]} intensity={0.2} color={'#1024b5'} />
-     				<pointLight intensity={0.2} position={[0, 4, -10]} /> */}
 					<Controls />
 					<Suspense fallback={null}>
-						<group rotation={[0, -0.55, 0]} position={[0, 0, -5]} scale={0.5}>
+						<group rotation={[0, -0.55, 0]} position={[0, 0, 6]} scale={0.5}>
 							<Objects rotation={rotation} />
 						</group>
 					</Suspense>
-					<mesh receiveShadow position={[0, -1, 0]} rotation-x={-Math.PI / 2} >
+					<mesh receiveShadow position={[0, -1.5, 0]} rotation-x={-Math.PI / 2} {...bind()}>
 						<planeGeometry args={[50, 50]} />
-						<meshPhongMaterial color="#000000"/>
-						{/* <meshPhongMaterial/> */}
+						<meshPhongMaterial color="#3a3a3a" />
 					</mesh>
 				</Canvas>
 			<Footer />
